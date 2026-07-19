@@ -1,0 +1,21 @@
+dataset,target,model,selector,mean_overlap_frac,mean_jaccard,mean_apparent_k,mean_nested_k
+deep_patato,chlorophyll,pls,ga,,,,
+deep_patato,chlorophyll,pls,lasso,0.36,0.2302867383512545,20.0,19.0
+deep_patato,chlorophyll,pls,mutual_info,0.6,0.4308450170519135,20.0,20.0
+deep_patato,chlorophyll,pls,rfe,0.79,0.6544927536231884,20.0,20.0
+ryckewaert,chlorophyll,pls,ga,,,,
+ryckewaert,chlorophyll,pls,lasso,0.4470588235294118,0.32548371706266443,17.0,13.4
+ryckewaert,chlorophyll,pls,mutual_info,0.8700000000000001,0.7735742518351213,20.0,20.0
+ryckewaert,chlorophyll,pls,rfe,0.7,0.5447619047619047,20.0,20.0
+ryckewaert,flavonol,lightgbm,ga,,,,
+ryckewaert,flavonol,lightgbm,lasso,0.51,0.34968340891588945,20.0,20.0
+ryckewaert,flavonol,lightgbm,mutual_info,0.58,0.4245627800191694,20.0,20.0
+ryckewaert,flavonol,lightgbm,rfe,0.5900000000000001,0.4208356139390622,20.0,20.0
+ryckewaert,flavonol,pls,ga,,,,
+ryckewaert,flavonol,pls,lasso,0.51,0.34968340891588945,20.0,20.0
+ryckewaert,flavonol,pls,mutual_info,0.58,0.4245627800191694,20.0,20.0
+ryckewaert,flavonol,pls,rfe,0.5900000000000001,0.4208356139390622,20.0,20.0
+# NOT: GA satirlari NaN. GA apparent maskesi checkpoint lerde saklanmiyor
+# ve GA stokastik oldugu icin (seed42 checkpoint seed 0-11 setinde yok)
+# yeniden uretilemez. Deterministik seciciler (rfe/lasso/mutual_info)
+# icin apparent maske tum veride tek kez secilerek uretildi.

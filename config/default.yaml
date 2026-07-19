@@ -1,0 +1,333 @@
+# Hiperspektral kantaron yaprağı analizi — varsayılan konfigürasyon
+# Tüm sihirli sayılar burada toplanır; deney varyasyonları için config/exp_*.yaml ile override edin.
+
+# ---------------------------------------------------------------------------
+# Veri yolları
+# ---------------------------------------------------------------------------
+data:
+  # Ham ENVI verileri (yaprak klasörleri). Veri seti-bazlı düzen:
+  # data/ryckewaert/raw/<yaprak>/results/REFLECTANCE_*.dat+.hdr
+  raw_path: "data/ryckewaert/raw"
+  # description-2.tab (Dualex ground truth)
+  ground_truth: "data/ryckewaert/metadata/description-2.tab"
+  # Pipeline ara çıktıları (X.npy, y_*.npy)
+  processed_path: "outputs/01_dataset"
+  # Eğer veri seti daha derin bir dizin yapısındaysa, sonuç dosyalarını
+  # ``**/results/*.hdr`` şeklinde recursive ara (varsayılan: true)
+  raw_recursive: true
+
+# ---------------------------------------------------------------------------
+# Spektral konfigürasyon
+# ---------------------------------------------------------------------------
+spectral:
+  # Önemli dalga boyları (nm) — find_band ile en yakın bant bulunur
+  bands:
+    blue_410: 410
+    blue_460: 460
+    red_670: 670
+    red_edge_700: 700
+    red_edge_710: 710
+    red_edge_720: 720
+    nir_800: 800
+  # Standart NDVI bantları
+  ndvi_red: 670
+  ndvi_nir: 800
+
+# ---------------------------------------------------------------------------
+# Önişleme
+# ---------------------------------------------------------------------------
+preprocessing:
+  savgol:
+    window_length: 11
+    polyorder: 2
+    deriv: 0
+  snv:
+    enabled: true
+  msc:
+    enabled: false
+
+# ---------------------------------------------------------------------------
+# Segmentasyon (yaprak / arka plan)
+# ---------------------------------------------------------------------------
+segmentation:
+  ndvi_threshold: 0.10
+  whitedisk_threshold: 0.85
+  min_leaf_pixels: 1000
+  morph_open_size: 3
+  morph_close_size: 5
+
+# ---------------------------------------------------------------------------
+# Spektral indeksler (13 indeks etkin)
+# ---------------------------------------------------------------------------
+indices:
+  enabled:
+    - NDVI
+    - GNDVI
+    - ARI
+    - RVSI
+    - ZTM
+    - CRI
+    - PRI
+    - mARI
+    - SIPI
+    - WBI
+    - REP
+    - BES
+    - FLAVI
+
+# ---------------------------------------------------------------------------
+# Özellik çıkarımı
+# ---------------------------------------------------------------------------
+features:
+  # Her özellik için hesaplanan istatistikler
+  stats: ["mean", "std", "p25", "p75"]
+  # Özellik vektörü = spektral_ortalama (204) + indeks_ortalama (13)
+
+# ---------------------------------------------------------------------------
+# Hedef değişkenler
+# ---------------------------------------------------------------------------
+targets:
+  regression: ["chlorophyll", "flavonol", "nbi"]
+  classification: ["stress"]
+  # Pharmacopoeia binary için flavonol eşiği
+  pheur_flavonol_threshold: 3.5
+
+# ---------------------------------------------------------------------------
+# Model konfigürasyonu
+# ---------------------------------------------------------------------------
+models:
+  # Ortak değerler
+  cv: 5
+  random_state: 42
+  test_size: 0.20
+
+# ---------------------------------------------------------------------------
+# Cross-validation: leakage-koruyucu group split
+# ---------------------------------------------------------------------------
+cv:
+  # group_key:
+  #   "leaf" → her yaprak (filename) farklı grup; aynı yaprağın hiçbir
+  #            satırı hem train'de hem test'te olmaz. (varsayılan)
+  #   "plot" → variety|plotLocation|collectionDate; aynı bağ ve tarihten
+  #            gelen yapraklar hep aynı tarafta kalır (daha sıkı koruma).
+  #   "none" → group split kapalı (klasik StratifiedKFold/KFold).
+  group_key: "leaf"
+
+# ---------------------------------------------------------------------------
+# Hiperparametre Tuning — iki aşamalı (GÖREV 2)
+# ---------------------------------------------------------------------------
+# Aşama A — Coarse: RandomizedSearchCV (n_iter rastgele örnek; geniş grid)
+# Aşama B — Fine : Optuna Bayesian (coarse_best etrafında dar alan)
+# Sonuçlar:
+#   outputs/06b_regression_tuned/<model>/<target>/best_params.json
+#   outputs/06b_regression_tuned/<model>/<target>/fine_best_params.json
+#   outputs/07b_classification_tuned/...
+# Baseline (06_regression / 07_classification) DOKUNULMAZ, karşılaştırma için
+# korunur. --quick modunda n_iter/n_trials/timeout küçültülür.
+hp_search:
+  coarse:
+    enabled: true
+    n_iter: 40                       # RandomizedSearchCV örnekleme sayısı
+    scoring_regression: "r2"         # sklearn scoring adı
+    scoring_classification: "f1_macro"
+  fine:
+    enabled: true
+    n_trials: 50                     # Optuna trial sayısı
+    timeout_seconds: 600             # her (model,target) için katı tavan
+
+# ---------------------------------------------------------------------------
+# Sınıflandırma — sınıf dengesizliği için resampling (GÖREV 1)
+# ---------------------------------------------------------------------------
+# Bu bölüm AÇIK iken sınıflandırma aşaması:
+#   1) Manuel fold döngüsü kullanır (sklearn cross_val_predict yerine);
+#      bu sayede scaler ve resampling SADECE train fold'una uygulanır
+#      (validation'a SIZINTI YASAK).
+#   2) Sonuçlar ``outputs/07_classification_resampled/`` altına yazılır;
+#      baseline ``outputs/07_classification/`` referans olarak korunur.
+classification:
+  resampling:
+    enabled: true
+    # "none" → resampling kapalı (manuel fold yine de scaler-leakage düzeltir)
+    # "smote" → SMOTE (sentetik over-sampling)
+    # "smote_tomek" → SMOTE + Tomek Links (over + under birlikte)
+    method: "smote_tomek"
+
+# ---------------------------------------------------------------------------
+# Outlier tespiti (01b_outliers aşaması)
+# ---------------------------------------------------------------------------
+outliers:
+  # action: "none" | "warn" | "drop"
+  #   warn → sadece raporla, dataset'i değiştirme (default; güvenli)
+  #   drop → X_clean.npy / y_*_clean.npy / groups_*_clean.npy üret
+  action: "warn"
+  contamination: 0.05    # IsolationForest beklenen outlier oranı
+  iqr_factor: 1.5        # IQR eşik çarpanı (Q1-k*IQR, Q3+k*IQR)
+
+# ---------------------------------------------------------------------------
+# Train/Val/Test holdout (01c_holdout aşaması)
+# ---------------------------------------------------------------------------
+holdout:
+  # Stratification için kullanılacak hedef:
+  #   "stress"       → sınıflandırma etiketleri (stratified, dengeli sınıf)
+  #   "flavonol"     → regresyon hedefi (quantile bin'lere ayrılır)
+  #   "chlorophyll"  → regresyon hedefi
+  #   "nbi"          → regresyon hedefi
+  #   "none"         → stratification yok
+  # NOT: cv.group_key != "none" ise group split her zaman önceliklidir.
+  stratify_target: "stress"
+
+  # Çarpık dağılımlı hedeflerde tahminleri log1p uzayında öğren, expm1 ile geri dönüştür.
+  # Flavonol genelde sağa-çarpık → log-transform R²'yi belirgin yükseltir.
+  log_transform_targets: ["flavonol"]
+
+  # Continuous binning: regresyon hedefini quantile-bin'lere ayırıp
+  # StratifiedKFold ile fold'lar arası dağılım benzerliğini garanti et.
+  # Küçük & çarpık veri setlerinde (n~100) varyansı düşürür.
+  stratify_regression: true
+  regression_n_bins: 5
+
+  # GÖREV 4: Stratified + Grouped holdout güçlendirmesi.
+  # Aktifken (ve groups + stratify hedefi mevcutsa):
+  #   - StratifiedGroupKFold tek-fold simülasyonu kullanılır (sınıf dağılımı
+  #     korunur + aynı grup hep aynı tarafta).
+  #   - Aşağıdaki seed'ler denenir; her biri için KL(train||test) ve grup
+  #     overlap puanlanır; "grup_overlap=0 olanlar arasından en küçük KL"
+  #     seçilir → outputs/01c_holdout/seed_selection.txt.
+  seed_search:
+    enabled: true
+    seeds: [42, 1, 7, 21, 123]
+
+  # Klasik regresyon
+  regression:
+    ridge:
+      alphas: [0.0001, 0.001, 0.01, 0.1, 1.0, 10.0, 100.0]
+    random_forest:
+      n_estimators: 500
+      max_depth: null
+      min_samples_split: 2
+    lightgbm:
+      n_estimators: 500
+      learning_rate: 0.05
+      num_leaves: 31
+      min_data_in_leaf: 5
+    stacking:
+      base: ["ridge", "random_forest", "lightgbm"]
+      final_estimator: "ridge"
+    pls:
+      n_components: 12      # PLS bileşen sayısı (n/2'yi geçmemeli)
+      max_iter: 500
+    huber:
+      epsilon: 1.35         # outlier eşiği (1.35 = sklearn varsayılanı)
+      alpha: 0.001
+      max_iter: 500
+
+  # Klasik sınıflandırma
+  classification:
+    random_forest:
+      n_estimators: 500
+      class_weight: "balanced"
+    lightgbm:
+      n_estimators: 500
+      learning_rate: 0.05
+      class_weight: "balanced"
+    stacking:
+      base: ["random_forest", "lightgbm"]
+      final_estimator: "logistic_regression"
+    pheur_binary:
+      kernel: "rbf"
+      C: 1.0
+      gamma: "scale"
+
+  # Deep learning (PyTorch)
+  # NOT: n=80-100 örneklemde DL küçük modeller + augmentation + k-fold ile çalışır.
+  deep_learning:
+    common:
+      epochs: 120
+      batch_size: 16
+      lr: 0.001
+      weight_decay: 0.0005   # daha güçlü L2 (küçük dataset)
+      patience: 20
+      device: "cpu"
+      n_splits: 5            # K-fold CV (1 → tek-split eski davranış)
+      val_size: 0.2          # tek-split modunda kullanılır
+      augment_noise: 0.05    # Gaussian σ (StandardScaler sonrası birim varyans)
+      augment_shift: 2       # spektral kaydırma (±bant)
+    cnn1d:
+      channels: [16, 32]     # küçültüldü (overfitting azaltma)
+      kernel_size: 5
+      dropout: 0.4
+    resnet1d:
+      channels: [16, 32]
+      n_blocks: 2
+      dropout: 0.4
+    mlp:
+      hidden: [128, 64]      # küçültüldü
+      dropout: 0.4
+    rnn:
+      hidden_size: 64
+      num_layers: 1
+      bidirectional: true
+      type: "lstm"
+      dropout: 0.3
+    transformer:
+      d_model: 32
+      nhead: 4
+      num_layers: 1          # küçültüldü
+      dim_feedforward: 64
+      dropout: 0.2
+    autoencoder:
+      latent_dim: 24
+      hidden: [128, 64]
+      pretrain_epochs: 60
+      finetune_epochs: 60
+      noise_std: 0.2         # denoising AE gürültü σ
+      dropout: 0.3
+    cnn_lstm:
+      cnn_channels: [16, 32]
+      kernel_size: 5
+      pool_every: 1
+      rnn_type: "lstm"
+      hidden_size: 64
+      num_layers: 1
+      bidirectional: true
+      dropout: 0.3
+
+# ---------------------------------------------------------------------------
+# Ensemble stratejileri
+# ---------------------------------------------------------------------------
+ensemble:
+  strategies: ["direct", "dual", "weighted"]
+  # Weighted için R² minimum eşik (altında modeller dışlanır)
+  weighted_r2_threshold: 0.0
+
+# ---------------------------------------------------------------------------
+# Seçim yanlılığı (m06) — nested-vs-apparent analizi
+# ---------------------------------------------------------------------------
+# selectors: nested analizde koşulacak özellik-seçici aileleri. GA dışında
+#   3 farklı aile eklenir; hepsinde bias pozitif çıkması beklenir → "sorun
+#   GA değil, CV-dışı seçimin kendisi" tezi.
+#     ga          → arama (mevcut GA)
+#     rfe         → wrapper (RFE, Ridge estimator)
+#     lasso       → embedded (LassoCV; k bir TAVAN, taban yok — aşağıya bakınız)
+#     mutual_info → filter (mutual_info_regression)
+# k: rfe/mutual_info için TAM k öznitelik seçilir (sabit). GA k'yı yok sayar.
+#    lasso için k yalnızca bir TAVAN'dır, taban yoktur (bkz. selectors.select_lasso):
+#      - 0 < non-zero katsayı sayısı <= k → tüm non-zero küme döner (top-k'ya
+#        DOLDURULMAZ, yani < k öznitelik dönebilir)
+#      - non-zero sayısı > k             → |katsayı| en büyük k tanesi döner
+#      - non-zero sayısı == 0            → yine |katsayı| en büyük k tanesi döner
+#    Adil karşılaştırma için hepsi aynı k ile çağrılır.
+selection_bias:
+  selectors: ["ga", "rfe", "lasso", "mutual_info"]
+  k: 20
+  null_repeats: 30
+  null_k: 20
+  include_lambrusco: false
+
+# ---------------------------------------------------------------------------
+# Loglama
+# ---------------------------------------------------------------------------
+logging:
+  level: "INFO"   # DEBUG | INFO | WARNING | ERROR
+  console: true
+  file: "outputs/pipeline.log"

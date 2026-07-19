@@ -1,0 +1,48 @@
+# =============================================================================
+# Selection-bias paper — pinned runtime dependencies
+# =============================================================================
+# These versions are the ones the published results were produced with
+# (captured from the working virtual environment via `pip freeze`).
+# Install with:  pip install -r requirements.txt   (Python >= 3.10)
+#
+# NOTE ON NUMPY  ----------------------------------------------------------------
+# The pipeline was actually run and validated under NumPy 2.x (2.4.6). The code
+# is written for the NumPy 2.0+ API (e.g. np.trapezoid replaces np.trapz, see
+# src/m04_features/extraction.py). If you specifically need a NumPy < 2 build
+# for an older toolchain, pin `numpy<2` together with `scipy<1.13` and
+# `scikit-learn<1.5`, and re-test — those are the components that gate the
+# NumPy ABI. The pin below reflects what produced the paper's numbers.
+# -----------------------------------------------------------------------------
+
+# --- Core scientific stack (required by the selection-bias pipeline) ---
+numpy==2.4.6
+scipy==1.17.1
+pandas==3.0.3
+scikit-learn==1.8.0
+joblib==1.5.3
+statsmodels==0.14.5   # Benjamini-Hochberg FDR düzeltmesi (m06 stats_tests)
+
+# --- Feature selection / models used by the GA + nested-CV core ---
+deap==1.4.4
+lightgbm==4.6.0
+
+# --- Plotting (report figures) ---
+matplotlib==3.10.9
+
+# --- Config + progress ---
+PyYAML==6.0.3
+tqdm==4.67.3
+
+# =============================================================================
+# Optional — only needed for the broader thesis pipeline (NOT for the m06
+# selection-bias paper path run by run_selection_bias.py). Uncomment if you run
+# the extra stages (SHAP analysis, hyper-parameter tuning, classification
+# resampling, deep-learning baselines, Excel exports, dataset-viz with seaborn).
+# =============================================================================
+# seaborn==0.13.2
+# shap==0.51.0
+# optuna==4.8.0
+# imbalanced-learn==0.14.1
+# openpyxl==3.1.5
+# torch==2.12.0
+# spectral==0.24          # only for re-building datasets from raw ENVI cubes

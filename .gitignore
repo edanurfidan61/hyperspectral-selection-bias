@@ -1,0 +1,88 @@
+# ── Python ──────────────────────────────────────────────────────────────
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+*.egg-info/
+.eggs/
+build/
+dist/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# ── Sanal ortam / Virtual env ───────────────────────────────────────────
+venv/
+.venv/
+env/
+ENV/
+
+# ── Ham veri (42 GB ENVI küpler) repoya GİTMEZ ──────────────────────────
+data/raw/
+data/processed/
+
+# ── Veri seti-bazlı ham düzen (ryckewaert 42GB, lambrusco 5.7GB, deep_patato
+#    1.2GB) repoya GİTMEZ. Sadece kod ve küçük metadata commitlenir. ─────────
+data/ryckewaert/
+data/lambrusco/
+data/deep_patato/
+# Blanket güvenlik: data/ altındaki HİÇBİR ham veri commitlenmez (kullanıcı
+# DOI'lerden indirip data/<set>/ altına koyar — bkz. README "Downloading the data").
+# NOT: repo köküne sabit (/data/) — böylece outputs3/data/ altındaki authoritative
+# null.pkl istisnası çalışır; 42GB ham veri (repo-kökü data/) yine ignore kalır.
+/data/
+
+# ── Türetilmiş dataset önbelleği (loader çıktıları) ─────────────────────
+outputs/_datasets_cache/
+
+# ── Üretilen makale çıktıları (figür/tablo; koddan yeniden üretilir) ─────
+outputs/01d_dataset_viz/
+outputs/17_selection_bias/
+outputs/17b_synthetic_null/
+outputs/17c_multi_dataset/
+
+# ── Büyük binary'ler genel olarak hariç ─────────────────────────────────
+*.npy
+*.npz
+*.pt
+*.ckpt
+*.joblib
+# Pickle sonuçları + çoklu-seed checkpoint'leri (results.pkl, null.pkl, ms_*.pkl)
+*.pkl
+
+# ── İSTİSNA: authoritative makale çıktıları repoda KALSIN (blanket *.pkl'den SONRA) ──
+!outputs3/tables_foldmean/
+!outputs3/tables_pooled/
+!outputs3/tables/
+!outputs3/data/null.pkl
+
+# ── İSTİSNA: işlenmiş dataset repoda KALSIN ─────────────────────────────
+# outputs/01_dataset/X.npy, y_*.npy, groups_*.npy ve diğer sonuç dizileri
+# (başkalarının modeli ham veri olmadan çalıştırabilmesi için).
+!outputs/**/*.npy
+!outputs/**/*.npz
+
+# ── Per-örnek görselleştirme dökümleri (~530 MB) repoya GİTMEZ ──────────
+outputs/03_visualization/
+
+# ── Log dosyaları ───────────────────────────────────────────────────────
+outputs/*.log
+
+# ── Yerel / kişisel ─────────────────────────────────────────────────────
+.claude/
+memory/
+.vscode/
+.idea/
+*.swp
+*~
+
+# ── Kaggle yükleme staging (yerel; Kaggle'a özgü) ───────────────────────
+kaggle_upload/
+
+# ── OS ──────────────────────────────────────────────────────────────────
+.DS_Store
+Thumbs.db
+desktop.ini

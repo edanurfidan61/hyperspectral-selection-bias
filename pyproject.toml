@@ -1,0 +1,43 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "hyperspectral-leaf"
+version = "0.2.0"
+description = "Hiperspektral kantaron yaprağı analizi: stres + Chl/Flav/NBI tahmini"
+requires-python = ">=3.10"
+dependencies = [
+    "numpy>=1.23",
+    "pandas>=2.0",
+    "scipy>=1.10",
+    "scikit-learn>=1.3",
+    "matplotlib>=3.7",
+    "seaborn>=0.12",
+    "lightgbm>=4.0",
+    "spectral>=0.23",
+    "torch>=2.0",
+    "pyyaml>=6.0",
+    "tqdm>=4.65",
+    "joblib>=1.3",
+    "shap>=0.44",            # 04_feature_shap aşaması (zaten kullanılıyordu, artık beyan edildi)
+    "imbalanced-learn>=0.12",  # GÖREV 1: SMOTE + Tomek Links (sınıf dengesizliği)
+    "optuna>=3.5",           # GÖREV 2: iki aşamalı HP tuning (Bayesian fine search)
+    "openpyxl>=3.1",         # 14_model_summary ve 15_ablation .xlsx çıktıları
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=7.4", "black>=23.0", "ruff>=0.1"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+include = ["core*", "m01_io*", "m02_preprocessing*", "m03_indices*",
+           "m04_features*", "m05_dataset*", "m06_selection_bias*"]
+
+[tool.black]
+line-length = 100
+target-version = ["py310"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"

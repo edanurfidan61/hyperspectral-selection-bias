@@ -424,15 +424,16 @@ check of the same P1/P2/P3 decomposition, not the source of the paper's Table 5.
 If you use this code or method, please cite the paper (citation to be added on
 acceptance) and this software archive.
 
-A tagged GitHub release will be linked to a **Zenodo** archive that mints a DOI:
+The tagged GitHub release is archived on **Zenodo**, which mints a DOI:
 
 ```text
-<Authors> (2026). Selection bias in small-sample leaf-HSI regression
-[Software]. Zenodo. https://doi.org/10.5281/zenodo.XXXXXXX
+Fidan, E. & Aktaş, F. (2026). Selection bias in small-sample leaf-HSI regression
+[Software]. Zenodo. https://doi.org/10.5281/zenodo.21439965
+
+This release: v1.0.0, https://doi.org/10.5281/zenodo.21439966
 ```
 
-> **DOI: `10.5281/zenodo.XXXXXXX`** — *placeholder; will be filled in when the
-> GitHub release is connected to Zenodo at publication time.*
-
-A `CITATION.cff` file will be added alongside the release for machine-readable
-citation metadata.
+> **Concept DOI: `10.5281/zenodo.21439965`** — always resolves to the latest
+> version. **Version DOI: `10.5281/zenodo.21439966`** — pins this specific
+> release (v1.0.0). Cite the concept DOI for the project in general, or the
+> version DOI to reference exactly what you used.

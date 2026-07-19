@@ -1,0 +1,31 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it using the metadata from this file."
+title: "Selection Bias in Small-Sample Leaf-HSI Regression: apparent vs. nested cross-validation"
+abstract: >-
+  Code and reproducibility materials measuring the apparent-nested difference in
+  performance estimates for small-sample leaf hyperspectral regression, across four
+  feature-selector families (GA, RFE, LASSO, mutual information) and two regressors
+  (PLS, LightGBM), with a synthetic-null experiment and a group/selection leakage
+  decomposition.
+type: software
+authors:
+  - family-names: "Fidan"
+    given-names: "Edanur"
+    affiliation: "Department of Biomedical Engineering, Faculty of Technology, Kocaeli University, Kocaeli, Türkiye"
+    # orcid: "https://orcid.org/0000-0000-0000-0000"   # varsa ekle
+  - family-names: "Aktaş"
+    given-names: "Faruk"
+    affiliation: "Department of Biomedical Engineering, Faculty of Technology, Kocaeli University, Kocaeli, Türkiye"
+    # orcid: "https://orcid.org/0000-0000-0000-0000"   # varsa ekle
+license: MIT
+repository-code: "https://github.com/edanurfidan61/hyperspectral-selection-bias"
+version: "1.0.0"
+date-released: "2026-07-19"   # release gününe göre güncelle
+keywords:
+  - selection bias
+  - nested cross-validation
+  - feature selection
+  - hyperspectral imaging
+  - partial least squares
+  - small-sample regression
+  - data leakage

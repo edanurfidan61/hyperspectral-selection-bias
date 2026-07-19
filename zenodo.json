@@ -1,0 +1,26 @@
+{
+  "title": "Selection Bias in Small-Sample Leaf-HSI Regression: apparent vs. nested cross-validation",
+  "description": "Code and reproducibility materials for measuring the apparent-nested difference in performance estimates for small-sample leaf hyperspectral (HSI) regression. Covers four feature-selector families (genetic algorithm, RFE, LASSO, mutual information) and two regressors (PLS, LightGBM), a synthetic-null experiment, and a group/selection leakage decomposition. Accompanies the associated manuscript.",
+  "upload_type": "software",
+  "license": "MIT",
+  "access_right": "open",
+  "creators": [
+    {
+      "name": "Fidan, Edanur",
+      "affiliation": "Department of Biomedical Engineering, Faculty of Technology, Kocaeli University, Kocaeli, Turkiye"
+    },
+    {
+      "name": "Aktas, Faruk",
+      "affiliation": "Department of Biomedical Engineering, Faculty of Technology, Kocaeli University, Kocaeli, Turkiye"
+    }
+  ],
+  "keywords": [
+    "selection bias",
+    "nested cross-validation",
+    "feature selection",
+    "hyperspectral imaging",
+    "partial least squares",
+    "small-sample regression",
+    "data leakage"
+  ]
+}

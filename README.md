@@ -1,6 +1,7 @@
 # Selection Bias in Small-Sample Leaf-HSI Regression
-
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.21439966.svg)](https://doi.org/10.5281/zenodo.21439966)
 > Küçük örneklemli yaprak-HSI regresyonunda seçim yanlılığı
+
 
 **Central claim / Ana iddia:**
 

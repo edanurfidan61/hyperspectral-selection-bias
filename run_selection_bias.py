@@ -25,6 +25,7 @@ import json
 import logging
 import pickle
 import platform
+import re
 import sys
 import time
 import warnings
@@ -36,10 +37,24 @@ from src.core import paths
 
 
 def _log_setup() -> None:
+    # Konsol + kalıcı dosya logu. Eskiden yalnız konsola yazılıyordu; uzun GA/
+    # multiseed koşuları bittiğinde terminal kapanınca log kaybolduğu için artık
+    # outputs/17_selection_bias/run.log'a da yazıyoruz (append; koşular üst üste
+    # birikir). Bu dosya .gitignore'da (outputs/17_selection_bias/) — repoya
+    # gitmez ama diskte kalıcı iz bırakır.
+    log_dir = paths.OUTPUTS_DIR / "17_selection_bias"
+    log_dir.mkdir(parents=True, exist_ok=True)
+    log_path = log_dir / "run.log"
+    file_handler = logging.FileHandler(log_path, mode="a", encoding="utf-8")
+
     logging.basicConfig(
         level=logging.INFO, format="%(asctime)s | %(levelname)s | %(message)s",
         datefmt="%H:%M:%S",
+        handlers=[logging.StreamHandler(), file_handler],
     )
+    # Her koşunun başını dosyada net ayır (önceki koşulardan görsel ayrım).
+    logging.info("=== run_selection_bias log başladı: %s ===",
+                 datetime.now().isoformat(timespec="seconds"))
     # LGBMRegressor pandas öznitelik adlarıyla fit edilip ndarray ile predict
     # edilince çıkan zararsız sklearn uyarısını sustur (ekranı kirletiyor).
     warnings.filterwarnings(
@@ -47,6 +62,115 @@ def _log_setup() -> None:
         message="X does not have valid feature names",
         category=UserWarning,
     )
+
+
+def _preprocessing_record() -> dict:
+    """Ön işleme ayarlarının EFEKTİF kaydı — run_config.json'a girer.
+
+    Neden ayrı fonksiyon: makale §2.9 "a recorded run configuration" ve §4.5
+    "reproduced against the exact software state" diyor, ama kayıt şimdiye dek
+    yalnız GA parametrelerini içeriyordu; ön işleme dışarıdaydı. Bu boşluk
+    config'in gerçeği söylemediği durumu (savgol.deriv) gizleyebilirdi.
+
+    KRİTİK: değerler config'ten DEĞİL, davranışı gerçekten belirleyen yerden
+    okunur. config/default.yaml'daki `savgol.deriv` hiçbir kod tarafından
+    okunmuyor (spectral.py sg_first_derivative() deriv=1'i sabit yazıyor), o
+    yüzden buraya config'ten yazmak kaydı yine yanlış yapardı. Kaynaklar:
+      * savgol_window/polyorder → dataset_registry._preprocess_spectra
+        varsayılanları + spectral.savitzky_golay imzası
+      * savgol_deriv           → spectral.sg_first_derivative gövdesinden
+        introspection ile (sabit; config'e bağlanırsa burası da değişmeli)
+      * snv                    → dataset_registry._preprocess_spectra zinciri
+    Bant/öznitelik sayıları dataset'e göre değişir (ryckewaert 204/520,
+    deep_patato farklı), bu yüzden burada SABİT YAZILMAZ — koşu sırasında
+    yüklenen dataset'ten raporlanır (aşağıda "datasets" bloğu).
+    """
+    import inspect
+
+    from src.m02_preprocessing import spectral as sp
+
+    # sg_first_derivative gövdesinde deriv=N sabit; introspection ile çek ki
+    # kod değişirse kayıt sessizce eskimesin.
+    src_text = inspect.getsource(sp.sg_first_derivative)
+    m = re.search(r"deriv\s*=\s*(\d+)", src_text)
+    savgol_deriv = int(m.group(1)) if m else None
+
+    sig = inspect.signature(sp.sg_first_derivative)
+
+    # Potato (deep_patato) zinciri: dataset_registry._preprocess_spectra — SG
+    # yumuşatma + SNV, satır başına (örnek-yerel). Değerler yine koddan okunur:
+    # pencere = fonksiyon varsayılanı, polyorder = çağrıdaki sabit, deriv =
+    # çağrıda verilmiyorsa savitzky_golay varsayılanı (0).
+    from src.m01_io import dataset_registry as reg
+
+    pp_src = inspect.getsource(reg._preprocess_spectra)
+    sg_call = pp_src[pp_src.index("sp.savitzky_golay("):].split(")")[0]
+    m_po = re.search(r"polyorder\s*=\s*(\d+)", sg_call)
+    m_dv = re.search(r"deriv\s*=\s*(\d+)", sg_call)
+    potato_deriv = (int(m_dv.group(1)) if m_dv else
+                    int(inspect.signature(sp.savitzky_golay).parameters["deriv"].default))
+    potato_chain = {
+        "source": "dataset_registry._preprocess_spectra",
+        "savgol_window": int(inspect.signature(reg._preprocess_spectra)
+                             .parameters["savgol_window"].default),
+        "savgol_polyorder": int(m_po.group(1)) if m_po else None,
+        "savgol_deriv": potato_deriv,
+        "snv": "sp.snv(" in pp_src,
+        "sample_local": True,  # her iki adım da satır (örnek) başına; örnekler arası adım yok
+        "chain": f"Savitzky-Golay(deriv={potato_deriv}) smoothing -> SNV",
+    }
+    return {
+        "_note": (
+            "Efektif ön işleme; config/default.yaml'dan DEĞİL, davranışı belirleyen "
+            "koddan okunur. config'teki preprocessing.savgol.deriv OKUNMUYOR "
+            "(spectral.sg_first_derivative sabit yazıyor) — kayıt buradan üretilir."
+        ),
+        "snv": True,  # dataset_registry._preprocess_spectra zincirinde sabit
+        "savgol_window": int(sig.parameters["window_length"].default),
+        "savgol_polyorder": int(sig.parameters["polyorder"].default),
+        "savgol_deriv": savgol_deriv,
+        "band_trimming": "none",  # 397-1004 nm kırpmasız
+        "chain": "SNV -> Savitzky-Golay 1st derivative",
+        # Üstteki alanlar grapevine (ryckewaert) d1snv bloğu içindir (geriye uyum);
+        # veri seti başına zincir aşağıda.
+        "per_dataset": {
+            "ryckewaert": {
+                "source": "m04_features.extraction.extract_features",
+                "savgol_window": int(sig.parameters["window_length"].default),
+                "savgol_polyorder": int(sig.parameters["polyorder"].default),
+                "savgol_deriv": savgol_deriv,
+                "snv": True,
+                "sample_local": True,
+                "chain": "leaf-mean spectrum -> SNV -> Savitzky-Golay 1st derivative "
+                         "(+ raw-reflectance index/layer statistics)",
+            },
+            "deep_patato": potato_chain,
+        },
+    }
+
+
+def _dataset_shapes(dataset_names: list[str]) -> dict:
+    """Yüklenen her dataset için (n_bands, n_features) — kayıt için.
+
+    Sabit yazmak yerine gerçekten yüklenen matristen okunur; dataset'ler farklı
+    boyutlarda (ryckewaert 520 öznitelik, deep_patato 150). Yükleme başarısız
+    olursa (veri indirilmemiş) koşuyu düşürmez — None yazar.
+    """
+    from src.m01_io import dataset_registry as registry
+
+    out: dict = {}
+    for name in dataset_names:
+        try:
+            ds = registry.load(name)
+            n_snv = sum(1 for n in ds.feature_names if str(n).startswith("snv_R"))
+            out[name] = {
+                "n_samples": int(ds.X.shape[0]),
+                "n_features": int(ds.X.shape[1]),
+                "n_bands": n_snv or None,
+            }
+        except Exception as exc:  # veri yoksa kaydı bozma
+            out[name] = {"error": f"{type(exc).__name__}: {exc}"}
+    return out
 
 
 def dump_run_config(
@@ -62,8 +186,14 @@ def dump_run_config(
     Makale ekine "tam olarak şu ayarlarla üretildi" diye girer: seed(ler), GA
     boyutları, k, dış-fold sayısı, seçici listesi, null tekrarı, aşamalar, tarih
     ve (varsa) git commit SHA. Mevcut akışı bozmaz; sadece dökümdür.
+
+    Ön işleme bloğu (`preprocessing` + `dataset_shapes`) yalnız YENİ koşulara
+    yazılır. 2026-06-23/24 checkpoint'lerine geriye dönük yazılmaz; onların ön
+    işleme ayarları makale §2.2'de belgelidir ve öznitelik matrisi üzerinden
+    post-hoc doğrulanmıştır (bkz. README, corr(snv, d1snv) = 0.019).
     """
     out_dir.mkdir(parents=True, exist_ok=True)
+    dataset_names = _dataset_names(args.include_lambrusco)
     payload = {
         "timestamp": datetime.now().isoformat(timespec="seconds"),
         "git_commit": paths._git_sha(),
@@ -84,7 +214,11 @@ def dump_run_config(
         "stages": sorted(stages),
         "include_lambrusco": args.include_lambrusco,
         "quick": args.quick,
-        "datasets": _dataset_names(args.include_lambrusco),
+        "datasets": dataset_names,
+        # Ön işleme kaydı — makale §2.9/§4.5'in "exact software state" iddiası
+        # şimdiye dek ön işlemeyi kapsamıyordu.
+        "preprocessing": _preprocessing_record(),
+        "dataset_shapes": _dataset_shapes(dataset_names),
     }
     target = out_dir / "run_config.json"
     target.write_text(json.dumps(payload, indent=2, ensure_ascii=False), encoding="utf-8")

@@ -40,7 +40,19 @@ preprocessing:
   savgol:
     window_length: 11
     polyorder: 2
-    deriv: 0
+    # NOT: Bu blok koddan yalnız `window_length` için okunur (builder.py:298,
+    # savgol_enabled türetiliyor). `deriv` HİÇBİR YERDEN OKUNMUYOR —
+    # spectral.py'deki sg_first_derivative() deriv=1'i SABİT yazıyor.
+    # Yani aşağıdaki değer davranışı BELGELER, KONTROL ETMEZ.
+    # Doğrulama (öznitelik matrisi üzerinden, config'e güvenmeden):
+    #   corr(snv, d1snv) = +0.019, std oranı ~30x  → deriv=1 (deriv=0 olsaydı
+    #   d1snv, snv'nin düzleştirilmiş kopyası olur, korelasyon ~+1.0 çıkardı).
+    # Bu bağ kurulacaksa (deriv gerçekten ayar olacaksa): spectral.py'yi
+    # config'e bağla VE run_config.json'a ekle — yoksa kayıt yine eksik kalır.
+    # Veri setine göre efektif davranış:
+    #   grapevine: SG 1. türev (extraction.py)
+    #   potato: deriv=0 yumuşatma, dataset_registry._preprocess_spectra içinde sabit
+    deriv: 1
   snv:
     enabled: true
   msc:

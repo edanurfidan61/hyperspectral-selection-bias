@@ -98,16 +98,16 @@ def fig_apparent_vs_nested(results: list[NestedResult], out_dir: Path | None = N
     w = 0.38
     fig, ax = plt.subplots(figsize=(max(7, 1.6 * len(results)), 5))
     ax.bar(x - w / 2, app, w, yerr=app_err, capsize=4,
-           label="apparent (biased)", color="indianred")
+           label="apparent", color="indianred")
     ax.bar(x + w / 2, nes, w, yerr=nes_err, capsize=4,
-           label="nested (honest)", color="steelblue")
+           label="nested", color="steelblue")
     for i, (a, n) in enumerate(zip(app, nes)):
-        ax.annotate(f"bias\n{a - n:+.2f}", (i, max(a, n) + 0.02),
+        ax.annotate(f"apparent−nested\n{a - n:+.2f}", (i, max(a, n) + 0.02),
                     ha="center", fontsize=8, color="black")
     ax.axhline(0, color="gray", lw=0.8)
     ax.set_xticks(x); ax.set_xticklabels(labels, fontsize=8)
     ax.set_ylabel("R²")
-    ax.set_title("Seçim yanlılığı: apparent vs nested-CV R²", fontweight="bold")
+    ax.set_title("Apparent vs nested-CV R² (apparent–nested difference annotated)", fontweight="bold")
     ax.legend()
     plt.tight_layout()
     p = out_dir / "fig_apparent_vs_nested.png"
@@ -126,8 +126,8 @@ def fig_fold_variance(results: list[NestedResult], out_dir: Path | None = None) 
     for i, fs in enumerate(data, start=1):
         ax.scatter(np.full(len(fs), i), fs, alpha=0.6, color="darkorange", zorder=3)
     ax.axhline(0, color="gray", lw=0.8)
-    ax.set_ylabel("Dış-fold nested R²")
-    ax.set_title("Fold varyansı (nested-CV)", fontweight="bold")
+    ax.set_ylabel("Outer-fold nested R²")
+    ax.set_title("Fold variance (nested-CV)", fontweight="bold")
     plt.tight_layout()
     p = out_dir / "fig_fold_variance.png"
     fig.savefig(p, dpi=150, bbox_inches="tight"); plt.close(fig)
@@ -142,11 +142,11 @@ def fig_band_frequency(result: NestedResult, out_dir: Path | None = None) -> Pat
     freq = np.mean(np.vstack([m.astype(float) for m in result.masks]), axis=0)
     fig, ax = plt.subplots(figsize=(10, 4))
     ax.bar(np.arange(len(freq)), freq, color="seagreen", width=1.0)
-    ax.set_xlabel("Öznitelik indeksi")
-    ax.set_ylabel("Seçilme frekansı (dış fold'lar)")
+    ax.set_xlabel("Feature index")
+    ax.set_ylabel("Selection frequency (outer folds)")
     sel = getattr(result, "selector", "ga")
     ax.set_title(
-        f"Band seçilme kararlılığı — {result.dataset}/{result.target}/{result.model}/{sel}",
+        f"Band selection stability — {result.dataset}/{result.target}/{result.model}/{sel}",
         fontweight="bold")
     plt.tight_layout()
     p = out_dir / (f"fig_band_frequency_{result.dataset}_{result.target}_"
@@ -163,12 +163,12 @@ def fig_null_distribution(null_result, out_dir: Path | None = None) -> Path:
         min(min(null_result.apparent), min(null_result.nested)) - 0.05,
         max(max(null_result.apparent), max(null_result.nested)) + 0.05, 25)
     ax.hist(null_result.apparent, bins=bins, alpha=0.6, color="indianred",
-            label=f"apparent (ort={null_result.apparent_mean:+.3f})")
+            label=f"apparent (mean={null_result.apparent_mean:+.3f})")
     ax.hist(null_result.nested, bins=bins, alpha=0.6, color="steelblue",
-            label=f"nested (ort={null_result.nested_mean:+.3f})")
+            label=f"nested (mean={null_result.nested_mean:+.3f})")
     ax.axvline(0, color="gray", lw=1.0, ls="--")
-    ax.set_xlabel("R²"); ax.set_ylabel("Tekrar sayısı")
-    ax.set_title("Sentetik null: gerçek sinyal yokken R² dağılımı", fontweight="bold")
+    ax.set_xlabel("R²"); ax.set_ylabel("Number of repeats")
+    ax.set_title("Synthetic null: R² distribution when there is no real signal", fontweight="bold")
     ax.legend()
     plt.tight_layout()
     p = out_dir / "fig_null_distribution.png"
@@ -189,9 +189,9 @@ def _fig_one_permutation(perm: dict, out_dir: Path) -> Path:
     fig, axes = plt.subplots(1, 2, figsize=(12, 5))
 
     panels = [
-        (axes[0], pa, perm["observed_apparent_r2"], "apparent (CV-dışı seçim)",
+        (axes[0], pa, perm["observed_apparent_r2"], "apparent (selection on all data)",
          "indianred", perm["perm_p_value_apparent"]),
-        (axes[1], pn, perm["observed_nested_r2"], "nested (dürüst)",
+        (axes[1], pn, perm["observed_nested_r2"], "nested (selection within outer-train)",
          "steelblue", perm["perm_p_value"]),
     ]
     for ax, dist, obs, title, color, pval in panels:
@@ -200,16 +200,16 @@ def _fig_one_permutation(perm: dict, out_dir: Path) -> Path:
             lo = min(finite.min(), obs) - 0.05
             hi = max(finite.max(), obs) + 0.05
             ax.hist(finite, bins=np.linspace(lo, hi, 30), color=color, alpha=0.6,
-                    label=f"permütasyon (ort={np.mean(finite):+.3f})")
+                    label=f"permutation (mean={np.mean(finite):+.3f})")
         ax.axvline(0, color="gray", lw=1.0, ls="--")
         ax.axvline(obs, color="black", lw=2.0,
                    label=f"observed={obs:+.3f}\np={pval:.4f}")
-        ax.set_xlabel("R²"); ax.set_ylabel("Permütasyon sayısı")
+        ax.set_xlabel("R²"); ax.set_ylabel("Number of permutations")
         ax.set_title(title, fontweight="bold")
         ax.legend(fontsize=8)
 
     fig.suptitle(
-        f"Permütasyon testi — {perm['dataset']}/{perm['target']}/"
+        f"Permutation test — {perm['dataset']}/{perm['target']}/"
         f"{perm['model']}/{perm['selector']} (n_perm={perm['n_perm']})",
         fontweight="bold")
     plt.tight_layout()
@@ -345,11 +345,11 @@ def fig_seed_stability(records: list[dict], out_dir: Path | None = None) -> Path
     ax.axhline(0, color="gray", lw=0.8)
     ax.set_xticks(x); ax.set_xticklabels(labels, fontsize=8)
     ax.set_ylabel("R²")
-    ax.set_title("Seed kararlılığı: apparent (kararsız) vs nested (kararlı)",
+    ax.set_title("Seed stability: apparent vs nested R² across seeds",
                  fontweight="bold")
     ax.legend(handles=[
-        Patch(facecolor="indianred", alpha=0.6, label="apparent (biased)"),
-        Patch(facecolor="steelblue", alpha=0.6, label="nested (honest)"),
+        Patch(facecolor="indianred", alpha=0.6, label="apparent"),
+        Patch(facecolor="steelblue", alpha=0.6, label="nested"),
     ])
     plt.tight_layout()
     p = out_dir / "fig_seed_stability.png"
@@ -376,22 +376,22 @@ def fig_cv_comparison(rows: list[dict], out_dir: Path | None = None) -> Path:
     x = np.arange(len(rows))
     w = 0.26
     fig, ax = plt.subplots(figsize=(max(7, 2.0 * len(rows)), 5.5))
-    ax.bar(x - w, p1, w, label="P1 random + dış seçim", color="firebrick")
-    ax.bar(x, p2, w, label="P2 group + dış seçim", color="darkorange")
-    ax.bar(x + w, p3, w, label="P3 nested (dürüst)", color="steelblue")
+    ax.bar(x - w, p1, w, label="P1 random folds, selection on all data", color="firebrick")
+    ax.bar(x, p2, w, label="P2 apparent (group folds, selection on all data)", color="darkorange")
+    ax.bar(x + w, p3, w, label="P3 nested", color="steelblue")
 
     for i, r in enumerate(rows):
         top = max([v for v in (p1[i], p2[i], p3[i]) if np.isfinite(v)] or [0.0])
         gl, sl = r["group_leakage"], r["selection_leakage"]
         gl_s = f"{gl:+.2f}" if np.isfinite(gl) else "n/a"
         sl_s = f"{sl:+.2f}" if np.isfinite(sl) else "n/a"
-        ax.annotate(f"grup {gl_s}\nseçim {sl_s}", (i, top + 0.02),
+        ax.annotate(f"fold-partitioning {gl_s}\nselection-scope {sl_s}", (i, top + 0.02),
                     ha="center", fontsize=8, color="black")
 
     ax.axhline(0, color="gray", lw=0.8)
     ax.set_xticks(x); ax.set_xticklabels(labels, fontsize=8)
     ax.set_ylabel("R²")
-    ax.set_title("Üç-pipeline CV: grup vs seçim sızıntısının ayrıştırılması",
+    ax.set_title("Three-pipeline CV: fold-partitioning (P1−P2) and selection-scope (P2−P3) contrasts",
                  fontweight="bold")
     ax.legend(fontsize=8)
     plt.tight_layout()

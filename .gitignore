@@ -86,3 +86,21 @@ kaggle_upload/
 .DS_Store
 Thumbs.db
 desktop.ini
+
+# ── Revizyon 1 (CHEMOLAB-D-26-00975): kopyalanan veri ASLA commitlenmez ─────
+# NOT: yukarıdaki `!outputs/**/*.npy` istisnası 01_dataset'i commitlenebilir
+# yapıyordu; dizin düzeyinde ignore, alt dosya istisnalarını geçersiz kılar.
+outputs/01_dataset/
+outputs/_datasets_cache/
+/data/
+outputs_rev1/**/*.npz
+outputs_rev1/**/_checkpoints/
+# Örnek düzeyi çıktılar (sample/leaf id, fold kayıtları, tahminler) commitlenmez;
+# yalnız kod + özet tablolar repoya girer.
+outputs_rev1/**/samples/
+# Revizyon 1 duman testi / zaman ölçümü / loglar (yeniden üretilebilir, geçici)
+outputs_rev1/_quick/
+outputs_rev1/_timing/
+outputs_rev1/**/logs/
+# Revizyon 1 E7 Excel çıktıları — yalnız yerel kullanım (commitlenmez)
+outputs_rev1/E7_excel/

@@ -1,0 +1,13 @@
+dataset,target,selector,source,n_selections,model_fits_per_selection_median,model_fits_min,model_fits_max,model_fits_without_cache_median,selection_seconds_median,definition
+ryckewaert,flavonol,ga,E6_ga.G1,60,69062.5,48645.0,79260.0,109500.0,398.95000000000005,PLS fits = unique candidates evaluated × 5 inner folds (candidate cache; without cache = pop × (ngen+1) × 5)
+ryckewaert,flavonol,rfe,E1_repeated,120,11.0,11.0,11.0,11.0,0.035,Ridge fits = elimination rounds + 1
+ryckewaert,flavonol,lasso,E1_repeated,120,501.0,501.0,501.0,501.0,157.2665,coordinate-descent path fits = n_alphas × inner folds + 1 refit
+ryckewaert,flavonol,mutual_info,E1_repeated,120,0.0,0.0,0.0,0.0,1.334,no model fit (k-NN mutual-information estimate per feature)
+ryckewaert,chlorophyll,ga,E6_ga.G1,60,69795.0,56880.0,79285.0,109500.0,412.81,PLS fits = unique candidates evaluated × 5 inner folds (candidate cache; without cache = pop × (ngen+1) × 5)
+ryckewaert,chlorophyll,rfe,E1_repeated,120,11.0,11.0,11.0,11.0,0.035,Ridge fits = elimination rounds + 1
+ryckewaert,chlorophyll,lasso,E1_repeated,120,501.0,501.0,501.0,501.0,23.2515,coordinate-descent path fits = n_alphas × inner folds + 1 refit
+ryckewaert,chlorophyll,mutual_info,E1_repeated,120,0.0,0.0,0.0,0.0,1.316,no model fit (k-NN mutual-information estimate per feature)
+deep_patato,chlorophyll,ga,E6_ga.G1,60,36465.0,29895.0,42830.0,109500.0,145.175,PLS fits = unique candidates evaluated × 5 inner folds (candidate cache; without cache = pop × (ngen+1) × 5)
+deep_patato,chlorophyll,rfe,E1_repeated,120,10.0,10.0,10.0,10.0,0.018,Ridge fits = elimination rounds + 1
+deep_patato,chlorophyll,lasso,E1_repeated,120,501.0,501.0,501.0,501.0,32.746,coordinate-descent path fits = n_alphas × inner folds + 1 refit
+deep_patato,chlorophyll,mutual_info,E1_repeated,120,0.0,0.0,0.0,0.0,0.2685,no model fit (k-NN mutual-information estimate per feature)

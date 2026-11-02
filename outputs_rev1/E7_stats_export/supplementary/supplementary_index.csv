@@ -1,0 +1,26 @@
+table,file,title,n_rows,n_columns,source,analysis_id
+Table S01,TableS01_feature_audit.csv,"Feature audit: block, transform, source wavelengths, equation",520,16,outputs_rev1/E0_audit/feature_audit.csv,A23
+Table S02,TableS02_groups_and_folds.csv,Groups and original-split fold composition,10,13,outputs_rev1/E0_audit/fold_composition.csv,A23
+Table S03,TableS03_primary_full.csv,"Primary table, all quantities (E1 + E6-G1)",21,61,outputs_rev1/E7_stats_export/primary_table.csv,A01–A06
+Table S04,TableS04_group_bootstrap_by_repeat.csv,Paired group bootstrap CI per repeat (E1 + GA),390,18,outputs_rev1/E7_stats_export/bootstrap_by_repeat.csv,A03
+Table S05,TableS05_selector_family.csv,Apparent–nested difference by selector family,21,14,outputs_rev1/E7_stats_export/primary_by_family.csv,A05
+Table S06,TableS06_potato_logo.csv,Potato leave-one-field-out (pooled R²),30,10,outputs_rev1/E1_repeated/logo_potato.csv,A19
+Table S07,TableS07_lasso_truncation.csv,LASSO k-cap truncation and convergence warnings,6,14,outputs_rev1/E1_repeated/lasso_truncation.csv,A01
+Table S08,TableS08_pls_components.csv,PLS component distribution by arm,48,7,outputs_rev1/E1_repeated/components.csv,A09
+Table S09,TableS09_mechanism.csv,Size-matched decomposition of the apparent–nested difference,9,36,outputs_rev1/E7_stats_export/mechanism_table.csv,A07
+Table S10,TableS10_lasso_2x2.csv,LASSO α-source × support-source,12,12,outputs_rev1/E7_stats_export/lasso_2x2_table.csv,A08
+Table S11,TableS11_stability.csv,"Prediction, mask and coefficient stability",9,23,outputs_rev1/E7_stats_export/stability_table.csv,A09
+Table S12,TableS12_negative_differences.csv,Fold-level negative differences,200,13,outputs_rev1/E7_stats_export/negative_differences.csv,A10
+Table S13,TableS13_sensitivity.csv,One-at-a-time sensitivity grid,141,22,outputs_rev1/E7_stats_export/sensitivity_table.csv,A11
+Table S14,TableS14_simulation_null.csv,Simulation S-null,15,19,outputs_rev1/E7_stats_export/simulation_null_table.csv,A12
+Table S15,TableS15_simulation_grid.csv,Simulation n × p × k grid and analytic baselines,18,19,outputs_rev1/E7_stats_export/simulation_grid_table.csv,A13
+Table S16,TableS16_simulation_signal.csv,Simulation S-signal (known truth),60,24,outputs_rev1/E7_stats_export/simulation_signal_table.csv,A14
+Table S17,TableS17_permutation.csv,Permutation tests,15,21,outputs_rev1/E7_stats_export/permutation_table.csv,A15
+Table S18,TableS18_ga_g0_reproduction.csv,GA G0 reproduction of the published seed-0 run,4,8,outputs_rev1/E7_stats_export/ga_g0_reproduction.csv,A16
+Table S19,TableS19_ga_variants.csv,GA variants G0–G3,8,15,outputs_rev1/E7_stats_export/ga_variant_table.csv,A17
+Table S20,TableS20_ga_adaptive_overfitting.csv,GA inner fitness minus outer R²,16,13,outputs_rev1/E7_stats_export/ga_adaptive_overfitting.csv,A18
+Table S21,TableS21_seed_wilcoxon.csv,Seed-based Wilcoxon on the 12 published seeds (unadjusted + BH),32,30,outputs_rev1/E7_stats_export/seed_wilcoxon.csv,A20
+Table S22,TableS22_spearman_overlap.csv,Spearman: mask overlap vs apparent–nested difference,7,13,outputs_rev1/E7_stats_export/spearman_overlap.csv,A21
+Table S23,TableS23_legacy_overlap_reconstruction.csv,Reconstruction of the published overlap formula,216,15,outputs_rev1/E7_stats_export/legacy_overlap_reconstruction.csv,A21
+Table S24,TableS24_compute_budget.csv,Model fits per selection,12,11,outputs_rev1/E7_stats_export/compute_budget.csv,A22
+Table S25,TableS25_analysis_roles.csv,Analysis roles (primary vs exploratory),23,9,outputs_rev1/E7_stats_export/analysis_roles.csv,—

@@ -1,0 +1,72 @@
+{
+  "mean_jaccard": {
+    "matching": [
+      "jaccard"
+    ],
+    "matching_seed_sets": [
+      "seed0"
+    ],
+    "by_seed_set": {
+      "seed0": {
+        "matching": [
+          "jaccard"
+        ],
+        "max_absdiff_by_candidate": {
+          "inter_over_k": 0.16916438606093787,
+          "inter_over_kA": 0.16916438606093787,
+          "inter_over_kN": 0.2654686638897166,
+          "inter_over_max": 0.16916438606093787,
+          "inter_over_min": 0.3025274874191283,
+          "jaccard": 5.551115123125783e-17
+        }
+      },
+      "seeds0-11_mean": {
+        "matching": [],
+        "max_absdiff_by_candidate": {
+          "inter_over_k": 0.18165498294808663,
+          "inter_over_kA": 0.18165498294808663,
+          "inter_over_kN": 0.2654686638897166,
+          "inter_over_max": 0.18165498294808663,
+          "inter_over_min": 0.3025274874191283,
+          "jaccard": 0.01231527093596052
+        }
+      }
+    },
+    "n_selections": 9
+  },
+  "mean_overlap_frac": {
+    "matching": [
+      "inter_over_kA"
+    ],
+    "matching_seed_sets": [
+      "seed0"
+    ],
+    "by_seed_set": {
+      "seed0": {
+        "matching": [
+          "inter_over_kA"
+        ],
+        "max_absdiff_by_candidate": {
+          "inter_over_k": 0.06705882352941178,
+          "inter_over_kA": 0.0,
+          "inter_over_kN": 0.14389355742296922,
+          "inter_over_max": 0.037058823529411755,
+          "inter_over_min": 0.18095238095238092,
+          "jaccard": 0.16916438606093787
+        }
+      },
+      "seeds0-11_mean": {
+        "matching": [],
+        "max_absdiff_by_candidate": {
+          "inter_over_k": 0.06705882352941178,
+          "inter_over_kA": 0.012500000000000178,
+          "inter_over_kN": 0.14389355742296922,
+          "inter_over_max": 0.037058823529411755,
+          "inter_over_min": 0.18095238095238092,
+          "jaccard": 0.16916438606093787
+        }
+      }
+    },
+    "n_selections": 9
+  }
+}

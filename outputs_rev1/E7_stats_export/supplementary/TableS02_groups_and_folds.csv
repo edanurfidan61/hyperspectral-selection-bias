@@ -1,0 +1,11 @@
+dataset,group_level,fold,n_train,n_test,n_test_groups,n_test_plot_groups,n_plot_groups_shared_with_train,test_varieties,test_dates,test_flavonol_mean,test_chlorophyll_mean,test_sample_idx_range
+ryckewaert,leaf,0,163,41,41,10.0,10.0,Chardonnay:7; Colombard:5; Duras:4; Fer:5; Gamay:10; Loin de l'œil:5; Mauzac:5,01/10/2020:7; 10/09/2020:24; 11/09/2020:4; 14/09/2020:6,3.2948536585365846,21.99721951219512,3-203
+ryckewaert,leaf,1,163,41,41,10.0,10.0,Chardonnay:7; Colombard:5; Duras:4; Fer:5; Gamay:10; Loin de l'œil:5; Mauzac:5,01/10/2020:7; 10/09/2020:24; 11/09/2020:4; 14/09/2020:6,3.2969512195121946,20.85792682926829,2-202
+ryckewaert,leaf,2,163,41,41,10.0,10.0,Chardonnay:7; Colombard:4; Duras:5; Fer:5; Gamay:10; Loin de l'œil:5; Mauzac:5,01/10/2020:7; 10/09/2020:24; 11/09/2020:4; 14/09/2020:6,3.431219512195121,20.73263414634146,1-201
+ryckewaert,leaf,3,163,41,41,10.0,10.0,Chardonnay:7; Colombard:4; Duras:5; Fer:5; Gamay:10; Loin de l'œil:5; Mauzac:5,01/10/2020:7; 10/09/2020:24; 11/09/2020:4; 14/09/2020:6,3.345317073170732,20.871951219512194,0-200
+ryckewaert,leaf,4,164,40,40,10.0,10.0,Chardonnay:6; Colombard:5; Duras:4; Fer:5; Gamay:10; Loin de l'œil:5; Mauzac:5,01/10/2020:6; 10/09/2020:24; 11/09/2020:4; 14/09/2020:6,3.357225,20.763425,4-199
+deep_patato,Field,0,57,15,5,,,,,,38.138000000000005,"fields=4,9,14,19,24"
+deep_patato,Field,1,57,15,5,,,,,,38.08866666666666,"fields=3,8,13,18,23"
+deep_patato,Field,2,57,15,5,,,,,,34.132666666666665,"fields=2,7,12,17,22"
+deep_patato,Field,3,57,15,5,,,,,,36.37666666666667,"fields=1,6,11,16,21"
+deep_patato,Field,4,60,12,4,,,,,,36.28,"fields=5,10,15,20"

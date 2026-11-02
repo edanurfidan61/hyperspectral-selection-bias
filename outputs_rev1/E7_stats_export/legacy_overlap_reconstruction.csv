@@ -1,0 +1,217 @@
+dataset,target,selector,seed_set,seeds,candidate,formula,outputs3_column,reconstructed,outputs3,absdiff,k_apparent_mean,k_nested_mean,outputs3_k_apparent,outputs3_k_nested
+ryckewaert,flavonol,rfe,seed0,0,inter_over_kA,|A ∩ N_f| / |A|,mean_overlap_frac,0.5900000000000001,0.5900000000000001,0.0,20.0,20.0,20.0,20.0
+ryckewaert,flavonol,rfe,seed0,0,inter_over_kA,|A ∩ N_f| / |A|,mean_jaccard,0.5900000000000001,0.4208356139390622,0.16916438606093787,20.0,20.0,20.0,20.0
+ryckewaert,flavonol,rfe,seed0,0,inter_over_k,|A ∩ N_f| / k (k = 20),mean_overlap_frac,0.5900000000000001,0.5900000000000001,0.0,20.0,20.0,20.0,20.0
+ryckewaert,flavonol,rfe,seed0,0,inter_over_k,|A ∩ N_f| / k (k = 20),mean_jaccard,0.5900000000000001,0.4208356139390622,0.16916438606093787,20.0,20.0,20.0,20.0
+ryckewaert,flavonol,rfe,seed0,0,inter_over_kN,|A ∩ N_f| / |N_f|,mean_overlap_frac,0.5900000000000001,0.5900000000000001,0.0,20.0,20.0,20.0,20.0
+ryckewaert,flavonol,rfe,seed0,0,inter_over_kN,|A ∩ N_f| / |N_f|,mean_jaccard,0.5900000000000001,0.4208356139390622,0.16916438606093787,20.0,20.0,20.0,20.0
+ryckewaert,flavonol,rfe,seed0,0,inter_over_max,"|A ∩ N_f| / max(|A|, |N_f|)",mean_overlap_frac,0.5900000000000001,0.5900000000000001,0.0,20.0,20.0,20.0,20.0
+ryckewaert,flavonol,rfe,seed0,0,inter_over_max,"|A ∩ N_f| / max(|A|, |N_f|)",mean_jaccard,0.5900000000000001,0.4208356139390622,0.16916438606093787,20.0,20.0,20.0,20.0
+ryckewaert,flavonol,rfe,seed0,0,inter_over_min,"|A ∩ N_f| / min(|A|, |N_f|)",mean_overlap_frac,0.5900000000000001,0.5900000000000001,0.0,20.0,20.0,20.0,20.0
+ryckewaert,flavonol,rfe,seed0,0,inter_over_min,"|A ∩ N_f| / min(|A|, |N_f|)",mean_jaccard,0.5900000000000001,0.4208356139390622,0.16916438606093787,20.0,20.0,20.0,20.0
+ryckewaert,flavonol,rfe,seed0,0,jaccard,|A ∩ N_f| / |A ∪ N_f|,mean_overlap_frac,0.4208356139390622,0.5900000000000001,0.16916438606093787,20.0,20.0,20.0,20.0
+ryckewaert,flavonol,rfe,seed0,0,jaccard,|A ∩ N_f| / |A ∪ N_f|,mean_jaccard,0.4208356139390622,0.4208356139390622,0.0,20.0,20.0,20.0,20.0
+ryckewaert,flavonol,rfe,seeds0-11_mean,0,inter_over_kA,|A ∩ N_f| / |A|,mean_overlap_frac,0.5900000000000001,0.5900000000000001,0.0,20.0,20.0,20.0,20.0
+ryckewaert,flavonol,rfe,seeds0-11_mean,0,inter_over_kA,|A ∩ N_f| / |A|,mean_jaccard,0.5900000000000001,0.4208356139390622,0.16916438606093787,20.0,20.0,20.0,20.0
+ryckewaert,flavonol,rfe,seeds0-11_mean,0,inter_over_k,|A ∩ N_f| / k (k = 20),mean_overlap_frac,0.5900000000000001,0.5900000000000001,0.0,20.0,20.0,20.0,20.0
+ryckewaert,flavonol,rfe,seeds0-11_mean,0,inter_over_k,|A ∩ N_f| / k (k = 20),mean_jaccard,0.5900000000000001,0.4208356139390622,0.16916438606093787,20.0,20.0,20.0,20.0
+ryckewaert,flavonol,rfe,seeds0-11_mean,0,inter_over_kN,|A ∩ N_f| / |N_f|,mean_overlap_frac,0.5900000000000001,0.5900000000000001,0.0,20.0,20.0,20.0,20.0
+ryckewaert,flavonol,rfe,seeds0-11_mean,0,inter_over_kN,|A ∩ N_f| / |N_f|,mean_jaccard,0.5900000000000001,0.4208356139390622,0.16916438606093787,20.0,20.0,20.0,20.0
+ryckewaert,flavonol,rfe,seeds0-11_mean,0,inter_over_max,"|A ∩ N_f| / max(|A|, |N_f|)",mean_overlap_frac,0.5900000000000001,0.5900000000000001,0.0,20.0,20.0,20.0,20.0
+ryckewaert,flavonol,rfe,seeds0-11_mean,0,inter_over_max,"|A ∩ N_f| / max(|A|, |N_f|)",mean_jaccard,0.5900000000000001,0.4208356139390622,0.16916438606093787,20.0,20.0,20.0,20.0
+ryckewaert,flavonol,rfe,seeds0-11_mean,0,inter_over_min,"|A ∩ N_f| / min(|A|, |N_f|)",mean_overlap_frac,0.5900000000000001,0.5900000000000001,0.0,20.0,20.0,20.0,20.0
+ryckewaert,flavonol,rfe,seeds0-11_mean,0,inter_over_min,"|A ∩ N_f| / min(|A|, |N_f|)",mean_jaccard,0.5900000000000001,0.4208356139390622,0.16916438606093787,20.0,20.0,20.0,20.0
+ryckewaert,flavonol,rfe,seeds0-11_mean,0,jaccard,|A ∩ N_f| / |A ∪ N_f|,mean_overlap_frac,0.4208356139390622,0.5900000000000001,0.16916438606093787,20.0,20.0,20.0,20.0
+ryckewaert,flavonol,rfe,seeds0-11_mean,0,jaccard,|A ∩ N_f| / |A ∪ N_f|,mean_jaccard,0.4208356139390622,0.4208356139390622,0.0,20.0,20.0,20.0,20.0
+ryckewaert,flavonol,lasso,seed0,0,inter_over_kA,|A ∩ N_f| / |A|,mean_overlap_frac,0.51,0.51,0.0,20.0,20.0,20.0,20.0
+ryckewaert,flavonol,lasso,seed0,0,inter_over_kA,|A ∩ N_f| / |A|,mean_jaccard,0.51,0.3496834089158894,0.16031659108411062,20.0,20.0,20.0,20.0
+ryckewaert,flavonol,lasso,seed0,0,inter_over_k,|A ∩ N_f| / k (k = 20),mean_overlap_frac,0.51,0.51,0.0,20.0,20.0,20.0,20.0
+ryckewaert,flavonol,lasso,seed0,0,inter_over_k,|A ∩ N_f| / k (k = 20),mean_jaccard,0.51,0.3496834089158894,0.16031659108411062,20.0,20.0,20.0,20.0
+ryckewaert,flavonol,lasso,seed0,0,inter_over_kN,|A ∩ N_f| / |N_f|,mean_overlap_frac,0.51,0.51,0.0,20.0,20.0,20.0,20.0
+ryckewaert,flavonol,lasso,seed0,0,inter_over_kN,|A ∩ N_f| / |N_f|,mean_jaccard,0.51,0.3496834089158894,0.16031659108411062,20.0,20.0,20.0,20.0
+ryckewaert,flavonol,lasso,seed0,0,inter_over_max,"|A ∩ N_f| / max(|A|, |N_f|)",mean_overlap_frac,0.51,0.51,0.0,20.0,20.0,20.0,20.0
+ryckewaert,flavonol,lasso,seed0,0,inter_over_max,"|A ∩ N_f| / max(|A|, |N_f|)",mean_jaccard,0.51,0.3496834089158894,0.16031659108411062,20.0,20.0,20.0,20.0
+ryckewaert,flavonol,lasso,seed0,0,inter_over_min,"|A ∩ N_f| / min(|A|, |N_f|)",mean_overlap_frac,0.51,0.51,0.0,20.0,20.0,20.0,20.0
+ryckewaert,flavonol,lasso,seed0,0,inter_over_min,"|A ∩ N_f| / min(|A|, |N_f|)",mean_jaccard,0.51,0.3496834089158894,0.16031659108411062,20.0,20.0,20.0,20.0
+ryckewaert,flavonol,lasso,seed0,0,jaccard,|A ∩ N_f| / |A ∪ N_f|,mean_overlap_frac,0.34968340891588945,0.51,0.16031659108411056,20.0,20.0,20.0,20.0
+ryckewaert,flavonol,lasso,seed0,0,jaccard,|A ∩ N_f| / |A ∪ N_f|,mean_jaccard,0.34968340891588945,0.3496834089158894,5.551115123125783e-17,20.0,20.0,20.0,20.0
+ryckewaert,flavonol,lasso,seeds0-11_mean,0,inter_over_kA,|A ∩ N_f| / |A|,mean_overlap_frac,0.51,0.51,0.0,20.0,20.0,20.0,20.0
+ryckewaert,flavonol,lasso,seeds0-11_mean,0,inter_over_kA,|A ∩ N_f| / |A|,mean_jaccard,0.51,0.3496834089158894,0.16031659108411062,20.0,20.0,20.0,20.0
+ryckewaert,flavonol,lasso,seeds0-11_mean,0,inter_over_k,|A ∩ N_f| / k (k = 20),mean_overlap_frac,0.51,0.51,0.0,20.0,20.0,20.0,20.0
+ryckewaert,flavonol,lasso,seeds0-11_mean,0,inter_over_k,|A ∩ N_f| / k (k = 20),mean_jaccard,0.51,0.3496834089158894,0.16031659108411062,20.0,20.0,20.0,20.0
+ryckewaert,flavonol,lasso,seeds0-11_mean,0,inter_over_kN,|A ∩ N_f| / |N_f|,mean_overlap_frac,0.51,0.51,0.0,20.0,20.0,20.0,20.0
+ryckewaert,flavonol,lasso,seeds0-11_mean,0,inter_over_kN,|A ∩ N_f| / |N_f|,mean_jaccard,0.51,0.3496834089158894,0.16031659108411062,20.0,20.0,20.0,20.0
+ryckewaert,flavonol,lasso,seeds0-11_mean,0,inter_over_max,"|A ∩ N_f| / max(|A|, |N_f|)",mean_overlap_frac,0.51,0.51,0.0,20.0,20.0,20.0,20.0
+ryckewaert,flavonol,lasso,seeds0-11_mean,0,inter_over_max,"|A ∩ N_f| / max(|A|, |N_f|)",mean_jaccard,0.51,0.3496834089158894,0.16031659108411062,20.0,20.0,20.0,20.0
+ryckewaert,flavonol,lasso,seeds0-11_mean,0,inter_over_min,"|A ∩ N_f| / min(|A|, |N_f|)",mean_overlap_frac,0.51,0.51,0.0,20.0,20.0,20.0,20.0
+ryckewaert,flavonol,lasso,seeds0-11_mean,0,inter_over_min,"|A ∩ N_f| / min(|A|, |N_f|)",mean_jaccard,0.51,0.3496834089158894,0.16031659108411062,20.0,20.0,20.0,20.0
+ryckewaert,flavonol,lasso,seeds0-11_mean,0,jaccard,|A ∩ N_f| / |A ∪ N_f|,mean_overlap_frac,0.34968340891588945,0.51,0.16031659108411056,20.0,20.0,20.0,20.0
+ryckewaert,flavonol,lasso,seeds0-11_mean,0,jaccard,|A ∩ N_f| / |A ∪ N_f|,mean_jaccard,0.34968340891588945,0.3496834089158894,5.551115123125783e-17,20.0,20.0,20.0,20.0
+ryckewaert,flavonol,mutual_info,seed0,0,inter_over_kA,|A ∩ N_f| / |A|,mean_overlap_frac,0.58,0.58,0.0,20.0,20.0,20.0,20.0
+ryckewaert,flavonol,mutual_info,seed0,0,inter_over_kA,|A ∩ N_f| / |A|,mean_jaccard,0.58,0.4245627800191694,0.15543721998083054,20.0,20.0,20.0,20.0
+ryckewaert,flavonol,mutual_info,seed0,0,inter_over_k,|A ∩ N_f| / k (k = 20),mean_overlap_frac,0.58,0.58,0.0,20.0,20.0,20.0,20.0
+ryckewaert,flavonol,mutual_info,seed0,0,inter_over_k,|A ∩ N_f| / k (k = 20),mean_jaccard,0.58,0.4245627800191694,0.15543721998083054,20.0,20.0,20.0,20.0
+ryckewaert,flavonol,mutual_info,seed0,0,inter_over_kN,|A ∩ N_f| / |N_f|,mean_overlap_frac,0.58,0.58,0.0,20.0,20.0,20.0,20.0
+ryckewaert,flavonol,mutual_info,seed0,0,inter_over_kN,|A ∩ N_f| / |N_f|,mean_jaccard,0.58,0.4245627800191694,0.15543721998083054,20.0,20.0,20.0,20.0
+ryckewaert,flavonol,mutual_info,seed0,0,inter_over_max,"|A ∩ N_f| / max(|A|, |N_f|)",mean_overlap_frac,0.58,0.58,0.0,20.0,20.0,20.0,20.0
+ryckewaert,flavonol,mutual_info,seed0,0,inter_over_max,"|A ∩ N_f| / max(|A|, |N_f|)",mean_jaccard,0.58,0.4245627800191694,0.15543721998083054,20.0,20.0,20.0,20.0
+ryckewaert,flavonol,mutual_info,seed0,0,inter_over_min,"|A ∩ N_f| / min(|A|, |N_f|)",mean_overlap_frac,0.58,0.58,0.0,20.0,20.0,20.0,20.0
+ryckewaert,flavonol,mutual_info,seed0,0,inter_over_min,"|A ∩ N_f| / min(|A|, |N_f|)",mean_jaccard,0.58,0.4245627800191694,0.15543721998083054,20.0,20.0,20.0,20.0
+ryckewaert,flavonol,mutual_info,seed0,0,jaccard,|A ∩ N_f| / |A ∪ N_f|,mean_overlap_frac,0.4245627800191694,0.58,0.15543721998083054,20.0,20.0,20.0,20.0
+ryckewaert,flavonol,mutual_info,seed0,0,jaccard,|A ∩ N_f| / |A ∪ N_f|,mean_jaccard,0.4245627800191694,0.4245627800191694,0.0,20.0,20.0,20.0,20.0
+ryckewaert,flavonol,mutual_info,seeds0-11_mean,"0,1,2,3,4,5,6,7,8,9,10,11",inter_over_kA,|A ∩ N_f| / |A|,mean_overlap_frac,0.5775,0.58,0.0024999999999999467,20.0,20.0,20.0,20.0
+ryckewaert,flavonol,mutual_info,seeds0-11_mean,"0,1,2,3,4,5,6,7,8,9,10,11",inter_over_kA,|A ∩ N_f| / |A|,mean_jaccard,0.5775,0.4245627800191694,0.1529372199808306,20.0,20.0,20.0,20.0
+ryckewaert,flavonol,mutual_info,seeds0-11_mean,"0,1,2,3,4,5,6,7,8,9,10,11",inter_over_k,|A ∩ N_f| / k (k = 20),mean_overlap_frac,0.5775,0.58,0.0024999999999999467,20.0,20.0,20.0,20.0
+ryckewaert,flavonol,mutual_info,seeds0-11_mean,"0,1,2,3,4,5,6,7,8,9,10,11",inter_over_k,|A ∩ N_f| / k (k = 20),mean_jaccard,0.5775,0.4245627800191694,0.1529372199808306,20.0,20.0,20.0,20.0
+ryckewaert,flavonol,mutual_info,seeds0-11_mean,"0,1,2,3,4,5,6,7,8,9,10,11",inter_over_kN,|A ∩ N_f| / |N_f|,mean_overlap_frac,0.5775,0.58,0.0024999999999999467,20.0,20.0,20.0,20.0
+ryckewaert,flavonol,mutual_info,seeds0-11_mean,"0,1,2,3,4,5,6,7,8,9,10,11",inter_over_kN,|A ∩ N_f| / |N_f|,mean_jaccard,0.5775,0.4245627800191694,0.1529372199808306,20.0,20.0,20.0,20.0
+ryckewaert,flavonol,mutual_info,seeds0-11_mean,"0,1,2,3,4,5,6,7,8,9,10,11",inter_over_max,"|A ∩ N_f| / max(|A|, |N_f|)",mean_overlap_frac,0.5775,0.58,0.0024999999999999467,20.0,20.0,20.0,20.0
+ryckewaert,flavonol,mutual_info,seeds0-11_mean,"0,1,2,3,4,5,6,7,8,9,10,11",inter_over_max,"|A ∩ N_f| / max(|A|, |N_f|)",mean_jaccard,0.5775,0.4245627800191694,0.1529372199808306,20.0,20.0,20.0,20.0
+ryckewaert,flavonol,mutual_info,seeds0-11_mean,"0,1,2,3,4,5,6,7,8,9,10,11",inter_over_min,"|A ∩ N_f| / min(|A|, |N_f|)",mean_overlap_frac,0.5775,0.58,0.0024999999999999467,20.0,20.0,20.0,20.0
+ryckewaert,flavonol,mutual_info,seeds0-11_mean,"0,1,2,3,4,5,6,7,8,9,10,11",inter_over_min,"|A ∩ N_f| / min(|A|, |N_f|)",mean_jaccard,0.5775,0.4245627800191694,0.1529372199808306,20.0,20.0,20.0,20.0
+ryckewaert,flavonol,mutual_info,seeds0-11_mean,"0,1,2,3,4,5,6,7,8,9,10,11",jaccard,|A ∩ N_f| / |A ∪ N_f|,mean_overlap_frac,0.4214858569422464,0.58,0.15851414305775358,20.0,20.0,20.0,20.0
+ryckewaert,flavonol,mutual_info,seeds0-11_mean,"0,1,2,3,4,5,6,7,8,9,10,11",jaccard,|A ∩ N_f| / |A ∪ N_f|,mean_jaccard,0.4214858569422464,0.4245627800191694,0.0030769230769230327,20.0,20.0,20.0,20.0
+ryckewaert,chlorophyll,rfe,seed0,0,inter_over_kA,|A ∩ N_f| / |A|,mean_overlap_frac,0.7,0.7,0.0,20.0,20.0,20.0,20.0
+ryckewaert,chlorophyll,rfe,seed0,0,inter_over_kA,|A ∩ N_f| / |A|,mean_jaccard,0.7,0.5447619047619047,0.15523809523809529,20.0,20.0,20.0,20.0
+ryckewaert,chlorophyll,rfe,seed0,0,inter_over_k,|A ∩ N_f| / k (k = 20),mean_overlap_frac,0.7,0.7,0.0,20.0,20.0,20.0,20.0
+ryckewaert,chlorophyll,rfe,seed0,0,inter_over_k,|A ∩ N_f| / k (k = 20),mean_jaccard,0.7,0.5447619047619047,0.15523809523809529,20.0,20.0,20.0,20.0
+ryckewaert,chlorophyll,rfe,seed0,0,inter_over_kN,|A ∩ N_f| / |N_f|,mean_overlap_frac,0.7,0.7,0.0,20.0,20.0,20.0,20.0
+ryckewaert,chlorophyll,rfe,seed0,0,inter_over_kN,|A ∩ N_f| / |N_f|,mean_jaccard,0.7,0.5447619047619047,0.15523809523809529,20.0,20.0,20.0,20.0
+ryckewaert,chlorophyll,rfe,seed0,0,inter_over_max,"|A ∩ N_f| / max(|A|, |N_f|)",mean_overlap_frac,0.7,0.7,0.0,20.0,20.0,20.0,20.0
+ryckewaert,chlorophyll,rfe,seed0,0,inter_over_max,"|A ∩ N_f| / max(|A|, |N_f|)",mean_jaccard,0.7,0.5447619047619047,0.15523809523809529,20.0,20.0,20.0,20.0
+ryckewaert,chlorophyll,rfe,seed0,0,inter_over_min,"|A ∩ N_f| / min(|A|, |N_f|)",mean_overlap_frac,0.7,0.7,0.0,20.0,20.0,20.0,20.0
+ryckewaert,chlorophyll,rfe,seed0,0,inter_over_min,"|A ∩ N_f| / min(|A|, |N_f|)",mean_jaccard,0.7,0.5447619047619047,0.15523809523809529,20.0,20.0,20.0,20.0
+ryckewaert,chlorophyll,rfe,seed0,0,jaccard,|A ∩ N_f| / |A ∪ N_f|,mean_overlap_frac,0.5447619047619047,0.7,0.15523809523809529,20.0,20.0,20.0,20.0
+ryckewaert,chlorophyll,rfe,seed0,0,jaccard,|A ∩ N_f| / |A ∪ N_f|,mean_jaccard,0.5447619047619047,0.5447619047619047,0.0,20.0,20.0,20.0,20.0
+ryckewaert,chlorophyll,rfe,seeds0-11_mean,0,inter_over_kA,|A ∩ N_f| / |A|,mean_overlap_frac,0.7,0.7,0.0,20.0,20.0,20.0,20.0
+ryckewaert,chlorophyll,rfe,seeds0-11_mean,0,inter_over_kA,|A ∩ N_f| / |A|,mean_jaccard,0.7,0.5447619047619047,0.15523809523809529,20.0,20.0,20.0,20.0
+ryckewaert,chlorophyll,rfe,seeds0-11_mean,0,inter_over_k,|A ∩ N_f| / k (k = 20),mean_overlap_frac,0.7,0.7,0.0,20.0,20.0,20.0,20.0
+ryckewaert,chlorophyll,rfe,seeds0-11_mean,0,inter_over_k,|A ∩ N_f| / k (k = 20),mean_jaccard,0.7,0.5447619047619047,0.15523809523809529,20.0,20.0,20.0,20.0
+ryckewaert,chlorophyll,rfe,seeds0-11_mean,0,inter_over_kN,|A ∩ N_f| / |N_f|,mean_overlap_frac,0.7,0.7,0.0,20.0,20.0,20.0,20.0
+ryckewaert,chlorophyll,rfe,seeds0-11_mean,0,inter_over_kN,|A ∩ N_f| / |N_f|,mean_jaccard,0.7,0.5447619047619047,0.15523809523809529,20.0,20.0,20.0,20.0
+ryckewaert,chlorophyll,rfe,seeds0-11_mean,0,inter_over_max,"|A ∩ N_f| / max(|A|, |N_f|)",mean_overlap_frac,0.7,0.7,0.0,20.0,20.0,20.0,20.0
+ryckewaert,chlorophyll,rfe,seeds0-11_mean,0,inter_over_max,"|A ∩ N_f| / max(|A|, |N_f|)",mean_jaccard,0.7,0.5447619047619047,0.15523809523809529,20.0,20.0,20.0,20.0
+ryckewaert,chlorophyll,rfe,seeds0-11_mean,0,inter_over_min,"|A ∩ N_f| / min(|A|, |N_f|)",mean_overlap_frac,0.7,0.7,0.0,20.0,20.0,20.0,20.0
+ryckewaert,chlorophyll,rfe,seeds0-11_mean,0,inter_over_min,"|A ∩ N_f| / min(|A|, |N_f|)",mean_jaccard,0.7,0.5447619047619047,0.15523809523809529,20.0,20.0,20.0,20.0
+ryckewaert,chlorophyll,rfe,seeds0-11_mean,0,jaccard,|A ∩ N_f| / |A ∪ N_f|,mean_overlap_frac,0.5447619047619047,0.7,0.15523809523809529,20.0,20.0,20.0,20.0
+ryckewaert,chlorophyll,rfe,seeds0-11_mean,0,jaccard,|A ∩ N_f| / |A ∪ N_f|,mean_jaccard,0.5447619047619047,0.5447619047619047,0.0,20.0,20.0,20.0,20.0
+ryckewaert,chlorophyll,lasso,seed0,0,inter_over_kA,|A ∩ N_f| / |A|,mean_overlap_frac,0.4470588235294118,0.4470588235294118,0.0,17.0,13.4,17.0,13.4
+ryckewaert,chlorophyll,lasso,seed0,0,inter_over_kA,|A ∩ N_f| / |A|,mean_jaccard,0.4470588235294118,0.3254837170626644,0.1215751064667474,17.0,13.4,17.0,13.4
+ryckewaert,chlorophyll,lasso,seed0,0,inter_over_k,|A ∩ N_f| / k (k = 20),mean_overlap_frac,0.38,0.4470588235294118,0.06705882352941178,17.0,13.4,17.0,13.4
+ryckewaert,chlorophyll,lasso,seed0,0,inter_over_k,|A ∩ N_f| / k (k = 20),mean_jaccard,0.38,0.3254837170626644,0.054516282937335625,17.0,13.4,17.0,13.4
+ryckewaert,chlorophyll,lasso,seed0,0,inter_over_kN,|A ∩ N_f| / |N_f|,mean_overlap_frac,0.590952380952381,0.4470588235294118,0.14389355742296922,17.0,13.4,17.0,13.4
+ryckewaert,chlorophyll,lasso,seed0,0,inter_over_kN,|A ∩ N_f| / |N_f|,mean_jaccard,0.590952380952381,0.3254837170626644,0.2654686638897166,17.0,13.4,17.0,13.4
+ryckewaert,chlorophyll,lasso,seed0,0,inter_over_max,"|A ∩ N_f| / max(|A|, |N_f|)",mean_overlap_frac,0.41000000000000003,0.4470588235294118,0.037058823529411755,17.0,13.4,17.0,13.4
+ryckewaert,chlorophyll,lasso,seed0,0,inter_over_max,"|A ∩ N_f| / max(|A|, |N_f|)",mean_jaccard,0.41000000000000003,0.3254837170626644,0.08451628293733565,17.0,13.4,17.0,13.4
+ryckewaert,chlorophyll,lasso,seed0,0,inter_over_min,"|A ∩ N_f| / min(|A|, |N_f|)",mean_overlap_frac,0.6280112044817927,0.4470588235294118,0.18095238095238092,17.0,13.4,17.0,13.4
+ryckewaert,chlorophyll,lasso,seed0,0,inter_over_min,"|A ∩ N_f| / min(|A|, |N_f|)",mean_jaccard,0.6280112044817927,0.3254837170626644,0.3025274874191283,17.0,13.4,17.0,13.4
+ryckewaert,chlorophyll,lasso,seed0,0,jaccard,|A ∩ N_f| / |A ∪ N_f|,mean_overlap_frac,0.32548371706266443,0.4470588235294118,0.12157510646674735,17.0,13.4,17.0,13.4
+ryckewaert,chlorophyll,lasso,seed0,0,jaccard,|A ∩ N_f| / |A ∪ N_f|,mean_jaccard,0.32548371706266443,0.3254837170626644,5.551115123125783e-17,17.0,13.4,17.0,13.4
+ryckewaert,chlorophyll,lasso,seeds0-11_mean,0,inter_over_kA,|A ∩ N_f| / |A|,mean_overlap_frac,0.4470588235294118,0.4470588235294118,0.0,17.0,13.4,17.0,13.4
+ryckewaert,chlorophyll,lasso,seeds0-11_mean,0,inter_over_kA,|A ∩ N_f| / |A|,mean_jaccard,0.4470588235294118,0.3254837170626644,0.1215751064667474,17.0,13.4,17.0,13.4
+ryckewaert,chlorophyll,lasso,seeds0-11_mean,0,inter_over_k,|A ∩ N_f| / k (k = 20),mean_overlap_frac,0.38,0.4470588235294118,0.06705882352941178,17.0,13.4,17.0,13.4
+ryckewaert,chlorophyll,lasso,seeds0-11_mean,0,inter_over_k,|A ∩ N_f| / k (k = 20),mean_jaccard,0.38,0.3254837170626644,0.054516282937335625,17.0,13.4,17.0,13.4
+ryckewaert,chlorophyll,lasso,seeds0-11_mean,0,inter_over_kN,|A ∩ N_f| / |N_f|,mean_overlap_frac,0.590952380952381,0.4470588235294118,0.14389355742296922,17.0,13.4,17.0,13.4
+ryckewaert,chlorophyll,lasso,seeds0-11_mean,0,inter_over_kN,|A ∩ N_f| / |N_f|,mean_jaccard,0.590952380952381,0.3254837170626644,0.2654686638897166,17.0,13.4,17.0,13.4
+ryckewaert,chlorophyll,lasso,seeds0-11_mean,0,inter_over_max,"|A ∩ N_f| / max(|A|, |N_f|)",mean_overlap_frac,0.41000000000000003,0.4470588235294118,0.037058823529411755,17.0,13.4,17.0,13.4
+ryckewaert,chlorophyll,lasso,seeds0-11_mean,0,inter_over_max,"|A ∩ N_f| / max(|A|, |N_f|)",mean_jaccard,0.41000000000000003,0.3254837170626644,0.08451628293733565,17.0,13.4,17.0,13.4
+ryckewaert,chlorophyll,lasso,seeds0-11_mean,0,inter_over_min,"|A ∩ N_f| / min(|A|, |N_f|)",mean_overlap_frac,0.6280112044817927,0.4470588235294118,0.18095238095238092,17.0,13.4,17.0,13.4
+ryckewaert,chlorophyll,lasso,seeds0-11_mean,0,inter_over_min,"|A ∩ N_f| / min(|A|, |N_f|)",mean_jaccard,0.6280112044817927,0.3254837170626644,0.3025274874191283,17.0,13.4,17.0,13.4
+ryckewaert,chlorophyll,lasso,seeds0-11_mean,0,jaccard,|A ∩ N_f| / |A ∪ N_f|,mean_overlap_frac,0.32548371706266443,0.4470588235294118,0.12157510646674735,17.0,13.4,17.0,13.4
+ryckewaert,chlorophyll,lasso,seeds0-11_mean,0,jaccard,|A ∩ N_f| / |A ∪ N_f|,mean_jaccard,0.32548371706266443,0.3254837170626644,5.551115123125783e-17,17.0,13.4,17.0,13.4
+ryckewaert,chlorophyll,mutual_info,seed0,0,inter_over_kA,|A ∩ N_f| / |A|,mean_overlap_frac,0.8700000000000001,0.8700000000000001,0.0,20.0,20.0,20.0,20.0
+ryckewaert,chlorophyll,mutual_info,seed0,0,inter_over_kA,|A ∩ N_f| / |A|,mean_jaccard,0.8700000000000001,0.7735742518351213,0.09642574816487881,20.0,20.0,20.0,20.0
+ryckewaert,chlorophyll,mutual_info,seed0,0,inter_over_k,|A ∩ N_f| / k (k = 20),mean_overlap_frac,0.8700000000000001,0.8700000000000001,0.0,20.0,20.0,20.0,20.0
+ryckewaert,chlorophyll,mutual_info,seed0,0,inter_over_k,|A ∩ N_f| / k (k = 20),mean_jaccard,0.8700000000000001,0.7735742518351213,0.09642574816487881,20.0,20.0,20.0,20.0
+ryckewaert,chlorophyll,mutual_info,seed0,0,inter_over_kN,|A ∩ N_f| / |N_f|,mean_overlap_frac,0.8700000000000001,0.8700000000000001,0.0,20.0,20.0,20.0,20.0
+ryckewaert,chlorophyll,mutual_info,seed0,0,inter_over_kN,|A ∩ N_f| / |N_f|,mean_jaccard,0.8700000000000001,0.7735742518351213,0.09642574816487881,20.0,20.0,20.0,20.0
+ryckewaert,chlorophyll,mutual_info,seed0,0,inter_over_max,"|A ∩ N_f| / max(|A|, |N_f|)",mean_overlap_frac,0.8700000000000001,0.8700000000000001,0.0,20.0,20.0,20.0,20.0
+ryckewaert,chlorophyll,mutual_info,seed0,0,inter_over_max,"|A ∩ N_f| / max(|A|, |N_f|)",mean_jaccard,0.8700000000000001,0.7735742518351213,0.09642574816487881,20.0,20.0,20.0,20.0
+ryckewaert,chlorophyll,mutual_info,seed0,0,inter_over_min,"|A ∩ N_f| / min(|A|, |N_f|)",mean_overlap_frac,0.8700000000000001,0.8700000000000001,0.0,20.0,20.0,20.0,20.0
+ryckewaert,chlorophyll,mutual_info,seed0,0,inter_over_min,"|A ∩ N_f| / min(|A|, |N_f|)",mean_jaccard,0.8700000000000001,0.7735742518351213,0.09642574816487881,20.0,20.0,20.0,20.0
+ryckewaert,chlorophyll,mutual_info,seed0,0,jaccard,|A ∩ N_f| / |A ∪ N_f|,mean_overlap_frac,0.7735742518351213,0.8700000000000001,0.09642574816487881,20.0,20.0,20.0,20.0
+ryckewaert,chlorophyll,mutual_info,seed0,0,jaccard,|A ∩ N_f| / |A ∪ N_f|,mean_jaccard,0.7735742518351213,0.7735742518351213,0.0,20.0,20.0,20.0,20.0
+ryckewaert,chlorophyll,mutual_info,seeds0-11_mean,"0,1,2,3,4,5,6,7,8,9,10,11",inter_over_kA,|A ∩ N_f| / |A|,mean_overlap_frac,0.8691666666666668,0.8700000000000001,0.0008333333333333526,20.0,20.0,20.0,20.0
+ryckewaert,chlorophyll,mutual_info,seeds0-11_mean,"0,1,2,3,4,5,6,7,8,9,10,11",inter_over_kA,|A ∩ N_f| / |A|,mean_jaccard,0.8691666666666668,0.7735742518351213,0.09559241483154546,20.0,20.0,20.0,20.0
+ryckewaert,chlorophyll,mutual_info,seeds0-11_mean,"0,1,2,3,4,5,6,7,8,9,10,11",inter_over_k,|A ∩ N_f| / k (k = 20),mean_overlap_frac,0.8691666666666668,0.8700000000000001,0.0008333333333333526,20.0,20.0,20.0,20.0
+ryckewaert,chlorophyll,mutual_info,seeds0-11_mean,"0,1,2,3,4,5,6,7,8,9,10,11",inter_over_k,|A ∩ N_f| / k (k = 20),mean_jaccard,0.8691666666666668,0.7735742518351213,0.09559241483154546,20.0,20.0,20.0,20.0
+ryckewaert,chlorophyll,mutual_info,seeds0-11_mean,"0,1,2,3,4,5,6,7,8,9,10,11",inter_over_kN,|A ∩ N_f| / |N_f|,mean_overlap_frac,0.8691666666666668,0.8700000000000001,0.0008333333333333526,20.0,20.0,20.0,20.0
+ryckewaert,chlorophyll,mutual_info,seeds0-11_mean,"0,1,2,3,4,5,6,7,8,9,10,11",inter_over_kN,|A ∩ N_f| / |N_f|,mean_jaccard,0.8691666666666668,0.7735742518351213,0.09559241483154546,20.0,20.0,20.0,20.0
+ryckewaert,chlorophyll,mutual_info,seeds0-11_mean,"0,1,2,3,4,5,6,7,8,9,10,11",inter_over_max,"|A ∩ N_f| / max(|A|, |N_f|)",mean_overlap_frac,0.8691666666666668,0.8700000000000001,0.0008333333333333526,20.0,20.0,20.0,20.0
+ryckewaert,chlorophyll,mutual_info,seeds0-11_mean,"0,1,2,3,4,5,6,7,8,9,10,11",inter_over_max,"|A ∩ N_f| / max(|A|, |N_f|)",mean_jaccard,0.8691666666666668,0.7735742518351213,0.09559241483154546,20.0,20.0,20.0,20.0
+ryckewaert,chlorophyll,mutual_info,seeds0-11_mean,"0,1,2,3,4,5,6,7,8,9,10,11",inter_over_min,"|A ∩ N_f| / min(|A|, |N_f|)",mean_overlap_frac,0.8691666666666668,0.8700000000000001,0.0008333333333333526,20.0,20.0,20.0,20.0
+ryckewaert,chlorophyll,mutual_info,seeds0-11_mean,"0,1,2,3,4,5,6,7,8,9,10,11",inter_over_min,"|A ∩ N_f| / min(|A|, |N_f|)",mean_jaccard,0.8691666666666668,0.7735742518351213,0.09559241483154546,20.0,20.0,20.0,20.0
+ryckewaert,chlorophyll,mutual_info,seeds0-11_mean,"0,1,2,3,4,5,6,7,8,9,10,11",jaccard,|A ∩ N_f| / |A ∪ N_f|,mean_overlap_frac,0.7722567287784678,0.8700000000000001,0.09774327122153226,20.0,20.0,20.0,20.0
+ryckewaert,chlorophyll,mutual_info,seeds0-11_mean,"0,1,2,3,4,5,6,7,8,9,10,11",jaccard,|A ∩ N_f| / |A ∪ N_f|,mean_jaccard,0.7722567287784678,0.7735742518351213,0.0013175230566534468,20.0,20.0,20.0,20.0
+deep_patato,chlorophyll,rfe,seed0,0,inter_over_kA,|A ∩ N_f| / |A|,mean_overlap_frac,0.79,0.79,0.0,20.0,20.0,20.0,20.0
+deep_patato,chlorophyll,rfe,seed0,0,inter_over_kA,|A ∩ N_f| / |A|,mean_jaccard,0.79,0.6544927536231884,0.13550724637681166,20.0,20.0,20.0,20.0
+deep_patato,chlorophyll,rfe,seed0,0,inter_over_k,|A ∩ N_f| / k (k = 20),mean_overlap_frac,0.79,0.79,0.0,20.0,20.0,20.0,20.0
+deep_patato,chlorophyll,rfe,seed0,0,inter_over_k,|A ∩ N_f| / k (k = 20),mean_jaccard,0.79,0.6544927536231884,0.13550724637681166,20.0,20.0,20.0,20.0
+deep_patato,chlorophyll,rfe,seed0,0,inter_over_kN,|A ∩ N_f| / |N_f|,mean_overlap_frac,0.79,0.79,0.0,20.0,20.0,20.0,20.0
+deep_patato,chlorophyll,rfe,seed0,0,inter_over_kN,|A ∩ N_f| / |N_f|,mean_jaccard,0.79,0.6544927536231884,0.13550724637681166,20.0,20.0,20.0,20.0
+deep_patato,chlorophyll,rfe,seed0,0,inter_over_max,"|A ∩ N_f| / max(|A|, |N_f|)",mean_overlap_frac,0.79,0.79,0.0,20.0,20.0,20.0,20.0
+deep_patato,chlorophyll,rfe,seed0,0,inter_over_max,"|A ∩ N_f| / max(|A|, |N_f|)",mean_jaccard,0.79,0.6544927536231884,0.13550724637681166,20.0,20.0,20.0,20.0
+deep_patato,chlorophyll,rfe,seed0,0,inter_over_min,"|A ∩ N_f| / min(|A|, |N_f|)",mean_overlap_frac,0.79,0.79,0.0,20.0,20.0,20.0,20.0
+deep_patato,chlorophyll,rfe,seed0,0,inter_over_min,"|A ∩ N_f| / min(|A|, |N_f|)",mean_jaccard,0.79,0.6544927536231884,0.13550724637681166,20.0,20.0,20.0,20.0
+deep_patato,chlorophyll,rfe,seed0,0,jaccard,|A ∩ N_f| / |A ∪ N_f|,mean_overlap_frac,0.6544927536231884,0.79,0.13550724637681166,20.0,20.0,20.0,20.0
+deep_patato,chlorophyll,rfe,seed0,0,jaccard,|A ∩ N_f| / |A ∪ N_f|,mean_jaccard,0.6544927536231884,0.6544927536231884,0.0,20.0,20.0,20.0,20.0
+deep_patato,chlorophyll,rfe,seeds0-11_mean,0,inter_over_kA,|A ∩ N_f| / |A|,mean_overlap_frac,0.79,0.79,0.0,20.0,20.0,20.0,20.0
+deep_patato,chlorophyll,rfe,seeds0-11_mean,0,inter_over_kA,|A ∩ N_f| / |A|,mean_jaccard,0.79,0.6544927536231884,0.13550724637681166,20.0,20.0,20.0,20.0
+deep_patato,chlorophyll,rfe,seeds0-11_mean,0,inter_over_k,|A ∩ N_f| / k (k = 20),mean_overlap_frac,0.79,0.79,0.0,20.0,20.0,20.0,20.0
+deep_patato,chlorophyll,rfe,seeds0-11_mean,0,inter_over_k,|A ∩ N_f| / k (k = 20),mean_jaccard,0.79,0.6544927536231884,0.13550724637681166,20.0,20.0,20.0,20.0
+deep_patato,chlorophyll,rfe,seeds0-11_mean,0,inter_over_kN,|A ∩ N_f| / |N_f|,mean_overlap_frac,0.79,0.79,0.0,20.0,20.0,20.0,20.0
+deep_patato,chlorophyll,rfe,seeds0-11_mean,0,inter_over_kN,|A ∩ N_f| / |N_f|,mean_jaccard,0.79,0.6544927536231884,0.13550724637681166,20.0,20.0,20.0,20.0
+deep_patato,chlorophyll,rfe,seeds0-11_mean,0,inter_over_max,"|A ∩ N_f| / max(|A|, |N_f|)",mean_overlap_frac,0.79,0.79,0.0,20.0,20.0,20.0,20.0
+deep_patato,chlorophyll,rfe,seeds0-11_mean,0,inter_over_max,"|A ∩ N_f| / max(|A|, |N_f|)",mean_jaccard,0.79,0.6544927536231884,0.13550724637681166,20.0,20.0,20.0,20.0
+deep_patato,chlorophyll,rfe,seeds0-11_mean,0,inter_over_min,"|A ∩ N_f| / min(|A|, |N_f|)",mean_overlap_frac,0.79,0.79,0.0,20.0,20.0,20.0,20.0
+deep_patato,chlorophyll,rfe,seeds0-11_mean,0,inter_over_min,"|A ∩ N_f| / min(|A|, |N_f|)",mean_jaccard,0.79,0.6544927536231884,0.13550724637681166,20.0,20.0,20.0,20.0
+deep_patato,chlorophyll,rfe,seeds0-11_mean,0,jaccard,|A ∩ N_f| / |A ∪ N_f|,mean_overlap_frac,0.6544927536231884,0.79,0.13550724637681166,20.0,20.0,20.0,20.0
+deep_patato,chlorophyll,rfe,seeds0-11_mean,0,jaccard,|A ∩ N_f| / |A ∪ N_f|,mean_jaccard,0.6544927536231884,0.6544927536231884,0.0,20.0,20.0,20.0,20.0
+deep_patato,chlorophyll,lasso,seed0,0,inter_over_kA,|A ∩ N_f| / |A|,mean_overlap_frac,0.36,0.36,0.0,20.0,19.0,20.0,19.0
+deep_patato,chlorophyll,lasso,seed0,0,inter_over_kA,|A ∩ N_f| / |A|,mean_jaccard,0.36,0.2302867383512545,0.1297132616487455,20.0,19.0,20.0,19.0
+deep_patato,chlorophyll,lasso,seed0,0,inter_over_k,|A ∩ N_f| / k (k = 20),mean_overlap_frac,0.36,0.36,0.0,20.0,19.0,20.0,19.0
+deep_patato,chlorophyll,lasso,seed0,0,inter_over_k,|A ∩ N_f| / k (k = 20),mean_jaccard,0.36,0.2302867383512545,0.1297132616487455,20.0,19.0,20.0,19.0
+deep_patato,chlorophyll,lasso,seed0,0,inter_over_kN,|A ∩ N_f| / |N_f|,mean_overlap_frac,0.37666666666666665,0.36,0.016666666666666663,20.0,19.0,20.0,19.0
+deep_patato,chlorophyll,lasso,seed0,0,inter_over_kN,|A ∩ N_f| / |N_f|,mean_jaccard,0.37666666666666665,0.2302867383512545,0.14637992831541216,20.0,19.0,20.0,19.0
+deep_patato,chlorophyll,lasso,seed0,0,inter_over_max,"|A ∩ N_f| / max(|A|, |N_f|)",mean_overlap_frac,0.36,0.36,0.0,20.0,19.0,20.0,19.0
+deep_patato,chlorophyll,lasso,seed0,0,inter_over_max,"|A ∩ N_f| / max(|A|, |N_f|)",mean_jaccard,0.36,0.2302867383512545,0.1297132616487455,20.0,19.0,20.0,19.0
+deep_patato,chlorophyll,lasso,seed0,0,inter_over_min,"|A ∩ N_f| / min(|A|, |N_f|)",mean_overlap_frac,0.37666666666666665,0.36,0.016666666666666663,20.0,19.0,20.0,19.0
+deep_patato,chlorophyll,lasso,seed0,0,inter_over_min,"|A ∩ N_f| / min(|A|, |N_f|)",mean_jaccard,0.37666666666666665,0.2302867383512545,0.14637992831541216,20.0,19.0,20.0,19.0
+deep_patato,chlorophyll,lasso,seed0,0,jaccard,|A ∩ N_f| / |A ∪ N_f|,mean_overlap_frac,0.2302867383512545,0.36,0.1297132616487455,20.0,19.0,20.0,19.0
+deep_patato,chlorophyll,lasso,seed0,0,jaccard,|A ∩ N_f| / |A ∪ N_f|,mean_jaccard,0.2302867383512545,0.2302867383512545,0.0,20.0,19.0,20.0,19.0
+deep_patato,chlorophyll,lasso,seeds0-11_mean,0,inter_over_kA,|A ∩ N_f| / |A|,mean_overlap_frac,0.36,0.36,0.0,20.0,19.0,20.0,19.0
+deep_patato,chlorophyll,lasso,seeds0-11_mean,0,inter_over_kA,|A ∩ N_f| / |A|,mean_jaccard,0.36,0.2302867383512545,0.1297132616487455,20.0,19.0,20.0,19.0
+deep_patato,chlorophyll,lasso,seeds0-11_mean,0,inter_over_k,|A ∩ N_f| / k (k = 20),mean_overlap_frac,0.36,0.36,0.0,20.0,19.0,20.0,19.0
+deep_patato,chlorophyll,lasso,seeds0-11_mean,0,inter_over_k,|A ∩ N_f| / k (k = 20),mean_jaccard,0.36,0.2302867383512545,0.1297132616487455,20.0,19.0,20.0,19.0
+deep_patato,chlorophyll,lasso,seeds0-11_mean,0,inter_over_kN,|A ∩ N_f| / |N_f|,mean_overlap_frac,0.37666666666666665,0.36,0.016666666666666663,20.0,19.0,20.0,19.0
+deep_patato,chlorophyll,lasso,seeds0-11_mean,0,inter_over_kN,|A ∩ N_f| / |N_f|,mean_jaccard,0.37666666666666665,0.2302867383512545,0.14637992831541216,20.0,19.0,20.0,19.0
+deep_patato,chlorophyll,lasso,seeds0-11_mean,0,inter_over_max,"|A ∩ N_f| / max(|A|, |N_f|)",mean_overlap_frac,0.36,0.36,0.0,20.0,19.0,20.0,19.0
+deep_patato,chlorophyll,lasso,seeds0-11_mean,0,inter_over_max,"|A ∩ N_f| / max(|A|, |N_f|)",mean_jaccard,0.36,0.2302867383512545,0.1297132616487455,20.0,19.0,20.0,19.0
+deep_patato,chlorophyll,lasso,seeds0-11_mean,0,inter_over_min,"|A ∩ N_f| / min(|A|, |N_f|)",mean_overlap_frac,0.37666666666666665,0.36,0.016666666666666663,20.0,19.0,20.0,19.0
+deep_patato,chlorophyll,lasso,seeds0-11_mean,0,inter_over_min,"|A ∩ N_f| / min(|A|, |N_f|)",mean_jaccard,0.37666666666666665,0.2302867383512545,0.14637992831541216,20.0,19.0,20.0,19.0
+deep_patato,chlorophyll,lasso,seeds0-11_mean,0,jaccard,|A ∩ N_f| / |A ∪ N_f|,mean_overlap_frac,0.2302867383512545,0.36,0.1297132616487455,20.0,19.0,20.0,19.0
+deep_patato,chlorophyll,lasso,seeds0-11_mean,0,jaccard,|A ∩ N_f| / |A ∪ N_f|,mean_jaccard,0.2302867383512545,0.2302867383512545,0.0,20.0,19.0,20.0,19.0
+deep_patato,chlorophyll,mutual_info,seed0,0,inter_over_kA,|A ∩ N_f| / |A|,mean_overlap_frac,0.6,0.6,0.0,20.0,20.0,20.0,20.0
+deep_patato,chlorophyll,mutual_info,seed0,0,inter_over_kA,|A ∩ N_f| / |A|,mean_jaccard,0.6,0.4308450170519135,0.16915498294808645,20.0,20.0,20.0,20.0
+deep_patato,chlorophyll,mutual_info,seed0,0,inter_over_k,|A ∩ N_f| / k (k = 20),mean_overlap_frac,0.6,0.6,0.0,20.0,20.0,20.0,20.0
+deep_patato,chlorophyll,mutual_info,seed0,0,inter_over_k,|A ∩ N_f| / k (k = 20),mean_jaccard,0.6,0.4308450170519135,0.16915498294808645,20.0,20.0,20.0,20.0
+deep_patato,chlorophyll,mutual_info,seed0,0,inter_over_kN,|A ∩ N_f| / |N_f|,mean_overlap_frac,0.6,0.6,0.0,20.0,20.0,20.0,20.0
+deep_patato,chlorophyll,mutual_info,seed0,0,inter_over_kN,|A ∩ N_f| / |N_f|,mean_jaccard,0.6,0.4308450170519135,0.16915498294808645,20.0,20.0,20.0,20.0
+deep_patato,chlorophyll,mutual_info,seed0,0,inter_over_max,"|A ∩ N_f| / max(|A|, |N_f|)",mean_overlap_frac,0.6,0.6,0.0,20.0,20.0,20.0,20.0
+deep_patato,chlorophyll,mutual_info,seed0,0,inter_over_max,"|A ∩ N_f| / max(|A|, |N_f|)",mean_jaccard,0.6,0.4308450170519135,0.16915498294808645,20.0,20.0,20.0,20.0
+deep_patato,chlorophyll,mutual_info,seed0,0,inter_over_min,"|A ∩ N_f| / min(|A|, |N_f|)",mean_overlap_frac,0.6,0.6,0.0,20.0,20.0,20.0,20.0
+deep_patato,chlorophyll,mutual_info,seed0,0,inter_over_min,"|A ∩ N_f| / min(|A|, |N_f|)",mean_jaccard,0.6,0.4308450170519135,0.16915498294808645,20.0,20.0,20.0,20.0
+deep_patato,chlorophyll,mutual_info,seed0,0,jaccard,|A ∩ N_f| / |A ∪ N_f|,mean_overlap_frac,0.4308450170519135,0.6,0.16915498294808645,20.0,20.0,20.0,20.0
+deep_patato,chlorophyll,mutual_info,seed0,0,jaccard,|A ∩ N_f| / |A ∪ N_f|,mean_jaccard,0.4308450170519135,0.4308450170519135,0.0,20.0,20.0,20.0,20.0
+deep_patato,chlorophyll,mutual_info,seeds0-11_mean,"0,1,2,3,4,5,6,7,8,9,10,11",inter_over_kA,|A ∩ N_f| / |A|,mean_overlap_frac,0.6125000000000002,0.6,0.012500000000000178,20.0,20.0,20.0,20.0
+deep_patato,chlorophyll,mutual_info,seeds0-11_mean,"0,1,2,3,4,5,6,7,8,9,10,11",inter_over_kA,|A ∩ N_f| / |A|,mean_jaccard,0.6125000000000002,0.4308450170519135,0.18165498294808663,20.0,20.0,20.0,20.0
+deep_patato,chlorophyll,mutual_info,seeds0-11_mean,"0,1,2,3,4,5,6,7,8,9,10,11",inter_over_k,|A ∩ N_f| / k (k = 20),mean_overlap_frac,0.6125000000000002,0.6,0.012500000000000178,20.0,20.0,20.0,20.0
+deep_patato,chlorophyll,mutual_info,seeds0-11_mean,"0,1,2,3,4,5,6,7,8,9,10,11",inter_over_k,|A ∩ N_f| / k (k = 20),mean_jaccard,0.6125000000000002,0.4308450170519135,0.18165498294808663,20.0,20.0,20.0,20.0
+deep_patato,chlorophyll,mutual_info,seeds0-11_mean,"0,1,2,3,4,5,6,7,8,9,10,11",inter_over_kN,|A ∩ N_f| / |N_f|,mean_overlap_frac,0.6125000000000002,0.6,0.012500000000000178,20.0,20.0,20.0,20.0
+deep_patato,chlorophyll,mutual_info,seeds0-11_mean,"0,1,2,3,4,5,6,7,8,9,10,11",inter_over_kN,|A ∩ N_f| / |N_f|,mean_jaccard,0.6125000000000002,0.4308450170519135,0.18165498294808663,20.0,20.0,20.0,20.0
+deep_patato,chlorophyll,mutual_info,seeds0-11_mean,"0,1,2,3,4,5,6,7,8,9,10,11",inter_over_max,"|A ∩ N_f| / max(|A|, |N_f|)",mean_overlap_frac,0.6125000000000002,0.6,0.012500000000000178,20.0,20.0,20.0,20.0
+deep_patato,chlorophyll,mutual_info,seeds0-11_mean,"0,1,2,3,4,5,6,7,8,9,10,11",inter_over_max,"|A ∩ N_f| / max(|A|, |N_f|)",mean_jaccard,0.6125000000000002,0.4308450170519135,0.18165498294808663,20.0,20.0,20.0,20.0
+deep_patato,chlorophyll,mutual_info,seeds0-11_mean,"0,1,2,3,4,5,6,7,8,9,10,11",inter_over_min,"|A ∩ N_f| / min(|A|, |N_f|)",mean_overlap_frac,0.6125000000000002,0.6,0.012500000000000178,20.0,20.0,20.0,20.0
+deep_patato,chlorophyll,mutual_info,seeds0-11_mean,"0,1,2,3,4,5,6,7,8,9,10,11",inter_over_min,"|A ∩ N_f| / min(|A|, |N_f|)",mean_jaccard,0.6125000000000002,0.4308450170519135,0.18165498294808663,20.0,20.0,20.0,20.0
+deep_patato,chlorophyll,mutual_info,seeds0-11_mean,"0,1,2,3,4,5,6,7,8,9,10,11",jaccard,|A ∩ N_f| / |A ∪ N_f|,mean_overlap_frac,0.44316028798787405,0.6,0.15683971201212593,20.0,20.0,20.0,20.0
+deep_patato,chlorophyll,mutual_info,seeds0-11_mean,"0,1,2,3,4,5,6,7,8,9,10,11",jaccard,|A ∩ N_f| / |A ∪ N_f|,mean_jaccard,0.44316028798787405,0.4308450170519135,0.01231527093596052,20.0,20.0,20.0,20.0

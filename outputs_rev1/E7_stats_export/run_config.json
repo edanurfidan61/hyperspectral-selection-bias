@@ -1,0 +1,48 @@
+{
+  "timestamp": "2026-11-01T11:31:07",
+  "git_commit": "1a9677b2ec8a6cf4e2303220d8ba501e8af63ed3",
+  "git_branch": "revision-1",
+  "git_dirty_files": [
+    "M README.md",
+    " M outputs_rev1/E1_repeated/fold_metrics.csv.gz",
+    " M outputs_rev1/E2_mechanism/fold_metrics.csv.gz",
+    " M outputs_rev1/E5_permutation/permutation_null.csv.gz",
+    " M outputs_rev1/E6_ga/fold_metrics.csv.gz",
+    " M outputs_rev1/E6_ga/logbook.csv.gz",
+    "?? expected_values.json",
+    "?? outputs_rev1/E7_stats_export/",
+    "?? reproduce_revision.py",
+    "?? src/m07_revision/e7_stats_export.py",
+    "?? tests/test_e7_stats.py"
+  ],
+  "command": "python.exe C:\\hyperspectral-selection-bias\\src\\m07_revision\\e7_stats_export.py",
+  "python": "3.11.9 (tags/v3.11.9:de54cf5, Apr  2 2024, 10:12:12) [MSC v.1938 64 bit (AMD64)]",
+  "executable": "C:\\hyperspectral-selection-bias\\.venv\\Scripts\\python.exe",
+  "platform": "Windows-10-10.0.26200-SP0",
+  "cpu_count": 16,
+  "packages": {
+    "numpy": "2.4.6",
+    "scipy": "1.17.1",
+    "scikit-learn": "1.8.0",
+    "pandas": "3.0.3",
+    "lightgbm": "4.6.0",
+    "joblib": "1.5.3",
+    "threadpoolctl": "3.7.0"
+  },
+  "thread_env": {
+    "OMP_NUM_THREADS": "1",
+    "MKL_NUM_THREADS": "1",
+    "OPENBLAS_NUM_THREADS": "1"
+  },
+  "experiment": "E7_stats_export",
+  "mode": "full",
+  "inputs": [
+    "outputs3/tables_foldmean",
+    "outputs_rev1/E0_audit … E6_ga"
+  ],
+  "ga_bootstrap": {
+    "B": 2000,
+    "seed": "derive_seed(base_seed, repeat, -1, 'bootstrap')"
+  },
+  "seconds": 7.8
+}

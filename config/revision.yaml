@@ -1,0 +1,357 @@
+# =============================================================================
+# Revizyon 1 (CHEMOLAB-D-26-00975) — ÖNCEDEN BELİRLENMİŞ grid ve parametreler
+# =============================================================================
+# Kaynak: docs/REVISION_PLAN.md Bölüm 3. Kural §0.3 (R3-84, R3-61): bu dosya
+# koşulardan ÖNCE commit edilir; koşudan sonra DEĞİŞTİRİLMEZ. Değişirse yeni dosya
+# adı + gerekçe outputs_rev1/DEVIATIONS.md'ye yazılır.
+#
+# Terminoloji (§0.8): "apparent" (P2), "nested" (P3), "apparent–nested difference",
+# "selection-scope contrast" (P2−P3), "fold-partitioning contrast" (P1−P2).
+# İşaret: pozitif = apparent daha iyimser (R²: P2−P3; RMSE/MAE: P3−P2) — R3-58.
+# =============================================================================
+
+meta:
+  plan: docs/REVISION_PLAN.md
+  version: 1
+  frozen_before_runs: true
+  deviations_file: outputs_rev1/DEVIATIONS.md
+
+# -----------------------------------------------------------------------------
+# Ortak varsayılanlar (her deney bunları devralır; deney bloğu yalnız farkı yazar)
+# -----------------------------------------------------------------------------
+common:
+  output_root: outputs_rev1
+  sample_level_subdir: samples        # örnek/leaf id içeren dosyalar → git-ignored
+  base_seed: 0                        # derive_seed(base_seed, repeat, fold, selector)
+  seed_mode: derived                  # "fixed" yalnız geriye-uyum kontrolünde
+  n_jobs: null                        # null → os.cpu_count() - 1 (joblib/loky)
+  n_splits: 5
+  split_scheme: group                 # GroupKFold(shuffle=True, random_state=repeat)
+  k: 20
+  primary_metric: r2_foldmean         # birincil; pooled OOF R², RMSE, MAE ayrıca raporlanır
+  report_aggregations: [foldmean, pooled]
+  report_metrics: [r2, rmse, mae]
+  models:
+    primary: pls                      # PLS n_components = min(10, n_selected, n_train-1) (makale)
+    secondary: lightgbm               # n_estimators=100, random_state=42 (makale)
+
+  datasets:
+    ryckewaert:
+      groups: leaf                    # groups_leaf.npy (her leaf ayrı grup)
+      alt_groups: plot                # groups_plot.npy (variety|plotLocation|collectionDate; 10 grup)
+      targets: [flavonol, chlorophyll]
+      n: 204
+      p: 520
+    deep_patato:
+      groups: Field                   # CHESS_FOLDS.CSV Field; 24 Field × 3 örnek
+      targets: [chlorophyll]          # SPAD
+      n: 72
+      p: 150
+
+  combos:                             # veri–hedef çiftleri (her deneyde aynı sıra)
+    - {dataset: ryckewaert, target: flavonol}
+    - {dataset: ryckewaert, target: chlorophyll}
+    - {dataset: deep_patato, target: chlorophyll}
+
+  selectors:                          # varsayılan seçici ayarları (src/m04_features/selectors.py)
+    rfe:         {alpha: 1.0, step: 0.1, scale: false}
+    lasso:       {inner: group, max_iter: 20000, tol: 1.0e-4}   # k = TAVAN
+    mutual_info: {n_neighbors: 3}
+    ga:          {pop: 150, ngen: 150, model_fitness: same_as_model, min_features: 5, clip_fitness_at_zero: true}
+    random_k:    {}
+    none:        {}
+
+# -----------------------------------------------------------------------------
+# E0 — Denetim (koşu gerektirmez): src/m07_revision/audit.py
+# -----------------------------------------------------------------------------
+E0_audit:
+  module: src.m07_revision.audit
+  output: outputs_rev1/E0_audit
+
+# -----------------------------------------------------------------------------
+# E1 — Tekrarlı eşli grup-CV  → R3-4,5,42,52,55,57,62,79,80,85
+# -----------------------------------------------------------------------------
+E1_repeated:
+  module: src.m07_revision.e1_repeated
+  output: outputs_rev1/E1_repeated
+  repeats: 20                          # r = 0..19 → GroupKFold(shuffle=True, random_state=r)
+  split: {scheme: group, n_splits: 5, shuffle: true}
+  selectors: [rfe, lasso, mutual_info] # lasso: inner=group
+  models: [pls, lightgbm]              # tam faktöriyel: 3 combo × 3 seçici × 2 model (R3-79/80)
+  arms: [P1_random, P2_apparent, P3_nested, no_selection, random_k]
+  ga_pls_from: E6_ga.G1                # GA × PLS aynı random_state bölmeleriyle E1 tablolarına eklenir
+  potato_logo:                         # ek: LeaveOneGroupOut (24 Field), test fold = 3 örnek
+    enabled: true
+    report: pooled_only                # fold başına R² tanımsız/kararsız → yalnız pooled R²
+  uncertainty:
+    between_repeats: {stat: mean, percentiles: [2.5, 97.5]}     # bölme değişkenliği
+    group_bootstrap:
+      B: 2000
+      ci: 0.95
+      paired: true                     # apparent ve nested AYNI yeniden örnekleme indeksleriyle
+      on: pooled_oof                   # her tekrarın pooled OOF tahminleri; gruplar yeniden örneklenir
+      across_repeats: median_ci
+      seed: derived                    # derive_seed(base_seed, repeat, -1, "bootstrap")
+      assumption_note: >-
+        Fit edilmiş modeller ve maskeler sabit kabul edilir (koşullu bootstrap);
+        seçim ve model fit belirsizliği bu CI'a dahil değildir.
+  summaries:
+    by: [dataset_target, selector_family]   # medyan Δ (havuz medyanı yerine; R3-5)
+    per_combo_ci: true                       # 16 kombinasyon için grup-bootstrap medyan CI (R3-62)
+  outputs: [summary_by_combo.csv, delta_ci.csv, lasso_truncation.csv, components.csv,
+            samples/folds.csv.gz]
+
+# -----------------------------------------------------------------------------
+# E2 — Mekanizma ayrıştırma  → R3-1,7,43,46,47,67,73,77
+# -----------------------------------------------------------------------------
+E2_mechanism:
+  module: src.m07_revision.e2_mechanism
+  output: outputs_rev1/E2_mechanism
+  repeats: 20                          # E1 ile AYNI bölmeler (aynı random_state)
+  split: {scheme: group, n_splits: 5, shuffle: true}
+  selectors: [rfe, lasso, mutual_info]
+  models: [pls]
+  arms: [P2_apparent, P3_nested, size_matched_leaky, no_selection, random_k]
+  decomposition:                       # Δ_toplam = (P2 − size_matched) + (size_matched − P3)
+    size_matched_groups: n_groups_outer_train   # dış-train ile aynı grup sayısı, tüm veriden rastgele
+  lasso_2x2:                           # R3-7: {α: tüm veri, dış-train} × {destek: tüm veri, dış-train}
+    alpha_source: [all_data, outer_train]
+    support_source: [all_data, outer_train]
+    alpha_selection: LassoCV           # inner=group
+    support_fit: Lasso(alpha)
+  prediction_stability:                # R3-77
+    - oof_prediction_correlation_between_arms
+    - mean_abs_prediction_difference_between_arms
+    - jaccard_fold_masks_vs_apparent_mask
+    - pls_coefficient_similarity_on_shared_features
+  components_distribution: true        # kol bazında PLS bileşen sayısı (R3-47)
+  negative_differences:                # R3-73
+    combos: [{dataset: deep_patato, target: chlorophyll}]
+    selectors: [rfe, mutual_info]
+    report: [fold_level_delta, mask_stability, n_components]
+
+# -----------------------------------------------------------------------------
+# E3 — Önceden belirlenmiş duyarlılık ızgarası  → R3-15,22,23,32,33,35,36,50,84,85,9
+# Her eksen TEK TEK (tam faktöriyel değil); diğer her şey common varsayılanında.
+# -----------------------------------------------------------------------------
+E3_sensitivity:
+  module: src.m07_revision.e3_sensitivity
+  output: outputs_rev1/E3_sensitivity
+  repeats: 10                          # r = 0..9 (E1'in ilk 10 bölmesiyle aynı)
+  selectors: [rfe, lasso, mutual_info]
+  models: [pls]
+  arms: [P2_apparent, P3_nested]
+  axes:
+    k: [5, 10, 20, 40]
+    band_trim:
+      ryckewaert: {spectral_block_keep_nm: [420, 980]}   # snv_R*/d1snv_R* sütunlarında aralık dışı çıkar
+      deep_patato: {drop_first: 10, drop_last: 10}       # ilk/son 10 kanal
+    rfe:
+      alpha: [0.1, 1.0, 10.0]
+      step: [0.05, 0.1, 0.2]           # α × step tam ızgara (9 hücre)
+      scale: [true]                    # ek tek hücre: ölçekli RFE (R3-26)
+    mutual_info:
+      n_neighbors: [3, 5, 10]
+    lasso:
+      uncapped: true                   # k tavanı yok (k = null)
+      inner: [legacy, group]           # R3-33 etkisi
+    representation:
+      ryckewaert: [snv_spectrum_only]  # yalnız snv_R* (204 bant) (R3-15)
+    n_splits: [3, 5, 10]
+    grouping:
+      ryckewaert: [plot]               # groups_plot (10 grup) (R3-9)
+    pls_components:
+      tuned_by: nested_inner_cv        # 1..10, iç GroupKFold(5) (R3-50)
+      grid: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+  outputs: [sensitivity.csv]           # eksen, değer, kombinasyon, seçici, Δ ortalama, persentil aralığı
+
+# -----------------------------------------------------------------------------
+# E4 — Simülasyon  → R3-2,16,64,65,66,67,68
+# -----------------------------------------------------------------------------
+E4_simulation:
+  module: src.m07_revision.e4_simulation
+  output: outputs_rev1/E4_simulation
+  model: pls
+  split: {scheme: random, n_splits: 5}  # simülasyonda grup yok (her örnek bağımsız)
+  s_null:                               # y bağımsız
+    generators:
+      - iid_normal                      # N(0,1)
+      - ledoit_wolf_grapevine           # standardize 520 sütundan Ledoit–Wolf kovaryansı
+      - t3_ledoit_wolf                  # t (df=3), aynı kovaryans
+    t_df: 3
+    selectors: [pearson_topk, rfe, lasso, mutual_info, random_k]
+    n: 204
+    p: 520
+    k: 20
+    repeats: 200
+    reduced_repeats_rule:               # plan: "MI/LASSO yavaşsa 100" — KARAR KURALI koşudan önce sabit
+      selectors: [lasso, mutual_info]
+      reduced_repeats: 100
+      if_projected_wall_time_hours_gt: 3.0   # 1 tekrarlık zaman ölçümünden, n_jobs ile; karar DEVIATIONS.md'ye
+    paired: true                        # aynı X, y, fold'lar her iki kolda; seed'ler kaydedilir
+    ci: 0.95                            # eşli fark %95 CI (R3-68)
+    decomposition: [apparent_minus_random_k, random_k_minus_nested]   # R3-67
+  r3_65_grid:                           # yalnız Pearson (ucuz)
+    selector: pearson_topk
+    n: [50, 100, 204]
+    p: [150, 520]
+    k: [5, 20, 40]
+    repeats: 200
+    generator: iid_normal
+    analytic_baselines:
+      - apparent_r2_from_topk_abs_r_order_statistics   # yarı-normal sıra istatistikleri, r ~ N(0, 1/n)
+      - no_selection_ols_cv_r2_approx_minus_k_over_n_minus_k
+  s_signal:                             # bilinen gerçek (R3-2)
+    generator: ledoit_wolf_grapevine
+    p: 520
+    n_true_features: 10                 # β ~ N(0,1) rastgele 10 öznitelikte, kalan 0
+    population_r2: [0.3, 0.6]
+    n: [72, 204]
+    n_test: 5000                        # her tekrarda bağımsız test kümesi
+    measurement_noise_extra_var: [0.0, 0.1, 0.2]   # y'ye ek gürültü (varyans oranı) (R3-16)
+    selectors: [pearson_topk, rfe, lasso, mutual_info, random_k]
+    k: 20
+    repeats: 100
+    estimands:
+      - theta_n                         # tüm n'de seçilip eğitilen pipeline'ın test R²'si
+      - theta_0.8n                      # 0.8n'de eğitilen pipeline'ınki
+    report:
+      - E[apparent - theta_n]
+      - E[nested - theta_0.8n]
+      - E[nested - theta_n]
+      - corr(delta, apparent - theta_n)
+
+# -----------------------------------------------------------------------------
+# E5 — Permütasyon  → R3-34,70,72
+# -----------------------------------------------------------------------------
+E5_permutation:
+  module: src.m07_revision.e5_permutation
+  output: outputs_rev1/E5_permutation
+  B: 200
+  p_value: "(1 + b) / (B + 1)"          # b = #{perm ≥ observed}; tek yönlü
+  statistic: nested_r2_foldmean
+  split: {scheme: group, n_splits: 5, repeat: 0, shuffle: false}   # makaledeki permütasyonla aynı bölme
+  model: pls
+  selectors: [rfe, lasso, mutual_info]
+  lasso: {inner: group, max_iter: 20000, tol: 1.0e-3, count_convergence_warnings: true}
+  schemes:
+    ryckewaert:
+      - free                            # her leaf ayrı grup → serbest permütasyon
+      - within_plot                     # ek: plot grupları içinde kısıtlı permütasyon
+    deep_patato:
+      - field_block                     # Field başına örnek sayısı eşit (3) → Field bloklarını değiştir;
+                                        # eşit değilse Field içinde permütasyon (kullanılan yazılır)
+  seed: derived                         # derive_seed(base_seed, b, -1, "perm:<scheme>")
+  ga:
+    optional: true                      # E6.G4 ile aynı koşu
+    B: 20
+
+# -----------------------------------------------------------------------------
+# E6 — GA  → R3-27,28,29,39,44,48,74,78
+# -----------------------------------------------------------------------------
+E6_ga:
+  module: src.m07_revision.e6_ga
+  output: outputs_rev1/E6_ga
+  timing_first:                         # ONAY KAPISI: tahmini toplam süre tablosu → onay
+    combo: {dataset: ryckewaert, target: flavonol}
+    model: pls
+    repeats: 1
+    budget: {pop: 150, ngen: 150}
+    candidate_cache: [on, off]
+    requires_approval: true
+  archive:                              # her GA koşusu (R3-78, R3-29) → archive/<run>.npz
+    per_generation: [best_fitness, mean_fitness, std_fitness, cardinality_distribution,
+                     n_unique_candidates_evaluated]
+    final: [population, hall_of_fame_masks, inner_fitness]
+    candidate_cache: mask_hash          # hız + benzersiz aday sayımı
+  adaptive_overfitting: inner_fitness_minus_outer_test_r2   # R3-48
+  variants:
+    G0:                                 # makale başlığını (0.615 / 0.269) yeniden üret + maskeleri arşivle
+      split: {scheme: group, n_splits: 5, repeat: 0, shuffle: false}
+      seed: 0
+      seed_mode: fixed
+      combos: [{dataset: ryckewaert, target: flavonol}]
+      model: pls
+      arms: [P2_apparent, P3_nested]
+      expected: {apparent_r2_foldmean: 0.615, nested_r2_foldmean: 0.269, difference: 0.346}
+    G1:                                 # tekrarlı bölme, tam bütçe (≈ 3–4 sa)
+      repeats: 10                       # r = 0..9, E1 ile aynı random_state
+      split: {scheme: group, n_splits: 5, shuffle: true}
+      combos: all                       # 3 PLS kombinasyonu
+      model: pls
+      arms: [P1_random, P2_apparent, P3_nested]   # R3-44 dahil
+      budget: {pop: 150, ngen: 150}
+    G2:                                 # kardinalite-sabit GA (R3-27, R3-74)
+      k: 20
+      individual: 20_indices
+      crossover: sample_20_from_union
+      mutation: swap_one_in_one_out
+      repeats: 5
+      combos: all
+      model: pls
+      arms: [P2_apparent, P3_nested]
+    G3:                                 # kırpmasız fitness (R3-28)
+      clip_fitness_at_zero: false
+      repeats: 5
+      combos: [{dataset: ryckewaert, target: flavonol}]
+      model: pls
+      arms: [P2_apparent, P3_nested]
+    G4:                                 # GA permütasyonu (E5) — süre kalırsa
+      optional: true
+      B: 20
+      combos: [{dataset: ryckewaert, target: flavonol}]
+      model: pls
+      split: {scheme: group, n_splits: 5, repeat: 0, shuffle: false}
+      budget: {pop: 150, ngen: 150}
+  lightgbm_ga: no_new_runs              # yalnız mevcut 12 seed
+  compute_budget_table:                 # R3-39: seçici başına model fit sayısı
+    ga: n_candidates_evaluated x inner_folds
+    rfe: elimination_rounds
+    lasso: n_alphas x inner_folds
+    mutual_info: 0
+
+# -----------------------------------------------------------------------------
+# E7 — İstatistik ve ek materyal  → R3-51,53,54,59,61,75,76,81,83,86
+# -----------------------------------------------------------------------------
+E7_stats_export:
+  module: src.m07_revision.e7_stats_export
+  output: outputs_rev1/E7_stats_export
+  seed_wilcoxon:                        # mevcut 12 seed (outputs3/tables_foldmean)
+    seeds: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
+    corrections: [none, benjamini_hochberg]
+    family: 8_stochastic_combinations   # GA × 4 + MI × 4 (LASSO/RFE deterministik → test tanımsız)
+  paired_difference_summary: [mean, median, iqr]   # Cliff's δ yerine
+  practical_threshold: null             # 0.02 eşiği KALDIRILDI
+  spearman:                             # R3-75
+    unique_selections: 9
+    mask_preserving_permutation: true
+  metrics_definitions: metrics_definitions.md   # overlap/Jaccard; LASSO < 20 iken payda (R3-76)
+  analysis_roles: analysis_roles.csv            # birincil vs keşifsel (R3-61)
+  reporting_checklist: reporting_checklist.md   # R3-86
+  reproduce:
+    script: reproduce_revision.py
+    expected_values: expected_values.json       # makaledeki sayılarla assert (R3-81)
+
+# -----------------------------------------------------------------------------
+# E8 — README / zenodo.json dili
+# -----------------------------------------------------------------------------
+E8_language:
+  files: [README.md, zenodo.json]
+  replace_terms: [biased, honest, unbiased, systematically inflated, requires nested-CV]
+  with_terms: [apparent, nested, apparent–nested difference, is consistent with, recommend]
+
+# -----------------------------------------------------------------------------
+# Geriye uyum kontrolü (motor ↔ outputs3/tables_foldmean seed 0)
+# -----------------------------------------------------------------------------
+backcompat:
+  module: src.m07_revision.check_backcompat
+  split: {scheme: group, n_splits: 5, repeat: 0, shuffle: false}
+  seed_mode: fixed
+  base_seed: 0
+  combo: {dataset: ryckewaert, target: flavonol}
+  model: pls
+  selectors:
+    rfe: {}
+    lasso: {inner: legacy}
+    mutual_info: {}
+  tolerance_decimals: 3

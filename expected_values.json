@@ -1,0 +1,2583 @@
+{
+  "generated": "2026-11-01T11:28:18",
+  "generator": "python -m src.m07_revision.e7_stats_export --freeze-expected",
+  "note": "manuscript rows are typed from the paper (3 decimals); revision-1 rows are frozen from the 2026-10-31/11-01 runs and must match the revised text",
+  "checks": [
+    {
+      "id": "M1",
+      "description": "headline apparent R² (fold-mean, 12-seed mean)",
+      "file": "outputs3/tables_foldmean/selection_bias_multiseed.csv",
+      "where": {
+        "dataset": "ryckewaert",
+        "target": "flavonol",
+        "model": "pls",
+        "selector": "ga"
+      },
+      "column": "apparent_mean",
+      "expected": 0.615,
+      "tolerance": 0.0005,
+      "source": "manuscript"
+    },
+    {
+      "id": "M2",
+      "description": "headline nested R² (fold-mean, 12-seed mean)",
+      "file": "outputs3/tables_foldmean/selection_bias_multiseed.csv",
+      "where": {
+        "dataset": "ryckewaert",
+        "target": "flavonol",
+        "model": "pls",
+        "selector": "ga"
+      },
+      "column": "nested_mean",
+      "expected": 0.269,
+      "tolerance": 0.0005,
+      "source": "manuscript"
+    },
+    {
+      "id": "M3",
+      "description": "headline apparent–nested difference",
+      "file": "outputs3/tables_foldmean/selection_bias_multiseed.csv",
+      "where": {
+        "dataset": "ryckewaert",
+        "target": "flavonol",
+        "model": "pls",
+        "selector": "ga"
+      },
+      "column": "bias_mean",
+      "expected": 0.346,
+      "tolerance": 0.0005,
+      "source": "manuscript"
+    },
+    {
+      "id": "M4",
+      "description": "headline nested SD over seeds",
+      "file": "outputs3/tables_foldmean/selection_bias_multiseed.csv",
+      "where": {
+        "dataset": "ryckewaert",
+        "target": "flavonol",
+        "model": "pls",
+        "selector": "ga"
+      },
+      "column": "nested_std",
+      "expected": 0.026,
+      "tolerance": 0.0005,
+      "source": "manuscript"
+    },
+    {
+      "id": "M5",
+      "description": "pooled apparent R² (mixed reference)",
+      "file": "outputs3/tables/selection_bias_multiseed.csv",
+      "where": {
+        "dataset": "ryckewaert",
+        "target": "flavonol",
+        "model": "pls",
+        "selector": "ga"
+      },
+      "column": "apparent_mean",
+      "expected": 0.619,
+      "tolerance": 0.0005,
+      "source": "manuscript"
+    },
+    {
+      "id": "M6",
+      "description": "fully pooled difference (Section 4.6)",
+      "file": "outputs3/tables_pooled/selection_bias_pooled.csv",
+      "where": {
+        "dataset": "ryckewaert",
+        "target": "flavonol",
+        "model": "pls",
+        "selector": "ga"
+      },
+      "column": "bias_pooled_mean",
+      "expected": 0.341,
+      "tolerance": 0.0005,
+      "source": "manuscript"
+    },
+    {
+      "id": "P:ryckewaert/flavonol/pls/ga:apparent_r2_foldmean_mean",
+      "description": "primary ryckewaert/flavonol/pls/ga apparent_r2_foldmean_mean",
+      "file": "outputs_rev1/E7_stats_export/primary_table.csv",
+      "where": {
+        "dataset": "ryckewaert",
+        "target": "flavonol",
+        "model": "pls",
+        "selector": "ga"
+      },
+      "column": "apparent_r2_foldmean_mean",
+      "expected": 0.5052660059884029,
+      "tolerance": 0.0005,
+      "source": "revision-1 run"
+    },
+    {
+      "id": "P:ryckewaert/flavonol/pls/ga:nested_r2_foldmean_mean",
+      "description": "primary ryckewaert/flavonol/pls/ga nested_r2_foldmean_mean",
+      "file": "outputs_rev1/E7_stats_export/primary_table.csv",
+      "where": {
+        "dataset": "ryckewaert",
+        "target": "flavonol",
+        "model": "pls",
+        "selector": "ga"
+      },
+      "column": "nested_r2_foldmean_mean",
+      "expected": 0.2683015556583416,
+      "tolerance": 0.0005,
+      "source": "revision-1 run"
+    },
+    {
+      "id": "P:ryckewaert/flavonol/pls/ga:delta_r2_foldmean_median",
+      "description": "primary ryckewaert/flavonol/pls/ga delta_r2_foldmean_median",
+      "file": "outputs_rev1/E7_stats_export/primary_table.csv",
+      "where": {
+        "dataset": "ryckewaert",
+        "target": "flavonol",
+        "model": "pls",
+        "selector": "ga"
+      },
+      "column": "delta_r2_foldmean_median",
+      "expected": 0.2389353821979291,
+      "tolerance": 0.0005,
+      "source": "revision-1 run"
+    },
+    {
+      "id": "P:ryckewaert/flavonol/pls/ga:delta_r2_pooled_median",
+      "description": "primary ryckewaert/flavonol/pls/ga delta_r2_pooled_median",
+      "file": "outputs_rev1/E7_stats_export/primary_table.csv",
+      "where": {
+        "dataset": "ryckewaert",
+        "target": "flavonol",
+        "model": "pls",
+        "selector": "ga"
+      },
+      "column": "delta_r2_pooled_median",
+      "expected": 0.2212849589449095,
+      "tolerance": 0.0005,
+      "source": "revision-1 run"
+    },
+    {
+      "id": "P:ryckewaert/flavonol/pls/ga:boot_delta_r2_pooled_lo_median",
+      "description": "primary ryckewaert/flavonol/pls/ga boot_delta_r2_pooled_lo_median",
+      "file": "outputs_rev1/E7_stats_export/primary_table.csv",
+      "where": {
+        "dataset": "ryckewaert",
+        "target": "flavonol",
+        "model": "pls",
+        "selector": "ga"
+      },
+      "column": "boot_delta_r2_pooled_lo_median",
+      "expected": 0.1062697480958435,
+      "tolerance": 0.0005,
+      "source": "revision-1 run"
+    },
+    {
+      "id": "P:ryckewaert/flavonol/pls/ga:boot_delta_r2_pooled_hi_median",
+      "description": "primary ryckewaert/flavonol/pls/ga boot_delta_r2_pooled_hi_median",
+      "file": "outputs_rev1/E7_stats_export/primary_table.csv",
+      "where": {
+        "dataset": "ryckewaert",
+        "target": "flavonol",
+        "model": "pls",
+        "selector": "ga"
+      },
+      "column": "boot_delta_r2_pooled_hi_median",
+      "expected": 0.3921212010638286,
+      "tolerance": 0.0005,
+      "source": "revision-1 run"
+    },
+    {
+      "id": "P:ryckewaert/flavonol/pls/rfe:apparent_r2_foldmean_mean",
+      "description": "primary ryckewaert/flavonol/pls/rfe apparent_r2_foldmean_mean",
+      "file": "outputs_rev1/E7_stats_export/primary_table.csv",
+      "where": {
+        "dataset": "ryckewaert",
+        "target": "flavonol",
+        "model": "pls",
+        "selector": "rfe"
+      },
+      "column": "apparent_r2_foldmean_mean",
+      "expected": 0.2342621143297006,
+      "tolerance": 0.0005,
+      "source": "revision-1 run"
+    },
+    {
+      "id": "P:ryckewaert/flavonol/pls/rfe:nested_r2_foldmean_mean",
+      "description": "primary ryckewaert/flavonol/pls/rfe nested_r2_foldmean_mean",
+      "file": "outputs_rev1/E7_stats_export/primary_table.csv",
+      "where": {
+        "dataset": "ryckewaert",
+        "target": "flavonol",
+        "model": "pls",
+        "selector": "rfe"
+      },
+      "column": "nested_r2_foldmean_mean",
+      "expected": 0.2631252247124278,
+      "tolerance": 0.0005,
+      "source": "revision-1 run"
+    },
+    {
+      "id": "P:ryckewaert/flavonol/pls/rfe:delta_r2_foldmean_median",
+      "description": "primary ryckewaert/flavonol/pls/rfe delta_r2_foldmean_median",
+      "file": "outputs_rev1/E7_stats_export/primary_table.csv",
+      "where": {
+        "dataset": "ryckewaert",
+        "target": "flavonol",
+        "model": "pls",
+        "selector": "rfe"
+      },
+      "column": "delta_r2_foldmean_median",
+      "expected": -0.0365507563155095,
+      "tolerance": 0.0005,
+      "source": "revision-1 run"
+    },
+    {
+      "id": "P:ryckewaert/flavonol/pls/rfe:delta_r2_pooled_median",
+      "description": "primary ryckewaert/flavonol/pls/rfe delta_r2_pooled_median",
+      "file": "outputs_rev1/E7_stats_export/primary_table.csv",
+      "where": {
+        "dataset": "ryckewaert",
+        "target": "flavonol",
+        "model": "pls",
+        "selector": "rfe"
+      },
+      "column": "delta_r2_pooled_median",
+      "expected": -0.038327908648249,
+      "tolerance": 0.0005,
+      "source": "revision-1 run"
+    },
+    {
+      "id": "P:ryckewaert/flavonol/pls/rfe:boot_delta_r2_pooled_lo_median",
+      "description": "primary ryckewaert/flavonol/pls/rfe boot_delta_r2_pooled_lo_median",
+      "file": "outputs_rev1/E7_stats_export/primary_table.csv",
+      "where": {
+        "dataset": "ryckewaert",
+        "target": "flavonol",
+        "model": "pls",
+        "selector": "rfe"
+      },
+      "column": "boot_delta_r2_pooled_lo_median",
+      "expected": -0.1108252326829635,
+      "tolerance": 0.0005,
+      "source": "revision-1 run"
+    },
+    {
+      "id": "P:ryckewaert/flavonol/pls/rfe:boot_delta_r2_pooled_hi_median",
+      "description": "primary ryckewaert/flavonol/pls/rfe boot_delta_r2_pooled_hi_median",
+      "file": "outputs_rev1/E7_stats_export/primary_table.csv",
+      "where": {
+        "dataset": "ryckewaert",
+        "target": "flavonol",
+        "model": "pls",
+        "selector": "rfe"
+      },
+      "column": "boot_delta_r2_pooled_hi_median",
+      "expected": 0.0447466552581365,
+      "tolerance": 0.0005,
+      "source": "revision-1 run"
+    },
+    {
+      "id": "P:ryckewaert/flavonol/pls/lasso:apparent_r2_foldmean_mean",
+      "description": "primary ryckewaert/flavonol/pls/lasso apparent_r2_foldmean_mean",
+      "file": "outputs_rev1/E7_stats_export/primary_table.csv",
+      "where": {
+        "dataset": "ryckewaert",
+        "target": "flavonol",
+        "model": "pls",
+        "selector": "lasso"
+      },
+      "column": "apparent_r2_foldmean_mean",
+      "expected": 0.540227015327396,
+      "tolerance": 0.0005,
+      "source": "revision-1 run"
+    },
+    {
+      "id": "P:ryckewaert/flavonol/pls/lasso:nested_r2_foldmean_mean",
+      "description": "primary ryckewaert/flavonol/pls/lasso nested_r2_foldmean_mean",
+      "file": "outputs_rev1/E7_stats_export/primary_table.csv",
+      "where": {
+        "dataset": "ryckewaert",
+        "target": "flavonol",
+        "model": "pls",
+        "selector": "lasso"
+      },
+      "column": "nested_r2_foldmean_mean",
+      "expected": 0.3298472504907124,
+      "tolerance": 0.0005,
+      "source": "revision-1 run"
+    },
+    {
+      "id": "P:ryckewaert/flavonol/pls/lasso:delta_r2_foldmean_median",
+      "description": "primary ryckewaert/flavonol/pls/lasso delta_r2_foldmean_median",
+      "file": "outputs_rev1/E7_stats_export/primary_table.csv",
+      "where": {
+        "dataset": "ryckewaert",
+        "target": "flavonol",
+        "model": "pls",
+        "selector": "lasso"
+      },
+      "column": "delta_r2_foldmean_median",
+      "expected": 0.2071792486836762,
+      "tolerance": 0.0005,
+      "source": "revision-1 run"
+    },
+    {
+      "id": "P:ryckewaert/flavonol/pls/lasso:delta_r2_pooled_median",
+      "description": "primary ryckewaert/flavonol/pls/lasso delta_r2_pooled_median",
+      "file": "outputs_rev1/E7_stats_export/primary_table.csv",
+      "where": {
+        "dataset": "ryckewaert",
+        "target": "flavonol",
+        "model": "pls",
+        "selector": "lasso"
+      },
+      "column": "delta_r2_pooled_median",
+      "expected": 0.1979714817533535,
+      "tolerance": 0.0005,
+      "source": "revision-1 run"
+    },
+    {
+      "id": "P:ryckewaert/flavonol/pls/lasso:boot_delta_r2_pooled_lo_median",
+      "description": "primary ryckewaert/flavonol/pls/lasso boot_delta_r2_pooled_lo_median",
+      "file": "outputs_rev1/E7_stats_export/primary_table.csv",
+      "where": {
+        "dataset": "ryckewaert",
+        "target": "flavonol",
+        "model": "pls",
+        "selector": "lasso"
+      },
+      "column": "boot_delta_r2_pooled_lo_median",
+      "expected": 0.1040581849095894,
+      "tolerance": 0.0005,
+      "source": "revision-1 run"
+    },
+    {
+      "id": "P:ryckewaert/flavonol/pls/lasso:boot_delta_r2_pooled_hi_median",
+      "description": "primary ryckewaert/flavonol/pls/lasso boot_delta_r2_pooled_hi_median",
+      "file": "outputs_rev1/E7_stats_export/primary_table.csv",
+      "where": {
+        "dataset": "ryckewaert",
+        "target": "flavonol",
+        "model": "pls",
+        "selector": "lasso"
+      },
+      "column": "boot_delta_r2_pooled_hi_median",
+      "expected": 0.317458210995177,
+      "tolerance": 0.0005,
+      "source": "revision-1 run"
+    },
+    {
+      "id": "P:ryckewaert/flavonol/pls/mutual_info:apparent_r2_foldmean_mean",
+      "description": "primary ryckewaert/flavonol/pls/mutual_info apparent_r2_foldmean_mean",
+      "file": "outputs_rev1/E7_stats_export/primary_table.csv",
+      "where": {
+        "dataset": "ryckewaert",
+        "target": "flavonol",
+        "model": "pls",
+        "selector": "mutual_info"
+      },
+      "column": "apparent_r2_foldmean_mean",
+      "expected": 0.2539461419146765,
+      "tolerance": 0.0005,
+      "source": "revision-1 run"
+    },
+    {
+      "id": "P:ryckewaert/flavonol/pls/mutual_info:nested_r2_foldmean_mean",
+      "description": "primary ryckewaert/flavonol/pls/mutual_info nested_r2_foldmean_mean",
+      "file": "outputs_rev1/E7_stats_export/primary_table.csv",
+      "where": {
+        "dataset": "ryckewaert",
+        "target": "flavonol",
+        "model": "pls",
+        "selector": "mutual_info"
+      },
+      "column": "nested_r2_foldmean_mean",
+      "expected": 0.2263301100315139,
+      "tolerance": 0.0005,
+      "source": "revision-1 run"
+    },
+    {
+      "id": "P:ryckewaert/flavonol/pls/mutual_info:delta_r2_foldmean_median",
+      "description": "primary ryckewaert/flavonol/pls/mutual_info delta_r2_foldmean_median",
+      "file": "outputs_rev1/E7_stats_export/primary_table.csv",
+      "where": {
+        "dataset": "ryckewaert",
+        "target": "flavonol",
+        "model": "pls",
+        "selector": "mutual_info"
+      },
+      "column": "delta_r2_foldmean_median",
+      "expected": 0.0250304496573293,
+      "tolerance": 0.0005,
+      "source": "revision-1 run"
+    },
+    {
+      "id": "P:ryckewaert/flavonol/pls/mutual_info:delta_r2_pooled_median",
+      "description": "primary ryckewaert/flavonol/pls/mutual_info delta_r2_pooled_median",
+      "file": "outputs_rev1/E7_stats_export/primary_table.csv",
+      "where": {
+        "dataset": "ryckewaert",
+        "target": "flavonol",
+        "model": "pls",
+        "selector": "mutual_info"
+      },
+      "column": "delta_r2_pooled_median",
+      "expected": 0.0193900642149633,
+      "tolerance": 0.0005,
+      "source": "revision-1 run"
+    },
+    {
+      "id": "P:ryckewaert/flavonol/pls/mutual_info:boot_delta_r2_pooled_lo_median",
+      "description": "primary ryckewaert/flavonol/pls/mutual_info boot_delta_r2_pooled_lo_median",
+      "file": "outputs_rev1/E7_stats_export/primary_table.csv",
+      "where": {
+        "dataset": "ryckewaert",
+        "target": "flavonol",
+        "model": "pls",
+        "selector": "mutual_info"
+      },
+      "column": "boot_delta_r2_pooled_lo_median",
+      "expected": -0.0598203044938922,
+      "tolerance": 0.0005,
+      "source": "revision-1 run"
+    },
+    {
+      "id": "P:ryckewaert/flavonol/pls/mutual_info:boot_delta_r2_pooled_hi_median",
+      "description": "primary ryckewaert/flavonol/pls/mutual_info boot_delta_r2_pooled_hi_median",
+      "file": "outputs_rev1/E7_stats_export/primary_table.csv",
+      "where": {
+        "dataset": "ryckewaert",
+        "target": "flavonol",
+        "model": "pls",
+        "selector": "mutual_info"
+      },
+      "column": "boot_delta_r2_pooled_hi_median",
+      "expected": 0.1020903440591589,
+      "tolerance": 0.0005,
+      "source": "revision-1 run"
+    },
+    {
+      "id": "P:ryckewaert/flavonol/lightgbm/rfe:apparent_r2_foldmean_mean",
+      "description": "primary ryckewaert/flavonol/lightgbm/rfe apparent_r2_foldmean_mean",
+      "file": "outputs_rev1/E7_stats_export/primary_table.csv",
+      "where": {
+        "dataset": "ryckewaert",
+        "target": "flavonol",
+        "model": "lightgbm",
+        "selector": "rfe"
+      },
+      "column": "apparent_r2_foldmean_mean",
+      "expected": 0.1963060839341307,
+      "tolerance": 0.0005,
+      "source": "revision-1 run"
+    },
+    {
+      "id": "P:ryckewaert/flavonol/lightgbm/rfe:nested_r2_foldmean_mean",
+      "description": "primary ryckewaert/flavonol/lightgbm/rfe nested_r2_foldmean_mean",
+      "file": "outputs_rev1/E7_stats_export/primary_table.csv",
+      "where": {
+        "dataset": "ryckewaert",
+        "target": "flavonol",
+        "model": "lightgbm",
+        "selector": "rfe"
+      },
+      "column": "nested_r2_foldmean_mean",
+      "expected": 0.1402391729284641,
+      "tolerance": 0.0005,
+      "source": "revision-1 run"
+    },
+    {
+      "id": "P:ryckewaert/flavonol/lightgbm/rfe:delta_r2_foldmean_median",
+      "description": "primary ryckewaert/flavonol/lightgbm/rfe delta_r2_foldmean_median",
+      "file": "outputs_rev1/E7_stats_export/primary_table.csv",
+      "where": {
+        "dataset": "ryckewaert",
+        "target": "flavonol",
+        "model": "lightgbm",
+        "selector": "rfe"
+      },
+      "column": "delta_r2_foldmean_median",
+      "expected": 0.0595989676009633,
+      "tolerance": 0.0005,
+      "source": "revision-1 run"
+    },
+    {
+      "id": "P:ryckewaert/flavonol/lightgbm/rfe:delta_r2_pooled_median",
+      "description": "primary ryckewaert/flavonol/lightgbm/rfe delta_r2_pooled_median",
+      "file": "outputs_rev1/E7_stats_export/primary_table.csv",
+      "where": {
+        "dataset": "ryckewaert",
+        "target": "flavonol",
+        "model": "lightgbm",
+        "selector": "rfe"
+      },
+      "column": "delta_r2_pooled_median",
+      "expected": 0.0657815741717938,
+      "tolerance": 0.0005,
+      "source": "revision-1 run"
+    },
+    {
+      "id": "P:ryckewaert/flavonol/lightgbm/rfe:boot_delta_r2_pooled_lo_median",
+      "description": "primary ryckewaert/flavonol/lightgbm/rfe boot_delta_r2_pooled_lo_median",
+      "file": "outputs_rev1/E7_stats_export/primary_table.csv",
+      "where": {
+        "dataset": "ryckewaert",
+        "target": "flavonol",
+        "model": "lightgbm",
+        "selector": "rfe"
+      },
+      "column": "boot_delta_r2_pooled_lo_median",
+      "expected": -0.0338639429132004,
+      "tolerance": 0.0005,
+      "source": "revision-1 run"
+    },
+    {
+      "id": "P:ryckewaert/flavonol/lightgbm/rfe:boot_delta_r2_pooled_hi_median",
+      "description": "primary ryckewaert/flavonol/lightgbm/rfe boot_delta_r2_pooled_hi_median",
+      "file": "outputs_rev1/E7_stats_export/primary_table.csv",
+      "where": {
+        "dataset": "ryckewaert",
+        "target": "flavonol",
+        "model": "lightgbm",
+        "selector": "rfe"
+      },
+      "column": "boot_delta_r2_pooled_hi_median",
+      "expected": 0.161844168334967,
+      "tolerance": 0.0005,
+      "source": "revision-1 run"
+    },
+    {
+      "id": "P:ryckewaert/flavonol/lightgbm/lasso:apparent_r2_foldmean_mean",
+      "description": "primary ryckewaert/flavonol/lightgbm/lasso apparent_r2_foldmean_mean",
+      "file": "outputs_rev1/E7_stats_export/primary_table.csv",
+      "where": {
+        "dataset": "ryckewaert",
+        "target": "flavonol",
+        "model": "lightgbm",
+        "selector": "lasso"
+      },
+      "column": "apparent_r2_foldmean_mean",
+      "expected": 0.3638846990673804,
+      "tolerance": 0.0005,
+      "source": "revision-1 run"
+    },
+    {
+      "id": "P:ryckewaert/flavonol/lightgbm/lasso:nested_r2_foldmean_mean",
+      "description": "primary ryckewaert/flavonol/lightgbm/lasso nested_r2_foldmean_mean",
+      "file": "outputs_rev1/E7_stats_export/primary_table.csv",
+      "where": {
+        "dataset": "ryckewaert",
+        "target": "flavonol",
+        "model": "lightgbm",
+        "selector": "lasso"
+      },
+      "column": "nested_r2_foldmean_mean",
+      "expected": 0.3309980215109351,
+      "tolerance": 0.0005,
+      "source": "revision-1 run"
+    },
+    {
+      "id": "P:ryckewaert/flavonol/lightgbm/lasso:delta_r2_foldmean_median",
+      "description": "primary ryckewaert/flavonol/lightgbm/lasso delta_r2_foldmean_median",
+      "file": "outputs_rev1/E7_stats_export/primary_table.csv",
+      "where": {
+        "dataset": "ryckewaert",
+        "target": "flavonol",
+        "model": "lightgbm",
+        "selector": "lasso"
+      },
+      "column": "delta_r2_foldmean_median",
+      "expected": 0.0264146695978393,
+      "tolerance": 0.0005,
+      "source": "revision-1 run"
+    },
+    {
+      "id": "P:ryckewaert/flavonol/lightgbm/lasso:delta_r2_pooled_median",
+      "description": "primary ryckewaert/flavonol/lightgbm/lasso delta_r2_pooled_median",
+      "file": "outputs_rev1/E7_stats_export/primary_table.csv",
+      "where": {
+        "dataset": "ryckewaert",
+        "target": "flavonol",
+        "model": "lightgbm",
+        "selector": "lasso"
+      },
+      "column": "delta_r2_pooled_median",
+      "expected": 0.0264377027240212,
+      "tolerance": 0.0005,
+      "source": "revision-1 run"
+    },
+    {
+      "id": "P:ryckewaert/flavonol/lightgbm/lasso:boot_delta_r2_pooled_lo_median",
+      "description": "primary ryckewaert/flavonol/lightgbm/lasso boot_delta_r2_pooled_lo_median",
+      "file": "outputs_rev1/E7_stats_export/primary_table.csv",
+      "where": {
+        "dataset": "ryckewaert",
+        "target": "flavonol",
+        "model": "lightgbm",
+        "selector": "lasso"
+      },
+      "column": "boot_delta_r2_pooled_lo_median",
+      "expected": -0.0234977206301039,
+      "tolerance": 0.0005,
+      "source": "revision-1 run"
+    },
+    {
+      "id": "P:ryckewaert/flavonol/lightgbm/lasso:boot_delta_r2_pooled_hi_median",
+      "description": "primary ryckewaert/flavonol/lightgbm/lasso boot_delta_r2_pooled_hi_median",
+      "file": "outputs_rev1/E7_stats_export/primary_table.csv",
+      "where": {
+        "dataset": "ryckewaert",
+        "target": "flavonol",
+        "model": "lightgbm",
+        "selector": "lasso"
+      },
+      "column": "boot_delta_r2_pooled_hi_median",
+      "expected": 0.0857902021660444,
+      "tolerance": 0.0005,
+      "source": "revision-1 run"
+    },
+    {
+      "id": "P:ryckewaert/flavonol/lightgbm/mutual_info:apparent_r2_foldmean_mean",
+      "description": "primary ryckewaert/flavonol/lightgbm/mutual_info apparent_r2_foldmean_mean",
+      "file": "outputs_rev1/E7_stats_export/primary_table.csv",
+      "where": {
+        "dataset": "ryckewaert",
+        "target": "flavonol",
+        "model": "lightgbm",
+        "selector": "mutual_info"
+      },
+      "column": "apparent_r2_foldmean_mean",
+      "expected": 0.2061387666657589,
+      "tolerance": 0.0005,
+      "source": "revision-1 run"
+    },
+    {
+      "id": "P:ryckewaert/flavonol/lightgbm/mutual_info:nested_r2_foldmean_mean",
+      "description": "primary ryckewaert/flavonol/lightgbm/mutual_info nested_r2_foldmean_mean",
+      "file": "outputs_rev1/E7_stats_export/primary_table.csv",
+      "where": {
+        "dataset": "ryckewaert",
+        "target": "flavonol",
+        "model": "lightgbm",
+        "selector": "mutual_info"
+      },
+      "column": "nested_r2_foldmean_mean",
+      "expected": 0.2246936940684069,
+      "tolerance": 0.0005,
+      "source": "revision-1 run"
+    },
+    {
+      "id": "P:ryckewaert/flavonol/lightgbm/mutual_info:delta_r2_foldmean_median",
+      "description": "primary ryckewaert/flavonol/lightgbm/mutual_info delta_r2_foldmean_median",
+      "file": "outputs_rev1/E7_stats_export/primary_table.csv",
+      "where": {
+        "dataset": "ryckewaert",
+        "target": "flavonol",
+        "model": "lightgbm",
+        "selector": "mutual_info"
+      },
+      "column": "delta_r2_foldmean_median",
+      "expected": -0.0225686626907411,
+      "tolerance": 0.0005,
+      "source": "revision-1 run"
+    },
+    {
+      "id": "P:ryckewaert/flavonol/lightgbm/mutual_info:delta_r2_pooled_median",
+      "description": "primary ryckewaert/flavonol/lightgbm/mutual_info delta_r2_pooled_median",
+      "file": "outputs_rev1/E7_stats_export/primary_table.csv",
+      "where": {
+        "dataset": "ryckewaert",
+        "target": "flavonol",
+        "model": "lightgbm",
+        "selector": "mutual_info"
+      },
+      "column": "delta_r2_pooled_median",
+      "expected": -0.0185051797925284,
+      "tolerance": 0.0005,
+      "source": "revision-1 run"
+    },
+    {
+      "id": "P:ryckewaert/flavonol/lightgbm/mutual_info:boot_delta_r2_pooled_lo_median",
+      "description": "primary ryckewaert/flavonol/lightgbm/mutual_info boot_delta_r2_pooled_lo_median",
+      "file": "outputs_rev1/E7_stats_export/primary_table.csv",
+      "where": {
+        "dataset": "ryckewaert",
+        "target": "flavonol",
+        "model": "lightgbm",
+        "selector": "mutual_info"
+      },
+      "column": "boot_delta_r2_pooled_lo_median",
+      "expected": -0.1177316943322984,
+      "tolerance": 0.0005,
+      "source": "revision-1 run"
+    },
+    {
+      "id": "P:ryckewaert/flavonol/lightgbm/mutual_info:boot_delta_r2_pooled_hi_median",
+      "description": "primary ryckewaert/flavonol/lightgbm/mutual_info boot_delta_r2_pooled_hi_median",
+      "file": "outputs_rev1/E7_stats_export/primary_table.csv",
+      "where": {
+        "dataset": "ryckewaert",
+        "target": "flavonol",
+        "model": "lightgbm",
+        "selector": "mutual_info"
+      },
+      "column": "boot_delta_r2_pooled_hi_median",
+      "expected": 0.0812134013253894,
+      "tolerance": 0.0005,
+      "source": "revision-1 run"
+    },
+    {
+      "id": "P:ryckewaert/chlorophyll/pls/ga:apparent_r2_foldmean_mean",
+      "description": "primary ryckewaert/chlorophyll/pls/ga apparent_r2_foldmean_mean",
+      "file": "outputs_rev1/E7_stats_export/primary_table.csv",
+      "where": {
+        "dataset": "ryckewaert",
+        "target": "chlorophyll",
+        "model": "pls",
+        "selector": "ga"
+      },
+      "column": "apparent_r2_foldmean_mean",
+      "expected": 0.8502681123988944,
+      "tolerance": 0.0005,
+      "source": "revision-1 run"
+    },
+    {
+      "id": "P:ryckewaert/chlorophyll/pls/ga:nested_r2_foldmean_mean",
+      "description": "primary ryckewaert/chlorophyll/pls/ga nested_r2_foldmean_mean",
+      "file": "outputs_rev1/E7_stats_export/primary_table.csv",
+      "where": {
+        "dataset": "ryckewaert",
+        "target": "chlorophyll",
+        "model": "pls",
+        "selector": "ga"
+      },
+      "column": "nested_r2_foldmean_mean",
+      "expected": 0.7688565464050117,
+      "tolerance": 0.0005,
+      "source": "revision-1 run"
+    },
+    {
+      "id": "P:ryckewaert/chlorophyll/pls/ga:delta_r2_foldmean_median",
+      "description": "primary ryckewaert/chlorophyll/pls/ga delta_r2_foldmean_median",
+      "file": "outputs_rev1/E7_stats_export/primary_table.csv",
+      "where": {
+        "dataset": "ryckewaert",
+        "target": "chlorophyll",
+        "model": "pls",
+        "selector": "ga"
+      },
+      "column": "delta_r2_foldmean_median",
+      "expected": 0.0732252011931904,
+      "tolerance": 0.0005,
+      "source": "revision-1 run"
+    },
+    {
+      "id": "P:ryckewaert/chlorophyll/pls/ga:delta_r2_pooled_median",
+      "description": "primary ryckewaert/chlorophyll/pls/ga delta_r2_pooled_median",
+      "file": "outputs_rev1/E7_stats_export/primary_table.csv",
+      "where": {
+        "dataset": "ryckewaert",
+        "target": "chlorophyll",
+        "model": "pls",
+        "selector": "ga"
+      },
+      "column": "delta_r2_pooled_median",
+      "expected": 0.0685129657664088,
+      "tolerance": 0.0005,
+      "source": "revision-1 run"
+    },
+    {
+      "id": "P:ryckewaert/chlorophyll/pls/ga:boot_delta_r2_pooled_lo_median",
+      "description": "primary ryckewaert/chlorophyll/pls/ga boot_delta_r2_pooled_lo_median",
+      "file": "outputs_rev1/E7_stats_export/primary_table.csv",
+      "where": {
+        "dataset": "ryckewaert",
+        "target": "chlorophyll",
+        "model": "pls",
+        "selector": "ga"
+      },
+      "column": "boot_delta_r2_pooled_lo_median",
+      "expected": 0.038808474760393,
+      "tolerance": 0.0005,
+      "source": "revision-1 run"
+    },
+    {
+      "id": "P:ryckewaert/chlorophyll/pls/ga:boot_delta_r2_pooled_hi_median",
+      "description": "primary ryckewaert/chlorophyll/pls/ga boot_delta_r2_pooled_hi_median",
+      "file": "outputs_rev1/E7_stats_export/primary_table.csv",
+      "where": {
+        "dataset": "ryckewaert",
+        "target": "chlorophyll",
+        "model": "pls",
+        "selector": "ga"
+      },
+      "column": "boot_delta_r2_pooled_hi_median",
+      "expected": 0.1084086803922857,
+      "tolerance": 0.0005,
+      "source": "revision-1 run"
+    },
+    {
+      "id": "P:ryckewaert/chlorophyll/pls/rfe:apparent_r2_foldmean_mean",
+      "description": "primary ryckewaert/chlorophyll/pls/rfe apparent_r2_foldmean_mean",
+      "file": "outputs_rev1/E7_stats_export/primary_table.csv",
+      "where": {
+        "dataset": "ryckewaert",
+        "target": "chlorophyll",
+        "model": "pls",
+        "selector": "rfe"
+      },
+      "column": "apparent_r2_foldmean_mean",
+      "expected": 0.8469005301504963,
+      "tolerance": 0.0005,
+      "source": "revision-1 run"
+    },
+    {
+      "id": "P:ryckewaert/chlorophyll/pls/rfe:nested_r2_foldmean_mean",
+      "description": "primary ryckewaert/chlorophyll/pls/rfe nested_r2_foldmean_mean",
+      "file": "outputs_rev1/E7_stats_export/primary_table.csv",
+      "where": {
+        "dataset": "ryckewaert",
+        "target": "chlorophyll",
+        "model": "pls",
+        "selector": "rfe"
+      },
+      "column": "nested_r2_foldmean_mean",
+      "expected": 0.8400289777222655,
+      "tolerance": 0.0005,
+      "source": "revision-1 run"
+    },
+    {
+      "id": "P:ryckewaert/chlorophyll/pls/rfe:delta_r2_foldmean_median",
+      "description": "primary ryckewaert/chlorophyll/pls/rfe delta_r2_foldmean_median",
+      "file": "outputs_rev1/E7_stats_export/primary_table.csv",
+      "where": {
+        "dataset": "ryckewaert",
+        "target": "chlorophyll",
+        "model": "pls",
+        "selector": "rfe"
+      },
+      "column": "delta_r2_foldmean_median",
+      "expected": 0.0065007482414297,
+      "tolerance": 0.0005,
+      "source": "revision-1 run"
+    },
+    {
+      "id": "P:ryckewaert/chlorophyll/pls/rfe:delta_r2_pooled_median",
+      "description": "primary ryckewaert/chlorophyll/pls/rfe delta_r2_pooled_median",
+      "file": "outputs_rev1/E7_stats_export/primary_table.csv",
+      "where": {
+        "dataset": "ryckewaert",
+        "target": "chlorophyll",
+        "model": "pls",
+        "selector": "rfe"
+      },
+      "column": "delta_r2_pooled_median",
+      "expected": 0.0059092903409928,
+      "tolerance": 0.0005,
+      "source": "revision-1 run"
+    },
+    {
+      "id": "P:ryckewaert/chlorophyll/pls/rfe:boot_delta_r2_pooled_lo_median",
+      "description": "primary ryckewaert/chlorophyll/pls/rfe boot_delta_r2_pooled_lo_median",
+      "file": "outputs_rev1/E7_stats_export/primary_table.csv",
+      "where": {
+        "dataset": "ryckewaert",
+        "target": "chlorophyll",
+        "model": "pls",
+        "selector": "rfe"
+      },
+      "column": "boot_delta_r2_pooled_lo_median",
+      "expected": -0.0070607446693982,
+      "tolerance": 0.0005,
+      "source": "revision-1 run"
+    },
+    {
+      "id": "P:ryckewaert/chlorophyll/pls/rfe:boot_delta_r2_pooled_hi_median",
+      "description": "primary ryckewaert/chlorophyll/pls/rfe boot_delta_r2_pooled_hi_median",
+      "file": "outputs_rev1/E7_stats_export/primary_table.csv",
+      "where": {
+        "dataset": "ryckewaert",
+        "target": "chlorophyll",
+        "model": "pls",
+        "selector": "rfe"
+      },
+      "column": "boot_delta_r2_pooled_hi_median",
+      "expected": 0.021290289258233,
+      "tolerance": 0.0005,
+      "source": "revision-1 run"
+    },
+    {
+      "id": "P:ryckewaert/chlorophyll/pls/lasso:apparent_r2_foldmean_mean",
+      "description": "primary ryckewaert/chlorophyll/pls/lasso apparent_r2_foldmean_mean",
+      "file": "outputs_rev1/E7_stats_export/primary_table.csv",
+      "where": {
+        "dataset": "ryckewaert",
+        "target": "chlorophyll",
+        "model": "pls",
+        "selector": "lasso"
+      },
+      "column": "apparent_r2_foldmean_mean",
+      "expected": 0.8558569607648001,
+      "tolerance": 0.0005,
+      "source": "revision-1 run"
+    },
+    {
+      "id": "P:ryckewaert/chlorophyll/pls/lasso:nested_r2_foldmean_mean",
+      "description": "primary ryckewaert/chlorophyll/pls/lasso nested_r2_foldmean_mean",
+      "file": "outputs_rev1/E7_stats_export/primary_table.csv",
+      "where": {
+        "dataset": "ryckewaert",
+        "target": "chlorophyll",
+        "model": "pls",
+        "selector": "lasso"
+      },
+      "column": "nested_r2_foldmean_mean",
+      "expected": 0.841191773859531,
+      "tolerance": 0.0005,
+      "source": "revision-1 run"
+    },
+    {
+      "id": "P:ryckewaert/chlorophyll/pls/lasso:delta_r2_foldmean_median",
+      "description": "primary ryckewaert/chlorophyll/pls/lasso delta_r2_foldmean_median",
+      "file": "outputs_rev1/E7_stats_export/primary_table.csv",
+      "where": {
+        "dataset": "ryckewaert",
+        "target": "chlorophyll",
+        "model": "pls",
+        "selector": "lasso"
+      },
+      "column": "delta_r2_foldmean_median",
+      "expected": 0.0146186847474209,
+      "tolerance": 0.0005,
+      "source": "revision-1 run"
+    },
+    {
+      "id": "P:ryckewaert/chlorophyll/pls/lasso:delta_r2_pooled_median",
+      "description": "primary ryckewaert/chlorophyll/pls/lasso delta_r2_pooled_median",
+      "file": "outputs_rev1/E7_stats_export/primary_table.csv",
+      "where": {
+        "dataset": "ryckewaert",
+        "target": "chlorophyll",
+        "model": "pls",
+        "selector": "lasso"
+      },
+      "column": "delta_r2_pooled_median",
+      "expected": 0.0145878678913787,
+      "tolerance": 0.0005,
+      "source": "revision-1 run"
+    },
+    {
+      "id": "P:ryckewaert/chlorophyll/pls/lasso:boot_delta_r2_pooled_lo_median",
+      "description": "primary ryckewaert/chlorophyll/pls/lasso boot_delta_r2_pooled_lo_median",
+      "file": "outputs_rev1/E7_stats_export/primary_table.csv",
+      "where": {
+        "dataset": "ryckewaert",
+        "target": "chlorophyll",
+        "model": "pls",
+        "selector": "lasso"
+      },
+      "column": "boot_delta_r2_pooled_lo_median",
+      "expected": 0.003057564179847,
+      "tolerance": 0.0005,
+      "source": "revision-1 run"
+    },
+    {
+      "id": "P:ryckewaert/chlorophyll/pls/lasso:boot_delta_r2_pooled_hi_median",
+      "description": "primary ryckewaert/chlorophyll/pls/lasso boot_delta_r2_pooled_hi_median",
+      "file": "outputs_rev1/E7_stats_export/primary_table.csv",
+      "where": {
+        "dataset": "ryckewaert",
+        "target": "chlorophyll",
+        "model": "pls",
+        "selector": "lasso"
+      },
+      "column": "boot_delta_r2_pooled_hi_median",
+      "expected": 0.0277549321339859,
+      "tolerance": 0.0005,
+      "source": "revision-1 run"
+    },
+    {
+      "id": "P:ryckewaert/chlorophyll/pls/mutual_info:apparent_r2_foldmean_mean",
+      "description": "primary ryckewaert/chlorophyll/pls/mutual_info apparent_r2_foldmean_mean",
+      "file": "outputs_rev1/E7_stats_export/primary_table.csv",
+      "where": {
+        "dataset": "ryckewaert",
+        "target": "chlorophyll",
+        "model": "pls",
+        "selector": "mutual_info"
+      },
+      "column": "apparent_r2_foldmean_mean",
+      "expected": 0.8452927140258355,
+      "tolerance": 0.0005,
+      "source": "revision-1 run"
+    },
+    {
+      "id": "P:ryckewaert/chlorophyll/pls/mutual_info:nested_r2_foldmean_mean",
+      "description": "primary ryckewaert/chlorophyll/pls/mutual_info nested_r2_foldmean_mean",
+      "file": "outputs_rev1/E7_stats_export/primary_table.csv",
+      "where": {
+        "dataset": "ryckewaert",
+        "target": "chlorophyll",
+        "model": "pls",
+        "selector": "mutual_info"
+      },
+      "column": "nested_r2_foldmean_mean",
+      "expected": 0.8345442581497092,
+      "tolerance": 0.0005,
+      "source": "revision-1 run"
+    },
+    {
+      "id": "P:ryckewaert/chlorophyll/pls/mutual_info:delta_r2_foldmean_median",
+      "description": "primary ryckewaert/chlorophyll/pls/mutual_info delta_r2_foldmean_median",
+      "file": "outputs_rev1/E7_stats_export/primary_table.csv",
+      "where": {
+        "dataset": "ryckewaert",
+        "target": "chlorophyll",
+        "model": "pls",
+        "selector": "mutual_info"
+      },
+      "column": "delta_r2_foldmean_median",
+      "expected": 0.0096553103922842,
+      "tolerance": 0.0005,
+      "source": "revision-1 run"
+    },
+    {
+      "id": "P:ryckewaert/chlorophyll/pls/mutual_info:delta_r2_pooled_median",
+      "description": "primary ryckewaert/chlorophyll/pls/mutual_info delta_r2_pooled_median",
+      "file": "outputs_rev1/E7_stats_export/primary_table.csv",
+      "where": {
+        "dataset": "ryckewaert",
+        "target": "chlorophyll",
+        "model": "pls",
+        "selector": "mutual_info"
+      },
+      "column": "delta_r2_pooled_median",
+      "expected": 0.0089801109173028,
+      "tolerance": 0.0005,
+      "source": "revision-1 run"
+    },
+    {
+      "id": "P:ryckewaert/chlorophyll/pls/mutual_info:boot_delta_r2_pooled_lo_median",
+      "description": "primary ryckewaert/chlorophyll/pls/mutual_info boot_delta_r2_pooled_lo_median",
+      "file": "outputs_rev1/E7_stats_export/primary_table.csv",
+      "where": {
+        "dataset": "ryckewaert",
+        "target": "chlorophyll",
+        "model": "pls",
+        "selector": "mutual_info"
+      },
+      "column": "boot_delta_r2_pooled_lo_median",
+      "expected": 0.0027496282519235,
+      "tolerance": 0.0005,
+      "source": "revision-1 run"
+    },
+    {
+      "id": "P:ryckewaert/chlorophyll/pls/mutual_info:boot_delta_r2_pooled_hi_median",
+      "description": "primary ryckewaert/chlorophyll/pls/mutual_info boot_delta_r2_pooled_hi_median",
+      "file": "outputs_rev1/E7_stats_export/primary_table.csv",
+      "where": {
+        "dataset": "ryckewaert",
+        "target": "chlorophyll",
+        "model": "pls",
+        "selector": "mutual_info"
+      },
+      "column": "boot_delta_r2_pooled_hi_median",
+      "expected": 0.0167613380310157,
+      "tolerance": 0.0005,
+      "source": "revision-1 run"
+    },
+    {
+      "id": "P:ryckewaert/chlorophyll/lightgbm/rfe:apparent_r2_foldmean_mean",
+      "description": "primary ryckewaert/chlorophyll/lightgbm/rfe apparent_r2_foldmean_mean",
+      "file": "outputs_rev1/E7_stats_export/primary_table.csv",
+      "where": {
+        "dataset": "ryckewaert",
+        "target": "chlorophyll",
+        "model": "lightgbm",
+        "selector": "rfe"
+      },
+      "column": "apparent_r2_foldmean_mean",
+      "expected": 0.7992326360233231,
+      "tolerance": 0.0005,
+      "source": "revision-1 run"
+    },
+    {
+      "id": "P:ryckewaert/chlorophyll/lightgbm/rfe:nested_r2_foldmean_mean",
+      "description": "primary ryckewaert/chlorophyll/lightgbm/rfe nested_r2_foldmean_mean",
+      "file": "outputs_rev1/E7_stats_export/primary_table.csv",
+      "where": {
+        "dataset": "ryckewaert",
+        "target": "chlorophyll",
+        "model": "lightgbm",
+        "selector": "rfe"
+      },
+      "column": "nested_r2_foldmean_mean",
+      "expected": 0.806977610360823,
+      "tolerance": 0.0005,
+      "source": "revision-1 run"
+    },
+    {
+      "id": "P:ryckewaert/chlorophyll/lightgbm/rfe:delta_r2_foldmean_median",
+      "description": "primary ryckewaert/chlorophyll/lightgbm/rfe delta_r2_foldmean_median",
+      "file": "outputs_rev1/E7_stats_export/primary_table.csv",
+      "where": {
+        "dataset": "ryckewaert",
+        "target": "chlorophyll",
+        "model": "lightgbm",
+        "selector": "rfe"
+      },
+      "column": "delta_r2_foldmean_median",
+      "expected": -0.00799931502811,
+      "tolerance": 0.0005,
+      "source": "revision-1 run"
+    },
+    {
+      "id": "P:ryckewaert/chlorophyll/lightgbm/rfe:delta_r2_pooled_median",
+      "description": "primary ryckewaert/chlorophyll/lightgbm/rfe delta_r2_pooled_median",
+      "file": "outputs_rev1/E7_stats_export/primary_table.csv",
+      "where": {
+        "dataset": "ryckewaert",
+        "target": "chlorophyll",
+        "model": "lightgbm",
+        "selector": "rfe"
+      },
+      "column": "delta_r2_pooled_median",
+      "expected": -0.0079884208158633,
+      "tolerance": 0.0005,
+      "source": "revision-1 run"
+    },
+    {
+      "id": "P:ryckewaert/chlorophyll/lightgbm/rfe:boot_delta_r2_pooled_lo_median",
+      "description": "primary ryckewaert/chlorophyll/lightgbm/rfe boot_delta_r2_pooled_lo_median",
+      "file": "outputs_rev1/E7_stats_export/primary_table.csv",
+      "where": {
+        "dataset": "ryckewaert",
+        "target": "chlorophyll",
+        "model": "lightgbm",
+        "selector": "rfe"
+      },
+      "column": "boot_delta_r2_pooled_lo_median",
+      "expected": -0.0292191017472922,
+      "tolerance": 0.0005,
+      "source": "revision-1 run"
+    },
+    {
+      "id": "P:ryckewaert/chlorophyll/lightgbm/rfe:boot_delta_r2_pooled_hi_median",
+      "description": "primary ryckewaert/chlorophyll/lightgbm/rfe boot_delta_r2_pooled_hi_median",
+      "file": "outputs_rev1/E7_stats_export/primary_table.csv",
+      "where": {
+        "dataset": "ryckewaert",
+        "target": "chlorophyll",
+        "model": "lightgbm",
+        "selector": "rfe"
+      },
+      "column": "boot_delta_r2_pooled_hi_median",
+      "expected": 0.0122291879289743,
+      "tolerance": 0.0005,
+      "source": "revision-1 run"
+    },
+    {
+      "id": "P:ryckewaert/chlorophyll/lightgbm/lasso:apparent_r2_foldmean_mean",
+      "description": "primary ryckewaert/chlorophyll/lightgbm/lasso apparent_r2_foldmean_mean",
+      "file": "outputs_rev1/E7_stats_export/primary_table.csv",
+      "where": {
+        "dataset": "ryckewaert",
+        "target": "chlorophyll",
+        "model": "lightgbm",
+        "selector": "lasso"
+      },
+      "column": "apparent_r2_foldmean_mean",
+      "expected": 0.8136488812133098,
+      "tolerance": 0.0005,
+      "source": "revision-1 run"
+    },
+    {
+      "id": "P:ryckewaert/chlorophyll/lightgbm/lasso:nested_r2_foldmean_mean",
+      "description": "primary ryckewaert/chlorophyll/lightgbm/lasso nested_r2_foldmean_mean",
+      "file": "outputs_rev1/E7_stats_export/primary_table.csv",
+      "where": {
+        "dataset": "ryckewaert",
+        "target": "chlorophyll",
+        "model": "lightgbm",
+        "selector": "lasso"
+      },
+      "column": "nested_r2_foldmean_mean",
+      "expected": 0.8032162175421081,
+      "tolerance": 0.0005,
+      "source": "revision-1 run"
+    },
+    {
+      "id": "P:ryckewaert/chlorophyll/lightgbm/lasso:delta_r2_foldmean_median",
+      "description": "primary ryckewaert/chlorophyll/lightgbm/lasso delta_r2_foldmean_median",
+      "file": "outputs_rev1/E7_stats_export/primary_table.csv",
+      "where": {
+        "dataset": "ryckewaert",
+        "target": "chlorophyll",
+        "model": "lightgbm",
+        "selector": "lasso"
+      },
+      "column": "delta_r2_foldmean_median",
+      "expected": 0.0104224994239648,
+      "tolerance": 0.0005,
+      "source": "revision-1 run"
+    },
+    {
+      "id": "P:ryckewaert/chlorophyll/lightgbm/lasso:delta_r2_pooled_median",
+      "description": "primary ryckewaert/chlorophyll/lightgbm/lasso delta_r2_pooled_median",
+      "file": "outputs_rev1/E7_stats_export/primary_table.csv",
+      "where": {
+        "dataset": "ryckewaert",
+        "target": "chlorophyll",
+        "model": "lightgbm",
+        "selector": "lasso"
+      },
+      "column": "delta_r2_pooled_median",
+      "expected": 0.0107682158717004,
+      "tolerance": 0.0005,
+      "source": "revision-1 run"
+    },
+    {
+      "id": "P:ryckewaert/chlorophyll/lightgbm/lasso:boot_delta_r2_pooled_lo_median",
+      "description": "primary ryckewaert/chlorophyll/lightgbm/lasso boot_delta_r2_pooled_lo_median",
+      "file": "outputs_rev1/E7_stats_export/primary_table.csv",
+      "where": {
+        "dataset": "ryckewaert",
+        "target": "chlorophyll",
+        "model": "lightgbm",
+        "selector": "lasso"
+      },
+      "column": "boot_delta_r2_pooled_lo_median",
+      "expected": -0.0087651125071155,
+      "tolerance": 0.0005,
+      "source": "revision-1 run"
+    },
+    {
+      "id": "P:ryckewaert/chlorophyll/lightgbm/lasso:boot_delta_r2_pooled_hi_median",
+      "description": "primary ryckewaert/chlorophyll/lightgbm/lasso boot_delta_r2_pooled_hi_median",
+      "file": "outputs_rev1/E7_stats_export/primary_table.csv",
+      "where": {
+        "dataset": "ryckewaert",
+        "target": "chlorophyll",
+        "model": "lightgbm",
+        "selector": "lasso"
+      },
+      "column": "boot_delta_r2_pooled_hi_median",
+      "expected": 0.0328041157293253,
+      "tolerance": 0.0005,
+      "source": "revision-1 run"
+    },
+    {
+      "id": "P:ryckewaert/chlorophyll/lightgbm/mutual_info:apparent_r2_foldmean_mean",
+      "description": "primary ryckewaert/chlorophyll/lightgbm/mutual_info apparent_r2_foldmean_mean",
+      "file": "outputs_rev1/E7_stats_export/primary_table.csv",
+      "where": {
+        "dataset": "ryckewaert",
+        "target": "chlorophyll",
+        "model": "lightgbm",
+        "selector": "mutual_info"
+      },
+      "column": "apparent_r2_foldmean_mean",
+      "expected": 0.8212362240594497,
+      "tolerance": 0.0005,
+      "source": "revision-1 run"
+    },
+    {
+      "id": "P:ryckewaert/chlorophyll/lightgbm/mutual_info:nested_r2_foldmean_mean",
+      "description": "primary ryckewaert/chlorophyll/lightgbm/mutual_info nested_r2_foldmean_mean",
+      "file": "outputs_rev1/E7_stats_export/primary_table.csv",
+      "where": {
+        "dataset": "ryckewaert",
+        "target": "chlorophyll",
+        "model": "lightgbm",
+        "selector": "mutual_info"
+      },
+      "column": "nested_r2_foldmean_mean",
+      "expected": 0.8074365852035503,
+      "tolerance": 0.0005,
+      "source": "revision-1 run"
+    },
+    {
+      "id": "P:ryckewaert/chlorophyll/lightgbm/mutual_info:delta_r2_foldmean_median",
+      "description": "primary ryckewaert/chlorophyll/lightgbm/mutual_info delta_r2_foldmean_median",
+      "file": "outputs_rev1/E7_stats_export/primary_table.csv",
+      "where": {
+        "dataset": "ryckewaert",
+        "target": "chlorophyll",
+        "model": "lightgbm",
+        "selector": "mutual_info"
+      },
+      "column": "delta_r2_foldmean_median",
+      "expected": 0.0153828509454672,
+      "tolerance": 0.0005,
+      "source": "revision-1 run"
+    },
+    {
+      "id": "P:ryckewaert/chlorophyll/lightgbm/mutual_info:delta_r2_pooled_median",
+      "description": "primary ryckewaert/chlorophyll/lightgbm/mutual_info delta_r2_pooled_median",
+      "file": "outputs_rev1/E7_stats_export/primary_table.csv",
+      "where": {
+        "dataset": "ryckewaert",
+        "target": "chlorophyll",
+        "model": "lightgbm",
+        "selector": "mutual_info"
+      },
+      "column": "delta_r2_pooled_median",
+      "expected": 0.013337031564726,
+      "tolerance": 0.0005,
+      "source": "revision-1 run"
+    },
+    {
+      "id": "P:ryckewaert/chlorophyll/lightgbm/mutual_info:boot_delta_r2_pooled_lo_median",
+      "description": "primary ryckewaert/chlorophyll/lightgbm/mutual_info boot_delta_r2_pooled_lo_median",
+      "file": "outputs_rev1/E7_stats_export/primary_table.csv",
+      "where": {
+        "dataset": "ryckewaert",
+        "target": "chlorophyll",
+        "model": "lightgbm",
+        "selector": "mutual_info"
+      },
+      "column": "boot_delta_r2_pooled_lo_median",
+      "expected": -3.966777259287549e-05,
+      "tolerance": 0.0005,
+      "source": "revision-1 run"
+    },
+    {
+      "id": "P:ryckewaert/chlorophyll/lightgbm/mutual_info:boot_delta_r2_pooled_hi_median",
+      "description": "primary ryckewaert/chlorophyll/lightgbm/mutual_info boot_delta_r2_pooled_hi_median",
+      "file": "outputs_rev1/E7_stats_export/primary_table.csv",
+      "where": {
+        "dataset": "ryckewaert",
+        "target": "chlorophyll",
+        "model": "lightgbm",
+        "selector": "mutual_info"
+      },
+      "column": "boot_delta_r2_pooled_hi_median",
+      "expected": 0.0272854061385744,
+      "tolerance": 0.0005,
+      "source": "revision-1 run"
+    },
+    {
+      "id": "P:deep_patato/chlorophyll/pls/ga:apparent_r2_foldmean_mean",
+      "description": "primary deep_patato/chlorophyll/pls/ga apparent_r2_foldmean_mean",
+      "file": "outputs_rev1/E7_stats_export/primary_table.csv",
+      "where": {
+        "dataset": "deep_patato",
+        "target": "chlorophyll",
+        "model": "pls",
+        "selector": "ga"
+      },
+      "column": "apparent_r2_foldmean_mean",
+      "expected": 0.4752286064584052,
+      "tolerance": 0.0005,
+      "source": "revision-1 run"
+    },
+    {
+      "id": "P:deep_patato/chlorophyll/pls/ga:nested_r2_foldmean_mean",
+      "description": "primary deep_patato/chlorophyll/pls/ga nested_r2_foldmean_mean",
+      "file": "outputs_rev1/E7_stats_export/primary_table.csv",
+      "where": {
+        "dataset": "deep_patato",
+        "target": "chlorophyll",
+        "model": "pls",
+        "selector": "ga"
+      },
+      "column": "nested_r2_foldmean_mean",
+      "expected": -0.0287303279658389,
+      "tolerance": 0.0005,
+      "source": "revision-1 run"
+    },
+    {
+      "id": "P:deep_patato/chlorophyll/pls/ga:delta_r2_foldmean_median",
+      "description": "primary deep_patato/chlorophyll/pls/ga delta_r2_foldmean_median",
+      "file": "outputs_rev1/E7_stats_export/primary_table.csv",
+      "where": {
+        "dataset": "deep_patato",
+        "target": "chlorophyll",
+        "model": "pls",
+        "selector": "ga"
+      },
+      "column": "delta_r2_foldmean_median",
+      "expected": 0.3754571477820805,
+      "tolerance": 0.0005,
+      "source": "revision-1 run"
+    },
+    {
+      "id": "P:deep_patato/chlorophyll/pls/ga:delta_r2_pooled_median",
+      "description": "primary deep_patato/chlorophyll/pls/ga delta_r2_pooled_median",
+      "file": "outputs_rev1/E7_stats_export/primary_table.csv",
+      "where": {
+        "dataset": "deep_patato",
+        "target": "chlorophyll",
+        "model": "pls",
+        "selector": "ga"
+      },
+      "column": "delta_r2_pooled_median",
+      "expected": 0.268685902897365,
+      "tolerance": 0.0005,
+      "source": "revision-1 run"
+    },
+    {
+      "id": "P:deep_patato/chlorophyll/pls/ga:boot_delta_r2_pooled_lo_median",
+      "description": "primary deep_patato/chlorophyll/pls/ga boot_delta_r2_pooled_lo_median",
+      "file": "outputs_rev1/E7_stats_export/primary_table.csv",
+      "where": {
+        "dataset": "deep_patato",
+        "target": "chlorophyll",
+        "model": "pls",
+        "selector": "ga"
+      },
+      "column": "boot_delta_r2_pooled_lo_median",
+      "expected": 0.1317638099486084,
+      "tolerance": 0.0005,
+      "source": "revision-1 run"
+    },
+    {
+      "id": "P:deep_patato/chlorophyll/pls/ga:boot_delta_r2_pooled_hi_median",
+      "description": "primary deep_patato/chlorophyll/pls/ga boot_delta_r2_pooled_hi_median",
+      "file": "outputs_rev1/E7_stats_export/primary_table.csv",
+      "where": {
+        "dataset": "deep_patato",
+        "target": "chlorophyll",
+        "model": "pls",
+        "selector": "ga"
+      },
+      "column": "boot_delta_r2_pooled_hi_median",
+      "expected": 0.4474360567907716,
+      "tolerance": 0.0005,
+      "source": "revision-1 run"
+    },
+    {
+      "id": "P:deep_patato/chlorophyll/pls/rfe:apparent_r2_foldmean_mean",
+      "description": "primary deep_patato/chlorophyll/pls/rfe apparent_r2_foldmean_mean",
+      "file": "outputs_rev1/E7_stats_export/primary_table.csv",
+      "where": {
+        "dataset": "deep_patato",
+        "target": "chlorophyll",
+        "model": "pls",
+        "selector": "rfe"
+      },
+      "column": "apparent_r2_foldmean_mean",
+      "expected": 0.3201191540608553,
+      "tolerance": 0.0005,
+      "source": "revision-1 run"
+    },
+    {
+      "id": "P:deep_patato/chlorophyll/pls/rfe:nested_r2_foldmean_mean",
+      "description": "primary deep_patato/chlorophyll/pls/rfe nested_r2_foldmean_mean",
+      "file": "outputs_rev1/E7_stats_export/primary_table.csv",
+      "where": {
+        "dataset": "deep_patato",
+        "target": "chlorophyll",
+        "model": "pls",
+        "selector": "rfe"
+      },
+      "column": "nested_r2_foldmean_mean",
+      "expected": 0.4180991031121046,
+      "tolerance": 0.0005,
+      "source": "revision-1 run"
+    },
+    {
+      "id": "P:deep_patato/chlorophyll/pls/rfe:delta_r2_foldmean_median",
+      "description": "primary deep_patato/chlorophyll/pls/rfe delta_r2_foldmean_median",
+      "file": "outputs_rev1/E7_stats_export/primary_table.csv",
+      "where": {
+        "dataset": "deep_patato",
+        "target": "chlorophyll",
+        "model": "pls",
+        "selector": "rfe"
+      },
+      "column": "delta_r2_foldmean_median",
+      "expected": -0.0806123311826672,
+      "tolerance": 0.0005,
+      "source": "revision-1 run"
+    },
+    {
+      "id": "P:deep_patato/chlorophyll/pls/rfe:delta_r2_pooled_median",
+      "description": "primary deep_patato/chlorophyll/pls/rfe delta_r2_pooled_median",
+      "file": "outputs_rev1/E7_stats_export/primary_table.csv",
+      "where": {
+        "dataset": "deep_patato",
+        "target": "chlorophyll",
+        "model": "pls",
+        "selector": "rfe"
+      },
+      "column": "delta_r2_pooled_median",
+      "expected": -0.0519145411964171,
+      "tolerance": 0.0005,
+      "source": "revision-1 run"
+    },
+    {
+      "id": "P:deep_patato/chlorophyll/pls/rfe:boot_delta_r2_pooled_lo_median",
+      "description": "primary deep_patato/chlorophyll/pls/rfe boot_delta_r2_pooled_lo_median",
+      "file": "outputs_rev1/E7_stats_export/primary_table.csv",
+      "where": {
+        "dataset": "deep_patato",
+        "target": "chlorophyll",
+        "model": "pls",
+        "selector": "rfe"
+      },
+      "column": "boot_delta_r2_pooled_lo_median",
+      "expected": -0.1478063019495441,
+      "tolerance": 0.0005,
+      "source": "revision-1 run"
+    },
+    {
+      "id": "P:deep_patato/chlorophyll/pls/rfe:boot_delta_r2_pooled_hi_median",
+      "description": "primary deep_patato/chlorophyll/pls/rfe boot_delta_r2_pooled_hi_median",
+      "file": "outputs_rev1/E7_stats_export/primary_table.csv",
+      "where": {
+        "dataset": "deep_patato",
+        "target": "chlorophyll",
+        "model": "pls",
+        "selector": "rfe"
+      },
+      "column": "boot_delta_r2_pooled_hi_median",
+      "expected": 0.0247680018242758,
+      "tolerance": 0.0005,
+      "source": "revision-1 run"
+    },
+    {
+      "id": "P:deep_patato/chlorophyll/pls/lasso:apparent_r2_foldmean_mean",
+      "description": "primary deep_patato/chlorophyll/pls/lasso apparent_r2_foldmean_mean",
+      "file": "outputs_rev1/E7_stats_export/primary_table.csv",
+      "where": {
+        "dataset": "deep_patato",
+        "target": "chlorophyll",
+        "model": "pls",
+        "selector": "lasso"
+      },
+      "column": "apparent_r2_foldmean_mean",
+      "expected": 0.4573562762556683,
+      "tolerance": 0.0005,
+      "source": "revision-1 run"
+    },
+    {
+      "id": "P:deep_patato/chlorophyll/pls/lasso:nested_r2_foldmean_mean",
+      "description": "primary deep_patato/chlorophyll/pls/lasso nested_r2_foldmean_mean",
+      "file": "outputs_rev1/E7_stats_export/primary_table.csv",
+      "where": {
+        "dataset": "deep_patato",
+        "target": "chlorophyll",
+        "model": "pls",
+        "selector": "lasso"
+      },
+      "column": "nested_r2_foldmean_mean",
+      "expected": 0.1792993548672903,
+      "tolerance": 0.0005,
+      "source": "revision-1 run"
+    },
+    {
+      "id": "P:deep_patato/chlorophyll/pls/lasso:delta_r2_foldmean_median",
+      "description": "primary deep_patato/chlorophyll/pls/lasso delta_r2_foldmean_median",
+      "file": "outputs_rev1/E7_stats_export/primary_table.csv",
+      "where": {
+        "dataset": "deep_patato",
+        "target": "chlorophyll",
+        "model": "pls",
+        "selector": "lasso"
+      },
+      "column": "delta_r2_foldmean_median",
+      "expected": 0.1343957896221206,
+      "tolerance": 0.0005,
+      "source": "revision-1 run"
+    },
+    {
+      "id": "P:deep_patato/chlorophyll/pls/lasso:delta_r2_pooled_median",
+      "description": "primary deep_patato/chlorophyll/pls/lasso delta_r2_pooled_median",
+      "file": "outputs_rev1/E7_stats_export/primary_table.csv",
+      "where": {
+        "dataset": "deep_patato",
+        "target": "chlorophyll",
+        "model": "pls",
+        "selector": "lasso"
+      },
+      "column": "delta_r2_pooled_median",
+      "expected": 0.1244310121314761,
+      "tolerance": 0.0005,
+      "source": "revision-1 run"
+    },
+    {
+      "id": "P:deep_patato/chlorophyll/pls/lasso:boot_delta_r2_pooled_lo_median",
+      "description": "primary deep_patato/chlorophyll/pls/lasso boot_delta_r2_pooled_lo_median",
+      "file": "outputs_rev1/E7_stats_export/primary_table.csv",
+      "where": {
+        "dataset": "deep_patato",
+        "target": "chlorophyll",
+        "model": "pls",
+        "selector": "lasso"
+      },
+      "column": "boot_delta_r2_pooled_lo_median",
+      "expected": 0.0458812123741247,
+      "tolerance": 0.0005,
+      "source": "revision-1 run"
+    },
+    {
+      "id": "P:deep_patato/chlorophyll/pls/lasso:boot_delta_r2_pooled_hi_median",
+      "description": "primary deep_patato/chlorophyll/pls/lasso boot_delta_r2_pooled_hi_median",
+      "file": "outputs_rev1/E7_stats_export/primary_table.csv",
+      "where": {
+        "dataset": "deep_patato",
+        "target": "chlorophyll",
+        "model": "pls",
+        "selector": "lasso"
+      },
+      "column": "boot_delta_r2_pooled_hi_median",
+      "expected": 0.2266179953815343,
+      "tolerance": 0.0005,
+      "source": "revision-1 run"
+    },
+    {
+      "id": "P:deep_patato/chlorophyll/pls/mutual_info:apparent_r2_foldmean_mean",
+      "description": "primary deep_patato/chlorophyll/pls/mutual_info apparent_r2_foldmean_mean",
+      "file": "outputs_rev1/E7_stats_export/primary_table.csv",
+      "where": {
+        "dataset": "deep_patato",
+        "target": "chlorophyll",
+        "model": "pls",
+        "selector": "mutual_info"
+      },
+      "column": "apparent_r2_foldmean_mean",
+      "expected": 0.4213726611858222,
+      "tolerance": 0.0005,
+      "source": "revision-1 run"
+    },
+    {
+      "id": "P:deep_patato/chlorophyll/pls/mutual_info:nested_r2_foldmean_mean",
+      "description": "primary deep_patato/chlorophyll/pls/mutual_info nested_r2_foldmean_mean",
+      "file": "outputs_rev1/E7_stats_export/primary_table.csv",
+      "where": {
+        "dataset": "deep_patato",
+        "target": "chlorophyll",
+        "model": "pls",
+        "selector": "mutual_info"
+      },
+      "column": "nested_r2_foldmean_mean",
+      "expected": 0.3208935470387172,
+      "tolerance": 0.0005,
+      "source": "revision-1 run"
+    },
+    {
+      "id": "P:deep_patato/chlorophyll/pls/mutual_info:delta_r2_foldmean_median",
+      "description": "primary deep_patato/chlorophyll/pls/mutual_info delta_r2_foldmean_median",
+      "file": "outputs_rev1/E7_stats_export/primary_table.csv",
+      "where": {
+        "dataset": "deep_patato",
+        "target": "chlorophyll",
+        "model": "pls",
+        "selector": "mutual_info"
+      },
+      "column": "delta_r2_foldmean_median",
+      "expected": 0.0470635860927944,
+      "tolerance": 0.0005,
+      "source": "revision-1 run"
+    },
+    {
+      "id": "P:deep_patato/chlorophyll/pls/mutual_info:delta_r2_pooled_median",
+      "description": "primary deep_patato/chlorophyll/pls/mutual_info delta_r2_pooled_median",
+      "file": "outputs_rev1/E7_stats_export/primary_table.csv",
+      "where": {
+        "dataset": "deep_patato",
+        "target": "chlorophyll",
+        "model": "pls",
+        "selector": "mutual_info"
+      },
+      "column": "delta_r2_pooled_median",
+      "expected": 0.0472100711697109,
+      "tolerance": 0.0005,
+      "source": "revision-1 run"
+    },
+    {
+      "id": "P:deep_patato/chlorophyll/pls/mutual_info:boot_delta_r2_pooled_lo_median",
+      "description": "primary deep_patato/chlorophyll/pls/mutual_info boot_delta_r2_pooled_lo_median",
+      "file": "outputs_rev1/E7_stats_export/primary_table.csv",
+      "where": {
+        "dataset": "deep_patato",
+        "target": "chlorophyll",
+        "model": "pls",
+        "selector": "mutual_info"
+      },
+      "column": "boot_delta_r2_pooled_lo_median",
+      "expected": -0.0331341887326084,
+      "tolerance": 0.0005,
+      "source": "revision-1 run"
+    },
+    {
+      "id": "P:deep_patato/chlorophyll/pls/mutual_info:boot_delta_r2_pooled_hi_median",
+      "description": "primary deep_patato/chlorophyll/pls/mutual_info boot_delta_r2_pooled_hi_median",
+      "file": "outputs_rev1/E7_stats_export/primary_table.csv",
+      "where": {
+        "dataset": "deep_patato",
+        "target": "chlorophyll",
+        "model": "pls",
+        "selector": "mutual_info"
+      },
+      "column": "boot_delta_r2_pooled_hi_median",
+      "expected": 0.1366015321645858,
+      "tolerance": 0.0005,
+      "source": "revision-1 run"
+    },
+    {
+      "id": "P:deep_patato/chlorophyll/lightgbm/rfe:apparent_r2_foldmean_mean",
+      "description": "primary deep_patato/chlorophyll/lightgbm/rfe apparent_r2_foldmean_mean",
+      "file": "outputs_rev1/E7_stats_export/primary_table.csv",
+      "where": {
+        "dataset": "deep_patato",
+        "target": "chlorophyll",
+        "model": "lightgbm",
+        "selector": "rfe"
+      },
+      "column": "apparent_r2_foldmean_mean",
+      "expected": -0.16965202983464,
+      "tolerance": 0.0005,
+      "source": "revision-1 run"
+    },
+    {
+      "id": "P:deep_patato/chlorophyll/lightgbm/rfe:nested_r2_foldmean_mean",
+      "description": "primary deep_patato/chlorophyll/lightgbm/rfe nested_r2_foldmean_mean",
+      "file": "outputs_rev1/E7_stats_export/primary_table.csv",
+      "where": {
+        "dataset": "deep_patato",
+        "target": "chlorophyll",
+        "model": "lightgbm",
+        "selector": "rfe"
+      },
+      "column": "nested_r2_foldmean_mean",
+      "expected": -0.1609050136804308,
+      "tolerance": 0.0005,
+      "source": "revision-1 run"
+    },
+    {
+      "id": "P:deep_patato/chlorophyll/lightgbm/rfe:delta_r2_foldmean_median",
+      "description": "primary deep_patato/chlorophyll/lightgbm/rfe delta_r2_foldmean_median",
+      "file": "outputs_rev1/E7_stats_export/primary_table.csv",
+      "where": {
+        "dataset": "deep_patato",
+        "target": "chlorophyll",
+        "model": "lightgbm",
+        "selector": "rfe"
+      },
+      "column": "delta_r2_foldmean_median",
+      "expected": -0.0036449246774541,
+      "tolerance": 0.0005,
+      "source": "revision-1 run"
+    },
+    {
+      "id": "P:deep_patato/chlorophyll/lightgbm/rfe:delta_r2_pooled_median",
+      "description": "primary deep_patato/chlorophyll/lightgbm/rfe delta_r2_pooled_median",
+      "file": "outputs_rev1/E7_stats_export/primary_table.csv",
+      "where": {
+        "dataset": "deep_patato",
+        "target": "chlorophyll",
+        "model": "lightgbm",
+        "selector": "rfe"
+      },
+      "column": "delta_r2_pooled_median",
+      "expected": -0.0074306681320858,
+      "tolerance": 0.0005,
+      "source": "revision-1 run"
+    },
+    {
+      "id": "P:deep_patato/chlorophyll/lightgbm/rfe:boot_delta_r2_pooled_lo_median",
+      "description": "primary deep_patato/chlorophyll/lightgbm/rfe boot_delta_r2_pooled_lo_median",
+      "file": "outputs_rev1/E7_stats_export/primary_table.csv",
+      "where": {
+        "dataset": "deep_patato",
+        "target": "chlorophyll",
+        "model": "lightgbm",
+        "selector": "rfe"
+      },
+      "column": "boot_delta_r2_pooled_lo_median",
+      "expected": -0.0643441882119378,
+      "tolerance": 0.0005,
+      "source": "revision-1 run"
+    },
+    {
+      "id": "P:deep_patato/chlorophyll/lightgbm/rfe:boot_delta_r2_pooled_hi_median",
+      "description": "primary deep_patato/chlorophyll/lightgbm/rfe boot_delta_r2_pooled_hi_median",
+      "file": "outputs_rev1/E7_stats_export/primary_table.csv",
+      "where": {
+        "dataset": "deep_patato",
+        "target": "chlorophyll",
+        "model": "lightgbm",
+        "selector": "rfe"
+      },
+      "column": "boot_delta_r2_pooled_hi_median",
+      "expected": 0.0521176349696775,
+      "tolerance": 0.0005,
+      "source": "revision-1 run"
+    },
+    {
+      "id": "P:deep_patato/chlorophyll/lightgbm/lasso:apparent_r2_foldmean_mean",
+      "description": "primary deep_patato/chlorophyll/lightgbm/lasso apparent_r2_foldmean_mean",
+      "file": "outputs_rev1/E7_stats_export/primary_table.csv",
+      "where": {
+        "dataset": "deep_patato",
+        "target": "chlorophyll",
+        "model": "lightgbm",
+        "selector": "lasso"
+      },
+      "column": "apparent_r2_foldmean_mean",
+      "expected": 0.1442052397567696,
+      "tolerance": 0.0005,
+      "source": "revision-1 run"
+    },
+    {
+      "id": "P:deep_patato/chlorophyll/lightgbm/lasso:nested_r2_foldmean_mean",
+      "description": "primary deep_patato/chlorophyll/lightgbm/lasso nested_r2_foldmean_mean",
+      "file": "outputs_rev1/E7_stats_export/primary_table.csv",
+      "where": {
+        "dataset": "deep_patato",
+        "target": "chlorophyll",
+        "model": "lightgbm",
+        "selector": "lasso"
+      },
+      "column": "nested_r2_foldmean_mean",
+      "expected": -0.0563662705664148,
+      "tolerance": 0.0005,
+      "source": "revision-1 run"
+    },
+    {
+      "id": "P:deep_patato/chlorophyll/lightgbm/lasso:delta_r2_foldmean_median",
+      "description": "primary deep_patato/chlorophyll/lightgbm/lasso delta_r2_foldmean_median",
+      "file": "outputs_rev1/E7_stats_export/primary_table.csv",
+      "where": {
+        "dataset": "deep_patato",
+        "target": "chlorophyll",
+        "model": "lightgbm",
+        "selector": "lasso"
+      },
+      "column": "delta_r2_foldmean_median",
+      "expected": 0.1146553184924203,
+      "tolerance": 0.0005,
+      "source": "revision-1 run"
+    },
+    {
+      "id": "P:deep_patato/chlorophyll/lightgbm/lasso:delta_r2_pooled_median",
+      "description": "primary deep_patato/chlorophyll/lightgbm/lasso delta_r2_pooled_median",
+      "file": "outputs_rev1/E7_stats_export/primary_table.csv",
+      "where": {
+        "dataset": "deep_patato",
+        "target": "chlorophyll",
+        "model": "lightgbm",
+        "selector": "lasso"
+      },
+      "column": "delta_r2_pooled_median",
+      "expected": 0.0809752159467895,
+      "tolerance": 0.0005,
+      "source": "revision-1 run"
+    },
+    {
+      "id": "P:deep_patato/chlorophyll/lightgbm/lasso:boot_delta_r2_pooled_lo_median",
+      "description": "primary deep_patato/chlorophyll/lightgbm/lasso boot_delta_r2_pooled_lo_median",
+      "file": "outputs_rev1/E7_stats_export/primary_table.csv",
+      "where": {
+        "dataset": "deep_patato",
+        "target": "chlorophyll",
+        "model": "lightgbm",
+        "selector": "lasso"
+      },
+      "column": "boot_delta_r2_pooled_lo_median",
+      "expected": 0.0020209437018383,
+      "tolerance": 0.0005,
+      "source": "revision-1 run"
+    },
+    {
+      "id": "P:deep_patato/chlorophyll/lightgbm/lasso:boot_delta_r2_pooled_hi_median",
+      "description": "primary deep_patato/chlorophyll/lightgbm/lasso boot_delta_r2_pooled_hi_median",
+      "file": "outputs_rev1/E7_stats_export/primary_table.csv",
+      "where": {
+        "dataset": "deep_patato",
+        "target": "chlorophyll",
+        "model": "lightgbm",
+        "selector": "lasso"
+      },
+      "column": "boot_delta_r2_pooled_hi_median",
+      "expected": 0.2087381209225645,
+      "tolerance": 0.0005,
+      "source": "revision-1 run"
+    },
+    {
+      "id": "P:deep_patato/chlorophyll/lightgbm/mutual_info:apparent_r2_foldmean_mean",
+      "description": "primary deep_patato/chlorophyll/lightgbm/mutual_info apparent_r2_foldmean_mean",
+      "file": "outputs_rev1/E7_stats_export/primary_table.csv",
+      "where": {
+        "dataset": "deep_patato",
+        "target": "chlorophyll",
+        "model": "lightgbm",
+        "selector": "mutual_info"
+      },
+      "column": "apparent_r2_foldmean_mean",
+      "expected": 0.1077111073976997,
+      "tolerance": 0.0005,
+      "source": "revision-1 run"
+    },
+    {
+      "id": "P:deep_patato/chlorophyll/lightgbm/mutual_info:nested_r2_foldmean_mean",
+      "description": "primary deep_patato/chlorophyll/lightgbm/mutual_info nested_r2_foldmean_mean",
+      "file": "outputs_rev1/E7_stats_export/primary_table.csv",
+      "where": {
+        "dataset": "deep_patato",
+        "target": "chlorophyll",
+        "model": "lightgbm",
+        "selector": "mutual_info"
+      },
+      "column": "nested_r2_foldmean_mean",
+      "expected": 0.0052358700595885,
+      "tolerance": 0.0005,
+      "source": "revision-1 run"
+    },
+    {
+      "id": "P:deep_patato/chlorophyll/lightgbm/mutual_info:delta_r2_foldmean_median",
+      "description": "primary deep_patato/chlorophyll/lightgbm/mutual_info delta_r2_foldmean_median",
+      "file": "outputs_rev1/E7_stats_export/primary_table.csv",
+      "where": {
+        "dataset": "deep_patato",
+        "target": "chlorophyll",
+        "model": "lightgbm",
+        "selector": "mutual_info"
+      },
+      "column": "delta_r2_foldmean_median",
+      "expected": 0.0740701640192796,
+      "tolerance": 0.0005,
+      "source": "revision-1 run"
+    },
+    {
+      "id": "P:deep_patato/chlorophyll/lightgbm/mutual_info:delta_r2_pooled_median",
+      "description": "primary deep_patato/chlorophyll/lightgbm/mutual_info delta_r2_pooled_median",
+      "file": "outputs_rev1/E7_stats_export/primary_table.csv",
+      "where": {
+        "dataset": "deep_patato",
+        "target": "chlorophyll",
+        "model": "lightgbm",
+        "selector": "mutual_info"
+      },
+      "column": "delta_r2_pooled_median",
+      "expected": 0.0454104985327729,
+      "tolerance": 0.0005,
+      "source": "revision-1 run"
+    },
+    {
+      "id": "P:deep_patato/chlorophyll/lightgbm/mutual_info:boot_delta_r2_pooled_lo_median",
+      "description": "primary deep_patato/chlorophyll/lightgbm/mutual_info boot_delta_r2_pooled_lo_median",
+      "file": "outputs_rev1/E7_stats_export/primary_table.csv",
+      "where": {
+        "dataset": "deep_patato",
+        "target": "chlorophyll",
+        "model": "lightgbm",
+        "selector": "mutual_info"
+      },
+      "column": "boot_delta_r2_pooled_lo_median",
+      "expected": -0.0292345033740798,
+      "tolerance": 0.0005,
+      "source": "revision-1 run"
+    },
+    {
+      "id": "P:deep_patato/chlorophyll/lightgbm/mutual_info:boot_delta_r2_pooled_hi_median",
+      "description": "primary deep_patato/chlorophyll/lightgbm/mutual_info boot_delta_r2_pooled_hi_median",
+      "file": "outputs_rev1/E7_stats_export/primary_table.csv",
+      "where": {
+        "dataset": "deep_patato",
+        "target": "chlorophyll",
+        "model": "lightgbm",
+        "selector": "mutual_info"
+      },
+      "column": "boot_delta_r2_pooled_hi_median",
+      "expected": 0.1216272460707214,
+      "tolerance": 0.0005,
+      "source": "revision-1 run"
+    },
+    {
+      "id": "G0:apparent_r2_foldmean",
+      "description": "GA G0 seed 0 apparent_r2_foldmean (vs outputs3 seed 0)",
+      "file": "outputs_rev1/E6_ga/g0_reproduction.csv",
+      "where": {
+        "quantity": "apparent_r2_foldmean"
+      },
+      "column": "rev1_G0",
+      "expected": 0.6114060221670944,
+      "tolerance": 0.0005,
+      "source": "outputs3 seed 0"
+    },
+    {
+      "id": "G0:nested_r2_foldmean",
+      "description": "GA G0 seed 0 nested_r2_foldmean (vs outputs3 seed 0)",
+      "file": "outputs_rev1/E6_ga/g0_reproduction.csv",
+      "where": {
+        "quantity": "nested_r2_foldmean"
+      },
+      "column": "rev1_G0",
+      "expected": 0.2903629163273764,
+      "tolerance": 0.0005,
+      "source": "outputs3 seed 0"
+    },
+    {
+      "id": "G0:apparent_nested_difference_r2_foldmean",
+      "description": "GA G0 seed 0 apparent_nested_difference_r2_foldmean (vs outputs3 seed 0)",
+      "file": "outputs_rev1/E6_ga/g0_reproduction.csv",
+      "where": {
+        "quantity": "apparent_nested_difference_r2_foldmean"
+      },
+      "column": "rev1_G0",
+      "expected": 0.321043105839718,
+      "tolerance": 0.0005,
+      "source": "outputs3 seed 0"
+    },
+    {
+      "id": "G0:apparent_r2_pooled",
+      "description": "GA G0 seed 0 apparent_r2_pooled (vs outputs3 seed 0)",
+      "file": "outputs_rev1/E6_ga/g0_reproduction.csv",
+      "where": {
+        "quantity": "apparent_r2_pooled"
+      },
+      "column": "rev1_G0",
+      "expected": 0.6174895366539911,
+      "tolerance": 0.0005,
+      "source": "outputs3 seed 0"
+    },
+    {
+      "id": "E5:ryckewaert/flavonol/rfe/free:p_nested",
+      "description": "permutation p (nested)",
+      "file": "outputs_rev1/E7_stats_export/permutation_table.csv",
+      "where": {
+        "dataset": "ryckewaert",
+        "target": "flavonol",
+        "selector": "rfe",
+        "scheme": "free"
+      },
+      "column": "p_nested",
+      "expected": 0.0049751243781094,
+      "tolerance": 1e-09,
+      "source": "revision-1 run"
+    },
+    {
+      "id": "E5:ryckewaert/flavonol/rfe/within_plot:p_nested",
+      "description": "permutation p (nested)",
+      "file": "outputs_rev1/E7_stats_export/permutation_table.csv",
+      "where": {
+        "dataset": "ryckewaert",
+        "target": "flavonol",
+        "selector": "rfe",
+        "scheme": "within_plot"
+      },
+      "column": "p_nested",
+      "expected": 0.0049751243781094,
+      "tolerance": 1e-09,
+      "source": "revision-1 run"
+    },
+    {
+      "id": "E5:ryckewaert/flavonol/lasso/free:p_nested",
+      "description": "permutation p (nested)",
+      "file": "outputs_rev1/E7_stats_export/permutation_table.csv",
+      "where": {
+        "dataset": "ryckewaert",
+        "target": "flavonol",
+        "selector": "lasso",
+        "scheme": "free"
+      },
+      "column": "p_nested",
+      "expected": 0.0196078431372549,
+      "tolerance": 1e-09,
+      "source": "revision-1 run"
+    },
+    {
+      "id": "E5:ryckewaert/flavonol/lasso/within_plot:p_nested",
+      "description": "permutation p (nested)",
+      "file": "outputs_rev1/E7_stats_export/permutation_table.csv",
+      "where": {
+        "dataset": "ryckewaert",
+        "target": "flavonol",
+        "selector": "lasso",
+        "scheme": "within_plot"
+      },
+      "column": "p_nested",
+      "expected": 0.0196078431372549,
+      "tolerance": 1e-09,
+      "source": "revision-1 run"
+    },
+    {
+      "id": "E5:ryckewaert/flavonol/mutual_info/free:p_nested",
+      "description": "permutation p (nested)",
+      "file": "outputs_rev1/E7_stats_export/permutation_table.csv",
+      "where": {
+        "dataset": "ryckewaert",
+        "target": "flavonol",
+        "selector": "mutual_info",
+        "scheme": "free"
+      },
+      "column": "p_nested",
+      "expected": 0.0049751243781094,
+      "tolerance": 1e-09,
+      "source": "revision-1 run"
+    },
+    {
+      "id": "E5:ryckewaert/flavonol/mutual_info/within_plot:p_nested",
+      "description": "permutation p (nested)",
+      "file": "outputs_rev1/E7_stats_export/permutation_table.csv",
+      "where": {
+        "dataset": "ryckewaert",
+        "target": "flavonol",
+        "selector": "mutual_info",
+        "scheme": "within_plot"
+      },
+      "column": "p_nested",
+      "expected": 0.0049751243781094,
+      "tolerance": 1e-09,
+      "source": "revision-1 run"
+    },
+    {
+      "id": "E5:ryckewaert/chlorophyll/rfe/free:p_nested",
+      "description": "permutation p (nested)",
+      "file": "outputs_rev1/E7_stats_export/permutation_table.csv",
+      "where": {
+        "dataset": "ryckewaert",
+        "target": "chlorophyll",
+        "selector": "rfe",
+        "scheme": "free"
+      },
+      "column": "p_nested",
+      "expected": 0.0049751243781094,
+      "tolerance": 1e-09,
+      "source": "revision-1 run"
+    },
+    {
+      "id": "E5:ryckewaert/chlorophyll/rfe/within_plot:p_nested",
+      "description": "permutation p (nested)",
+      "file": "outputs_rev1/E7_stats_export/permutation_table.csv",
+      "where": {
+        "dataset": "ryckewaert",
+        "target": "chlorophyll",
+        "selector": "rfe",
+        "scheme": "within_plot"
+      },
+      "column": "p_nested",
+      "expected": 0.0049751243781094,
+      "tolerance": 1e-09,
+      "source": "revision-1 run"
+    },
+    {
+      "id": "E5:ryckewaert/chlorophyll/lasso/free:p_nested",
+      "description": "permutation p (nested)",
+      "file": "outputs_rev1/E7_stats_export/permutation_table.csv",
+      "where": {
+        "dataset": "ryckewaert",
+        "target": "chlorophyll",
+        "selector": "lasso",
+        "scheme": "free"
+      },
+      "column": "p_nested",
+      "expected": 0.0196078431372549,
+      "tolerance": 1e-09,
+      "source": "revision-1 run"
+    },
+    {
+      "id": "E5:ryckewaert/chlorophyll/lasso/within_plot:p_nested",
+      "description": "permutation p (nested)",
+      "file": "outputs_rev1/E7_stats_export/permutation_table.csv",
+      "where": {
+        "dataset": "ryckewaert",
+        "target": "chlorophyll",
+        "selector": "lasso",
+        "scheme": "within_plot"
+      },
+      "column": "p_nested",
+      "expected": 0.0196078431372549,
+      "tolerance": 1e-09,
+      "source": "revision-1 run"
+    },
+    {
+      "id": "E5:ryckewaert/chlorophyll/mutual_info/free:p_nested",
+      "description": "permutation p (nested)",
+      "file": "outputs_rev1/E7_stats_export/permutation_table.csv",
+      "where": {
+        "dataset": "ryckewaert",
+        "target": "chlorophyll",
+        "selector": "mutual_info",
+        "scheme": "free"
+      },
+      "column": "p_nested",
+      "expected": 0.0049751243781094,
+      "tolerance": 1e-09,
+      "source": "revision-1 run"
+    },
+    {
+      "id": "E5:ryckewaert/chlorophyll/mutual_info/within_plot:p_nested",
+      "description": "permutation p (nested)",
+      "file": "outputs_rev1/E7_stats_export/permutation_table.csv",
+      "where": {
+        "dataset": "ryckewaert",
+        "target": "chlorophyll",
+        "selector": "mutual_info",
+        "scheme": "within_plot"
+      },
+      "column": "p_nested",
+      "expected": 0.0049751243781094,
+      "tolerance": 1e-09,
+      "source": "revision-1 run"
+    },
+    {
+      "id": "E5:deep_patato/chlorophyll/rfe/field_block:p_nested",
+      "description": "permutation p (nested)",
+      "file": "outputs_rev1/E7_stats_export/permutation_table.csv",
+      "where": {
+        "dataset": "deep_patato",
+        "target": "chlorophyll",
+        "selector": "rfe",
+        "scheme": "field_block"
+      },
+      "column": "p_nested",
+      "expected": 0.0049751243781094,
+      "tolerance": 1e-09,
+      "source": "revision-1 run"
+    },
+    {
+      "id": "E5:deep_patato/chlorophyll/lasso/field_block:p_nested",
+      "description": "permutation p (nested)",
+      "file": "outputs_rev1/E7_stats_export/permutation_table.csv",
+      "where": {
+        "dataset": "deep_patato",
+        "target": "chlorophyll",
+        "selector": "lasso",
+        "scheme": "field_block"
+      },
+      "column": "p_nested",
+      "expected": 0.0049751243781094,
+      "tolerance": 1e-09,
+      "source": "revision-1 run"
+    },
+    {
+      "id": "E5:deep_patato/chlorophyll/mutual_info/field_block:p_nested",
+      "description": "permutation p (nested)",
+      "file": "outputs_rev1/E7_stats_export/permutation_table.csv",
+      "where": {
+        "dataset": "deep_patato",
+        "target": "chlorophyll",
+        "selector": "mutual_info",
+        "scheme": "field_block"
+      },
+      "column": "p_nested",
+      "expected": 0.0049751243781094,
+      "tolerance": 1e-09,
+      "source": "revision-1 run"
+    },
+    {
+      "id": "E4:iid_normal/lasso:delta",
+      "description": "S-null mean Δ fold-mean",
+      "file": "outputs_rev1/E7_stats_export/simulation_null_table.csv",
+      "where": {
+        "generator": "iid_normal",
+        "selector": "lasso"
+      },
+      "column": "delta_foldmean_mean",
+      "expected": 0.1656954669349356,
+      "tolerance": 0.0005,
+      "source": "revision-1 run"
+    },
+    {
+      "id": "E4:iid_normal/mutual_info:delta",
+      "description": "S-null mean Δ fold-mean",
+      "file": "outputs_rev1/E7_stats_export/simulation_null_table.csv",
+      "where": {
+        "generator": "iid_normal",
+        "selector": "mutual_info"
+      },
+      "column": "delta_foldmean_mean",
+      "expected": 0.0555910914340016,
+      "tolerance": 0.0005,
+      "source": "revision-1 run"
+    },
+    {
+      "id": "E4:iid_normal/pearson_topk:delta",
+      "description": "S-null mean Δ fold-mean",
+      "file": "outputs_rev1/E7_stats_export/simulation_null_table.csv",
+      "where": {
+        "generator": "iid_normal",
+        "selector": "pearson_topk"
+      },
+      "column": "delta_foldmean_mean",
+      "expected": 0.5829708328684083,
+      "tolerance": 0.0005,
+      "source": "revision-1 run"
+    },
+    {
+      "id": "E4:iid_normal/random_k:delta",
+      "description": "S-null mean Δ fold-mean",
+      "file": "outputs_rev1/E7_stats_export/simulation_null_table.csv",
+      "where": {
+        "generator": "iid_normal",
+        "selector": "random_k"
+      },
+      "column": "delta_foldmean_mean",
+      "expected": -0.0084432795415565,
+      "tolerance": 0.0005,
+      "source": "revision-1 run"
+    },
+    {
+      "id": "E4:iid_normal/rfe:delta",
+      "description": "S-null mean Δ fold-mean",
+      "file": "outputs_rev1/E7_stats_export/simulation_null_table.csv",
+      "where": {
+        "generator": "iid_normal",
+        "selector": "rfe"
+      },
+      "column": "delta_foldmean_mean",
+      "expected": 1.0043233012731632,
+      "tolerance": 0.0005,
+      "source": "revision-1 run"
+    },
+    {
+      "id": "E4:ledoit_wolf_grapevine/lasso:delta",
+      "description": "S-null mean Δ fold-mean",
+      "file": "outputs_rev1/E7_stats_export/simulation_null_table.csv",
+      "where": {
+        "generator": "ledoit_wolf_grapevine",
+        "selector": "lasso"
+      },
+      "column": "delta_foldmean_mean",
+      "expected": 0.0775393445920901,
+      "tolerance": 0.0005,
+      "source": "revision-1 run"
+    },
+    {
+      "id": "E4:ledoit_wolf_grapevine/mutual_info:delta",
+      "description": "S-null mean Δ fold-mean",
+      "file": "outputs_rev1/E7_stats_export/simulation_null_table.csv",
+      "where": {
+        "generator": "ledoit_wolf_grapevine",
+        "selector": "mutual_info"
+      },
+      "column": "delta_foldmean_mean",
+      "expected": 0.0161261881465213,
+      "tolerance": 0.0005,
+      "source": "revision-1 run"
+    },
+    {
+      "id": "E4:ledoit_wolf_grapevine/pearson_topk:delta",
+      "description": "S-null mean Δ fold-mean",
+      "file": "outputs_rev1/E7_stats_export/simulation_null_table.csv",
+      "where": {
+        "generator": "ledoit_wolf_grapevine",
+        "selector": "pearson_topk"
+      },
+      "column": "delta_foldmean_mean",
+      "expected": 0.0115965675084734,
+      "tolerance": 0.0005,
+      "source": "revision-1 run"
+    },
+    {
+      "id": "E4:ledoit_wolf_grapevine/random_k:delta",
+      "description": "S-null mean Δ fold-mean",
+      "file": "outputs_rev1/E7_stats_export/simulation_null_table.csv",
+      "where": {
+        "generator": "ledoit_wolf_grapevine",
+        "selector": "random_k"
+      },
+      "column": "delta_foldmean_mean",
+      "expected": -0.0024947849122809,
+      "tolerance": 0.0005,
+      "source": "revision-1 run"
+    },
+    {
+      "id": "E4:ledoit_wolf_grapevine/rfe:delta",
+      "description": "S-null mean Δ fold-mean",
+      "file": "outputs_rev1/E7_stats_export/simulation_null_table.csv",
+      "where": {
+        "generator": "ledoit_wolf_grapevine",
+        "selector": "rfe"
+      },
+      "column": "delta_foldmean_mean",
+      "expected": 0.7175779200879043,
+      "tolerance": 0.0005,
+      "source": "revision-1 run"
+    },
+    {
+      "id": "E4:t3_ledoit_wolf/lasso:delta",
+      "description": "S-null mean Δ fold-mean",
+      "file": "outputs_rev1/E7_stats_export/simulation_null_table.csv",
+      "where": {
+        "generator": "t3_ledoit_wolf",
+        "selector": "lasso"
+      },
+      "column": "delta_foldmean_mean",
+      "expected": 0.0817453915078351,
+      "tolerance": 0.0005,
+      "source": "revision-1 run"
+    },
+    {
+      "id": "E4:t3_ledoit_wolf/mutual_info:delta",
+      "description": "S-null mean Δ fold-mean",
+      "file": "outputs_rev1/E7_stats_export/simulation_null_table.csv",
+      "where": {
+        "generator": "t3_ledoit_wolf",
+        "selector": "mutual_info"
+      },
+      "column": "delta_foldmean_mean",
+      "expected": 0.0392590926510077,
+      "tolerance": 0.0005,
+      "source": "revision-1 run"
+    },
+    {
+      "id": "E4:t3_ledoit_wolf/pearson_topk:delta",
+      "description": "S-null mean Δ fold-mean",
+      "file": "outputs_rev1/E7_stats_export/simulation_null_table.csv",
+      "where": {
+        "generator": "t3_ledoit_wolf",
+        "selector": "pearson_topk"
+      },
+      "column": "delta_foldmean_mean",
+      "expected": 0.0270693293536257,
+      "tolerance": 0.0005,
+      "source": "revision-1 run"
+    },
+    {
+      "id": "E4:t3_ledoit_wolf/random_k:delta",
+      "description": "S-null mean Δ fold-mean",
+      "file": "outputs_rev1/E7_stats_export/simulation_null_table.csv",
+      "where": {
+        "generator": "t3_ledoit_wolf",
+        "selector": "random_k"
+      },
+      "column": "delta_foldmean_mean",
+      "expected": 0.0139179568812124,
+      "tolerance": 0.0005,
+      "source": "revision-1 run"
+    },
+    {
+      "id": "E4:t3_ledoit_wolf/rfe:delta",
+      "description": "S-null mean Δ fold-mean",
+      "file": "outputs_rev1/E7_stats_export/simulation_null_table.csv",
+      "where": {
+        "generator": "t3_ledoit_wolf",
+        "selector": "rfe"
+      },
+      "column": "delta_foldmean_mean",
+      "expected": 0.9296045363639336,
+      "tolerance": 0.0005,
+      "source": "revision-1 run"
+    },
+    {
+      "id": "W:ryckewaert/flavonol/pls/ga:p_bh",
+      "description": "seed-Wilcoxon BH p",
+      "file": "outputs_rev1/E7_stats_export/seed_wilcoxon.csv",
+      "where": {
+        "aggregation": "foldmean",
+        "dataset": "ryckewaert",
+        "target": "flavonol",
+        "model": "pls",
+        "selector": "ga"
+      },
+      "column": "p_bh",
+      "expected": 0.0005580357142857,
+      "tolerance": 1e-09,
+      "source": "outputs3 stats_summary"
+    },
+    {
+      "id": "W:ryckewaert/flavonol/pls/mutual_info:p_bh",
+      "description": "seed-Wilcoxon BH p",
+      "file": "outputs_rev1/E7_stats_export/seed_wilcoxon.csv",
+      "where": {
+        "aggregation": "foldmean",
+        "dataset": "ryckewaert",
+        "target": "flavonol",
+        "model": "pls",
+        "selector": "mutual_info"
+      },
+      "column": "p_bh",
+      "expected": 0.0005580357142857,
+      "tolerance": 1e-09,
+      "source": "outputs3 stats_summary"
+    },
+    {
+      "id": "W:ryckewaert/flavonol/lightgbm/ga:p_bh",
+      "description": "seed-Wilcoxon BH p",
+      "file": "outputs_rev1/E7_stats_export/seed_wilcoxon.csv",
+      "where": {
+        "aggregation": "foldmean",
+        "dataset": "ryckewaert",
+        "target": "flavonol",
+        "model": "lightgbm",
+        "selector": "ga"
+      },
+      "column": "p_bh",
+      "expected": 0.0005580357142857,
+      "tolerance": 1e-09,
+      "source": "outputs3 stats_summary"
+    },
+    {
+      "id": "W:ryckewaert/flavonol/lightgbm/mutual_info:p_bh",
+      "description": "seed-Wilcoxon BH p",
+      "file": "outputs_rev1/E7_stats_export/seed_wilcoxon.csv",
+      "where": {
+        "aggregation": "foldmean",
+        "dataset": "ryckewaert",
+        "target": "flavonol",
+        "model": "lightgbm",
+        "selector": "mutual_info"
+      },
+      "column": "p_bh",
+      "expected": 0.0005580357142857,
+      "tolerance": 1e-09,
+      "source": "outputs3 stats_summary"
+    },
+    {
+      "id": "W:ryckewaert/chlorophyll/pls/ga:p_bh",
+      "description": "seed-Wilcoxon BH p",
+      "file": "outputs_rev1/E7_stats_export/seed_wilcoxon.csv",
+      "where": {
+        "aggregation": "foldmean",
+        "dataset": "ryckewaert",
+        "target": "chlorophyll",
+        "model": "pls",
+        "selector": "ga"
+      },
+      "column": "p_bh",
+      "expected": 0.0005580357142857,
+      "tolerance": 1e-09,
+      "source": "outputs3 stats_summary"
+    },
+    {
+      "id": "W:ryckewaert/chlorophyll/pls/mutual_info:p_bh",
+      "description": "seed-Wilcoxon BH p",
+      "file": "outputs_rev1/E7_stats_export/seed_wilcoxon.csv",
+      "where": {
+        "aggregation": "foldmean",
+        "dataset": "ryckewaert",
+        "target": "chlorophyll",
+        "model": "pls",
+        "selector": "mutual_info"
+      },
+      "column": "p_bh",
+      "expected": 0.0005580357142857,
+      "tolerance": 1e-09,
+      "source": "outputs3 stats_summary"
+    },
+    {
+      "id": "W:deep_patato/chlorophyll/pls/ga:p_bh",
+      "description": "seed-Wilcoxon BH p",
+      "file": "outputs_rev1/E7_stats_export/seed_wilcoxon.csv",
+      "where": {
+        "aggregation": "foldmean",
+        "dataset": "deep_patato",
+        "target": "chlorophyll",
+        "model": "pls",
+        "selector": "ga"
+      },
+      "column": "p_bh",
+      "expected": 0.0005580357142857,
+      "tolerance": 1e-09,
+      "source": "outputs3 stats_summary"
+    },
+    {
+      "id": "W:deep_patato/chlorophyll/pls/mutual_info:p_bh",
+      "description": "seed-Wilcoxon BH p",
+      "file": "outputs_rev1/E7_stats_export/seed_wilcoxon.csv",
+      "where": {
+        "aggregation": "foldmean",
+        "dataset": "deep_patato",
+        "target": "chlorophyll",
+        "model": "pls",
+        "selector": "mutual_info"
+      },
+      "column": "p_bh",
+      "expected": 0.00537109375,
+      "tolerance": 1e-09,
+      "source": "outputs3 stats_summary"
+    }
+  ]
+}

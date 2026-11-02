@@ -1,6 +1,6 @@
 """E0 — Denetim (audit): koşu gerektirmeyen, koddan ve veriden okunan bulgular.
 
-Plan: ``docs/REVISION_PLAN.md`` Bölüm 3 / E0 → Hakem 3 yorumları
+Hakem 3 yorumları
 R3-9, 10, 11, 13, 18–22, 24, 35, 37, 71 (+ Bölüm 1 tablosunun kodda doğrulanması).
 
 Bu modül YENİ DENEY KOŞMAZ. Yaptığı tek hesaplama:

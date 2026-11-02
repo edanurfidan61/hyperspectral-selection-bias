@@ -104,3 +104,5 @@ outputs_rev1/_timing/
 outputs_rev1/**/logs/
 # Revizyon 1 E7 Excel çıktıları — yalnız yerel kullanım (commitlenmez)
 outputs_rev1/E7_excel/
+# Yerel çalışma notları — yayınlanmaz
+docs/

@@ -1,23 +1,27 @@
 # Selection Bias in Small-Sample Leaf-HSI Regression
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.21439966.svg)](https://doi.org/10.5281/zenodo.21439966)
-> Küçük örneklemli yaprak-HSI regresyonunda seçim yanlılığı
+> Küçük örneklemli yaprak-HSI regresyonunda öznitelik seçiminin kapsamı ve performans tahmini
 
 
 **Central claim / Ana iddia:**
 
-> In small-sample leaf hyperspectral (HSI) regression, when wavelength/feature
-> selection is performed **outside** the cross-validation loop, model performance
-> is **systematically inflated**. This inflation is a property of *selecting
-> features on data the validation folds later reuse* — not of any one selector
-> family and not of any one dataset or plant. Honest reporting **requires
-> nested-CV**.
+> In small-sample leaf hyperspectral (HSI) regression, a cross-validated score
+> computed after wavelength/feature selection on **all** data (the *apparent*
+> estimate) is usually higher than the score obtained when selection is repeated
+> inside each outer training fold (the *nested* estimate). The size of this
+> **apparent–nested difference** depends on the selector, the dataset and the
+> target; it is largest for search-based selection (GA) and is consistent with
+> selection reusing information from the samples that are later used for
+> validation. We **recommend** nested evaluation whenever feature selection is
+> part of the modelling pipeline.
 >
-> Küçük örneklemli yaprak-HSI regresyonunda, dalga boyu/öznitelik seçimi çapraz
-> doğrulama döngüsünün **dışında** yapıldığında model performansı **sistematik
-> olarak şişer**. Bu şişme, doğrulama fold'larının sonradan yeniden kullandığı
-> veri üzerinde öznitelik seçmenin bir sonucudur — tek bir seçici ailesine, tek
-> bir veri setine ya da tek bir bitkiye özgü değildir. Dürüst raporlama için
-> **nested-CV zorunludur**.
+> Küçük örneklemli yaprak-HSI regresyonunda, öznitelik seçimi **tüm** veride
+> yapıldıktan sonra hesaplanan çapraz doğrulama skoru (*apparent* tahmin), seçimin
+> her dış eğitim fold'unda yeniden yapıldığı skordan (*nested* tahmin) genellikle
+> yüksektir. Bu **apparent–nested farkı** seçiciye, veri setine ve hedefe bağlıdır;
+> en büyük değeri arama tabanlı seçimde (GA) alır ve seçimin, daha sonra doğrulamada
+> kullanılan örneklerden bilgi taşımasıyla tutarlıdır. Seçim modelleme hattının
+> parçasıysa nested değerlendirme **öneriyoruz**.
 
 ---
 
@@ -25,16 +29,17 @@
 
 For each `(dataset, target, model, selector)` we compute two numbers:
 
-- **apparent R²** *(biased)* — the selector picks features on **all** data by
-  optimizing 5-fold CV R²; the reported score is the CV R² on that same data.
-  Selection has "seen" the validation folds → optimistic.
-- **nested R²** *(honest)* — an outer GroupKFold; in each outer fold the selector
-  runs on the **outer-train only**, the chosen mask is fit on outer-train and
-  evaluated on the held-out outer-test. Selection never sees the outer validation
-  → unbiased.
+- **apparent R²** — the selector picks features on **all** data; the chosen mask
+  is then scored by grouped cross-validation on that same data. Selection has
+  seen the samples of every validation fold.
+- **nested R²** — an outer GroupKFold; in each outer fold the selector runs on
+  the **outer-train only**, the chosen mask is fit on outer-train and evaluated
+  on the held-out outer-test. Selection never sees the outer-test samples.
 
-**bias = apparent − nested.** Both arms use the *same* fold-mean aggregation, so
-the difference is not an artifact of mixing pooled and per-fold scores.
+**apparent–nested difference Δ = apparent − nested** (positive = the apparent
+estimate is the more optimistic one). Both arms use the *same* fold-mean
+aggregation, so the difference is not an artifact of mixing pooled and per-fold
+scores.
 
 The measurement is **selector-agnostic**. Four selector families are run through
 the identical apparent/nested machinery:
@@ -46,22 +51,24 @@ the identical apparent/nested machinery:
 | `lasso` | embedded (LassoCV, then top-`k` by \|coef\|) | deterministic, fixed-`k` |
 | `mutual_info` | filter (mutual information) | fixed-`k` |
 
-The GA is the sharpest illustration because its search space is the largest, but
-the bias appears across all four families — that is the point: the leak is in the
-*out-of-loop selection*, not in the GA.
+The GA gives the largest difference because its search space is the largest, but
+a positive apparent–nested difference also occurs for the other families in most
+combinations — which is consistent with the difference arising from *where*
+selection is performed (outside the outer loop) rather than from the GA itself.
 
-A **synthetic-null** experiment (pure noise, no real signal) shows the same
-inflation with no genuine relationship to exploit, and a **permutation** test
-(real feature structure preserved, target shuffled) confirms the observed scores
-sit far out in the permuted-null distribution.
+A **synthetic-null** experiment (pure noise, no real signal) shows a positive
+apparent–nested difference even when there is no genuine relationship to
+exploit, and a **permutation** test (real feature structure preserved, target
+shuffled) places the observed nested scores far out in the permuted-null
+distribution.
 
 ### Headline result (Ryckewaert, flavonol + PLS, GA)
 
 | metric | value |
 |---|---|
-| apparent R² (biased, fold-mean) | **0.615** |
-| nested R² (honest) | **0.269 ± 0.026** |
-| **bias** | **+0.346** |
+| apparent R² (fold-mean) | **0.615** |
+| nested R² (fold-mean) | **0.269 ± 0.026** |
+| **apparent–nested difference** | **+0.346** |
 
 The apparent number here is the **fold-mean** apparent R² (0.615), aggregated the
 same way as the nested arm. A *pooled* apparent R² also exists for this
@@ -301,9 +308,16 @@ src/
     multi_dataset.py             #   loop over REGISTRY × selectors
     stats_tests.py               #   Wilcoxon + BH-FDR + Cliff's δ over multi-seed results
     report.py                    #   summary CSV + figures
+  m07_revision/                  # REVISION 1 analyses (E0–E7) → outputs_rev1/
+    engine.py                    #   paired arms P1/P2/P3 + controls on one shared outer split
+    common.py                    #   config, data, splits, task runner, paired group bootstrap
+    e7_stats_export.py           #   tables, supplementary export, definitions
+tools/run_overnight.ps1, .py     # unattended chain for the long revision runs
+reproduce_revision.py            # verify / rebuild the revision numbers (expected_values.json)
+config/revision.yaml             # prespecified revision grid (frozen before the runs)
 ```
 
-The selection-bias pipeline reuses the feature-extraction chain (m01–m05) to
+The `m06_selection_bias` pipeline reuses the feature-extraction chain (m01–m05) to
 build datasets, but its only claim-bearing logic lives in `m06_selection_bias`.
 The core evaluator (`nested_ga.nested_evaluation`) takes a `selector_fn`, so the
 apparent/nested comparison is shared by all four selector families; the GA path
@@ -322,7 +336,8 @@ model package.
   one Ryckewaert outer fold goes negative) — itself evidence that out-of-loop
   selection masks instability.
 - **Band instability.** Per-fold masks select different subsets; band-selection
-  frequency (`fig_band_frequency_*`) shows the selection is fitting noise.
+  frequency (`fig_band_frequency_*`) is consistent with the selection partly
+  fitting noise.
 
 ---
 
@@ -337,12 +352,19 @@ The significance chain runs over the **12-seed** results
    is defined.
 4. **Cliff's δ** effect size (with Cohen's *d* reported alongside).
 
+> **Revision 1.** The revision reports the seed-based test as a supplementary analysis
+> (`outputs_rev1/E7_stats_export/seed_wilcoxon.csv`): unadjusted and BH-adjusted *p*,
+> with the BH family stated explicitly (the 8 stochastic combinations, GA × 4 + MI × 4).
+> Cliff's δ is replaced by a paired-difference summary (mean, median, IQR) and no
+> practical threshold is used. The primary uncertainty statement is now the spread over
+> 20 repeated splits plus the paired group-bootstrap CI (see *Revision 1 analyses*).
+
 **Degeneracy.** Of the 16 combinations, **8 use a deterministic selector (all
 LASSO + all RFE)**: their apparent − nested difference is **constant across
 seeds**, so the effective sample size is 1, not 12, and the seed-based Wilcoxon
 test is **undefined**. Those rows carry `degenerate = True` and `p_value` /
-`p_value_fdr` / `cliffs_delta` / `cohens_d` of `nan`, while their **bias is still
-reported**. BH-FDR therefore runs over the **8** combinations where the test is
+`p_value_fdr` / `cliffs_delta` / `cohens_d` of `nan`, while their **apparent–nested
+difference is still reported**. BH-FDR therefore runs over the **8** combinations where the test is
 defined. (This matches the Table 4 footnote in the manuscript exactly.)
 
 **Bootstrap CIs are not part of this chain.** `core/metrics_ci` computes a
@@ -366,6 +388,19 @@ criterion. Significance is the Wilcoxon → BH-FDR → Cliff's δ chain above.
   **git commit hash** (when run inside a git checkout). This file is the canonical
   record to cite in the paper's appendix as *"produced with exactly these
   settings."*
+- **Preprocessing is part of that record** (`preprocessing` and
+  `dataset_shapes` blocks). It is read from the code that actually determines
+  the behaviour, not from `config/default.yaml`: the config's
+  `preprocessing.savgol.deriv` key is never read by anything —
+  `spectral.sg_first_derivative()` hardcodes `deriv=1` — so recording the
+  config value would have reproduced the very mismatch this project is about.
+  The derivative order is recovered by introspection, and band/feature counts
+  are reported from the dataset that was actually loaded.
+- **The 2026-06-23/24 checkpoints predate that block.** Preprocessing settings
+  for those runs are documented in Section 2.2 of the manuscript and were
+  verified post-hoc against the feature matrix (`corr(snv, d1snv) = 0.019`, a
+  30x std ratio — `deriv=0` could not produce this). Nothing was back-written
+  into those records.
 - **Outputs are regenerable.** Figures, tables and pickles under
   `outputs/17_selection_bias/` are derived purely from the raw data + the pinned
   dependencies + `run_config.json`; they are git-ignored and rebuilt by re-running
@@ -417,6 +452,57 @@ check of the same P1/P2/P3 decomposition, not the source of the paper's Table 5.
   which Section 4.6 quotes as the worked example of what mixed aggregation would
   report — two combinations flip sign between the schemes, and that flip is the
   point of the section, so both reference runs stay reproducible.
+
+---
+
+## Revision 1 analyses (`outputs_rev1/`)
+
+The revision analyses live in `src/m07_revision/` and write to `outputs_rev1/<experiment>/`.
+`outputs3/` is not modified. The grid and every parameter were fixed in
+`config/revision.yaml` **before** the runs; the two departures from it (one prespecified
+rule applied, one approved deviation) are recorded in `outputs_rev1/DEVIATIONS.md`.
+Every experiment writes a `run_config.json` (commit SHA, command, package versions, seeds)
+and is checkpointed, so an interrupted command resumes where it stopped.
+
+| Experiment | Module | What it adds |
+|---|---|---|
+| E0 audit | `audit` | feature / group / split / seed audit (no model runs) |
+| E1 repeated CV | `run_e1e2` | 20 repeated paired grouped splits; RFE, LASSO, MI × PLS, LightGBM; paired group-bootstrap CI |
+| E2 mechanism | `run_e1e2` | size-matched decomposition, LASSO 2×2, prediction / mask stability |
+| E3 sensitivity | `e3_sensitivity` | one-at-a-time grid (k, band trim, selector settings, folds, plot grouping, tuned PLS) |
+| E4 simulation | `e4_simulation` | S-null, n × p × k grid with analytic baselines, S-signal with known truth |
+| E5 permutation | `e5_permutation` | permutation tests of nested R² (free, within-plot, field-block) |
+| E6 GA | `e6_ga` | G0 reproduction of the published seed-0 run, G1 repeated splits, G2 fixed cardinality, G3 unclipped fitness |
+| E7 tables | `e7_stats_export` | primary / secondary tables, supplementary export, metric definitions, analysis roles, checklist |
+
+```bash
+python -m src.m07_revision.<module> --quick     # smoke test → outputs_rev1/_quick/
+python -m src.m07_revision.<module>             # full run (checkpointed)
+python -m src.m07_revision.<module> --check     # finished + internal checks?
+python reproduce_revision.py                    # verify reported numbers (expected_values.json)
+python reproduce_revision.py --aggregate        # rebuild every table from checkpoints, then verify
+python reproduce_revision.py --full             # command list for a clean-room rerun (--execute runs it)
+```
+
+The long experiments (E3–E6, ≈ 12 h on an 8-core laptop) can run unattended with
+`tools/run_overnight.ps1` (supervisor loop, step skipping by DONE files, retry, status file
+`outputs_rev1/logs/overnight_status.json`).
+
+**Where to look.** `outputs_rev1/E7_stats_export/primary_table.csv` is the primary table
+(apparent, nested and their difference as fold-mean R² — the primary metric — and as pooled
+R², with between-repeat percentiles and the paired group-bootstrap CI);
+`analysis_roles.csv` states which analyses are primary and which are secondary,
+sensitivity or exploratory; `metrics_definitions.md` defines every quantity, including
+the mask-overlap formulas; `supplementary/INDEX.md` lists the supplementary tables.
+
+**Conventions.** Arms: P1 (fold assignment ignoring groups), P2 *apparent*, P3 *nested*.
+The *apparent–nested difference* (P2 − P3, the selection-scope contrast) is positive when
+the apparent estimate is the more optimistic one, for R² and for RMSE / MAE alike
+(ΔRMSE = RMSE_nested − RMSE_apparent). For grapevine the fold-partitioning contrast
+(P1 − P2) is zero by construction: every leaf is its own group. For potato the outer test
+folds hold ≈ 14 samples, so pooled R² is reported next to the fold-mean R².
+Sample-level records (sample and group ids, predictions, masks) are written to
+`outputs_rev1/*/samples/` and are not committed.
 
 ---
 

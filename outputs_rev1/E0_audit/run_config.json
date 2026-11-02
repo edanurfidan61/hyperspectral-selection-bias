@@ -1,0 +1,67 @@
+{
+  "experiment": "E0_audit",
+  "timestamp": "2026-10-31T16:05:21",
+  "git_commit": "fb9307ccb3d00b9d2933f2d6094d12390a958340",
+  "git_branch": "revision-1",
+  "git_dirty_files": [
+    "?? docs/",
+    "?? outputs_rev1/",
+    "?? run_null_n200.py"
+  ],
+  "command": "python.exe -m src.m07_revision.audit",
+  "quick": false,
+  "python": "3.11.9 (tags/v3.11.9:de54cf5, Apr  2 2024, 10:12:12) [MSC v.1938 64 bit (AMD64)]",
+  "executable": "C:\\hyperspectral-selection-bias\\.venv\\Scripts\\python.exe",
+  "platform": "Windows-10-10.0.26200-SP0",
+  "packages": {
+    "numpy": "2.4.6",
+    "scipy": "1.17.1",
+    "scikit-learn": "1.8.0",
+    "pandas": "3.0.3",
+    "deap": "1.4.4",
+    "lightgbm": "4.6.0",
+    "statsmodels": "0.14.5",
+    "joblib": "1.5.3",
+    "matplotlib": "3.10.9",
+    "pyarrow": "26.0.0"
+  },
+  "seeds": {
+    "outer_split_checked": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11
+    ],
+    "behaviour_checks": [
+      0,
+      1,
+      7
+    ],
+    "note": "E0 model başarımı ölçmez; seed'ler yalnız davranış doğrulamasında kullanıldı."
+  },
+  "inputs_sha256": {
+    "outputs/01_dataset/X.npy": "93384b5a5dbd1c1192e8e5fe28b52ac72d871f33e6d2eea4892ea3e5159ec6b8",
+    "outputs/01_dataset/dataset_full.csv": "e17110fd816a3f63108598625b184aeb546c07c2c8d70b269eca47976cd2c10b",
+    "outputs/01_dataset/feature_names.json": "a8a5c1d143e7e93f0dd7ad2d706b01c99c7ffaa5d1baa59f89249f1da337d9c4",
+    "outputs/01_dataset/groups_leaf.npy": "69688cb7e5ae6d5935a6400ba919314982e1a5c4b549870e7b64149f645824cb",
+    "outputs/01_dataset/groups_plot.npy": "4b0448edc98f43068a172d5471877090628f360f8753258dd0f3221e87912131",
+    "outputs/01_dataset/source.txt": "639cc7269f8987529e79c27eabce607dacc8aae506e1eaccdcd207e9a98d3de0",
+    "outputs/01_dataset/y_chl.npy": "ae87630a69c1b3723b2c503af52cca9eb222fec6c5a56d0ad444dbd93163bec0",
+    "outputs/01_dataset/y_flav.npy": "fe36198e43e4b27937854788fd4a215d32bbd3aa53ee4236942eef5bf8fc0873",
+    "outputs/01_dataset/y_nbi.npy": "07264e133bbb1d4929bb829f01a8ecc94743cea882571f20385ae69811d1e123",
+    "outputs/01_dataset/y_stress.npy": "c5ea1c172f689a0554984cedae06d604ac33d978d432a429ab9fa5b611c75b4e",
+    "outputs/_datasets_cache/deep_patato.npz": "b795689ac3a0d41b65f1f709bb96102cb9b2e6f5f0fe376bd67159851d286226",
+    "data/deep_patato/measurements/CHESS_FOLDS.CSV": "757e0b8c18d765f773743399643b4dfb2ff615ba16c7a39267269e8be4d872da",
+    "data/ryckewaert/metadata/description-2.tab": "6c8828358e6290e8415f689fd3989bb0a735a745c1220750a3672bc79d9aabb2",
+    "data/ryckewaert/raw_hdr/2020-09-10_003/results/REFLECTANCE_2020-09-10_003.hdr": "c4c3f0d8a31d060ea2ce7060f0e92aedd34695dceee8a535df09e4987cb410fe"
+  },
+  "elapsed_s": 16.53
+}

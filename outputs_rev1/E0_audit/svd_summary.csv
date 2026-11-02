@@ -1,0 +1,3 @@
+dataset,n_samples,n_features,n_constant_dropped,constant_columns,numerical_rank,n_comp_90,n_comp_95,n_comp_99,participation_ratio,entropy_effective_rank,frac_abs_corr_gt_0.9
+ryckewaert,204,520,0,,203,7,12,32,4.520700791002813,43.72402139921009,0.04115162294353046
+deep_patato,72,150,0,,71,4,5,8,2.488437398311119,10.452152950160198,0.1221476510067114

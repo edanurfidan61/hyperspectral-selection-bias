@@ -1,0 +1,19 @@
+dataset,group_level,scope,inner_cv,n_rows,n_groups,n_groups_split_across_inner_folds,inner_fold_group_leak_pairs
+ryckewaert,leaf,apparent(full),"KFold(n_splits=5, random_state=None, shuffle=False)",204,204,0,0
+ryckewaert,leaf,nested_outer_train_fold0,"KFold(n_splits=5, random_state=None, shuffle=False)",163,163,0,0
+ryckewaert,leaf,nested_outer_train_fold1,"KFold(n_splits=5, random_state=None, shuffle=False)",163,163,0,0
+ryckewaert,leaf,nested_outer_train_fold2,"KFold(n_splits=5, random_state=None, shuffle=False)",163,163,0,0
+ryckewaert,leaf,nested_outer_train_fold3,"KFold(n_splits=5, random_state=None, shuffle=False)",163,163,0,0
+ryckewaert,leaf,nested_outer_train_fold4,"KFold(n_splits=5, random_state=None, shuffle=False)",164,164,0,0
+ryckewaert,plot_group,apparent(full),"KFold(n_splits=5, random_state=None, shuffle=False)",204,10,4,8
+ryckewaert,plot_group,nested_outer_train_fold0,"KFold(n_splits=5, random_state=None, shuffle=False)",163,10,4,8
+ryckewaert,plot_group,nested_outer_train_fold1,"KFold(n_splits=5, random_state=None, shuffle=False)",163,10,4,8
+ryckewaert,plot_group,nested_outer_train_fold2,"KFold(n_splits=5, random_state=None, shuffle=False)",163,10,4,8
+ryckewaert,plot_group,nested_outer_train_fold3,"KFold(n_splits=5, random_state=None, shuffle=False)",163,10,4,8
+ryckewaert,plot_group,nested_outer_train_fold4,"KFold(n_splits=5, random_state=None, shuffle=False)",164,10,4,8
+deep_patato,Field,apparent(full),"KFold(n_splits=5, random_state=None, shuffle=False)",72,24,24,69
+deep_patato,Field,nested_outer_train_fold0,"KFold(n_splits=5, random_state=None, shuffle=False)",57,19,19,55
+deep_patato,Field,nested_outer_train_fold1,"KFold(n_splits=5, random_state=None, shuffle=False)",57,19,19,55
+deep_patato,Field,nested_outer_train_fold2,"KFold(n_splits=5, random_state=None, shuffle=False)",57,19,19,54
+deep_patato,Field,nested_outer_train_fold3,"KFold(n_splits=5, random_state=None, shuffle=False)",57,19,19,54
+deep_patato,Field,nested_outer_train_fold4,"KFold(n_splits=5, random_state=None, shuffle=False)",60,20,20,58

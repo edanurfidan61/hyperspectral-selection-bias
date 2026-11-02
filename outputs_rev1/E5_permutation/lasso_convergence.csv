@@ -1,0 +1,9 @@
+dataset,target,scheme,n_evaluations,n_selections,n_convergence_warnings,n_selections_with_warning,frac_selections_with_warning,mean_warnings_per_selection,tol,max_iter,inner
+deep_patato,chlorophyll,field_block,200,1200,85542,1200,1.0,71.285,0.001,20000,group
+deep_patato,chlorophyll,observed,1,6,2,1,0.16666666666666666,0.3333333333333333,0.001,20000,group
+ryckewaert,chlorophyll,free,50,300,21517,300,1.0,71.72333333333333,0.001,20000,group
+ryckewaert,chlorophyll,observed,1,6,0,0,0.0,0.0,0.001,20000,group
+ryckewaert,chlorophyll,within_plot,50,300,16340,300,1.0,54.46666666666667,0.001,20000,group
+ryckewaert,flavonol,free,50,300,20105,300,1.0,67.01666666666667,0.001,20000,group
+ryckewaert,flavonol,observed,1,6,15,4,0.6666666666666666,2.5,0.001,20000,group
+ryckewaert,flavonol,within_plot,50,300,5028,297,0.99,16.76,0.001,20000,group

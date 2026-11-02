@@ -1,0 +1,30 @@
+{
+  "experiment": "backcompat",
+  "timestamp": "2026-10-31T17:03:18",
+  "git_commit": "f65f641be50e6b26ee7a8860221c25b7c4bb9282",
+  "git_dirty_files": [],
+  "command": "python.exe -m src.m07_revision.check_backcompat",
+  "python": "3.11.9 (tags/v3.11.9:de54cf5, Apr  2 2024, 10:12:12) [MSC v.1938 64 bit (AMD64)]",
+  "platform": "Windows-10-10.0.26200-SP0",
+  "packages": {
+    "numpy": "2.4.6",
+    "scipy": "1.17.1",
+    "scikit-learn": "1.8.0",
+    "pandas": "3.0.3",
+    "lightgbm": "4.6.0"
+  },
+  "split": {
+    "scheme": "group",
+    "n_splits": 5,
+    "repeat": 0,
+    "shuffle": false,
+    "signature": "e48fd57386fd"
+  },
+  "seeds": {
+    "seed_mode": "fixed",
+    "base_seed": 0
+  },
+  "k": 20,
+  "reference": "outputs3/tables_foldmean/selection_bias_multiseed_raw.csv",
+  "elapsed_s": 147.3
+}

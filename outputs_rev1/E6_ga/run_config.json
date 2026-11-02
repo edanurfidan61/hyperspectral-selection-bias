@@ -1,0 +1,335 @@
+{
+  "timestamp": "2026-10-31T20:45:34",
+  "git_commit": "9297f9ff4441b15fe1db1b7d2983da501f7e5b71",
+  "git_branch": "revision-1",
+  "git_dirty_files": [
+    "?? outputs_rev1/E3_sensitivity/"
+  ],
+  "command": "python.exe C:\\hyperspectral-selection-bias\\src\\m07_revision\\e6_ga.py --variants G0,G1",
+  "python": "3.11.9 (tags/v3.11.9:de54cf5, Apr  2 2024, 10:12:12) [MSC v.1938 64 bit (AMD64)]",
+  "executable": "C:\\hyperspectral-selection-bias\\.venv\\Scripts\\python.exe",
+  "platform": "Windows-10-10.0.26200-SP0",
+  "cpu_count": 16,
+  "packages": {
+    "numpy": "2.4.6",
+    "scipy": "1.17.1",
+    "scikit-learn": "1.8.0",
+    "pandas": "3.0.3",
+    "lightgbm": "4.6.0",
+    "joblib": "1.5.3",
+    "threadpoolctl": "3.7.0"
+  },
+  "thread_env": {
+    "OMP_NUM_THREADS": "1",
+    "MKL_NUM_THREADS": "1",
+    "OPENBLAS_NUM_THREADS": "1"
+  },
+  "experiment": "E6_ga",
+  "variants": [
+    "G0",
+    "G1"
+  ],
+  "specs": {
+    "G0": {
+      "variant": "G0",
+      "combos": [
+        {
+          "dataset": "ryckewaert",
+          "target": "flavonol"
+        }
+      ],
+      "repeats": 1,
+      "arms": [
+        "P2_apparent",
+        "P3_nested"
+      ],
+      "pop": 150,
+      "ngen": 150,
+      "representation": "binary",
+      "k": null,
+      "clip": true,
+      "seed_mode": "fixed",
+      "base_seed": 0,
+      "shuffle": false,
+      "n_splits": 5
+    },
+    "G1": {
+      "variant": "G1",
+      "combos": [
+        {
+          "dataset": "ryckewaert",
+          "target": "flavonol"
+        },
+        {
+          "dataset": "ryckewaert",
+          "target": "chlorophyll"
+        },
+        {
+          "dataset": "deep_patato",
+          "target": "chlorophyll"
+        }
+      ],
+      "repeats": 10,
+      "arms": [
+        "P1_random",
+        "P2_apparent",
+        "P3_nested"
+      ],
+      "pop": 150,
+      "ngen": 150,
+      "representation": "binary",
+      "k": null,
+      "clip": true,
+      "seed_mode": "derived",
+      "base_seed": 0,
+      "shuffle": true,
+      "n_splits": 5
+    }
+  },
+  "ga_core": "src/m07_revision/ga.py (= ga_feature_selection._run_ga döngüsü; seri, aday önbellekli)",
+  "seeds": {
+    "G0": "fixed 0",
+    "G1-G3": "derive_seed(base_seed, repeat, fold, 'ga'); fold=-1 tüm veri"
+  },
+  "split": "G0: GroupKFold(5) shuffle=False; G1-G3: GroupKFold(5, shuffle=True, random_state=repeat) = E1",
+  "mask_cache": "outputs_rev1/_checkpoints/masks (selector='ga', sel_kw variant'lı)",
+  "config_blocks": {
+    "common": {
+      "output_root": "outputs_rev1",
+      "sample_level_subdir": "samples",
+      "base_seed": 0,
+      "seed_mode": "derived",
+      "n_jobs": null,
+      "n_splits": 5,
+      "split_scheme": "group",
+      "k": 20,
+      "primary_metric": "r2_foldmean",
+      "report_aggregations": [
+        "foldmean",
+        "pooled"
+      ],
+      "report_metrics": [
+        "r2",
+        "rmse",
+        "mae"
+      ],
+      "models": {
+        "primary": "pls",
+        "secondary": "lightgbm"
+      },
+      "datasets": {
+        "ryckewaert": {
+          "groups": "leaf",
+          "alt_groups": "plot",
+          "targets": [
+            "flavonol",
+            "chlorophyll"
+          ],
+          "n": 204,
+          "p": 520
+        },
+        "deep_patato": {
+          "groups": "Field",
+          "targets": [
+            "chlorophyll"
+          ],
+          "n": 72,
+          "p": 150
+        }
+      },
+      "combos": [
+        {
+          "dataset": "ryckewaert",
+          "target": "flavonol"
+        },
+        {
+          "dataset": "ryckewaert",
+          "target": "chlorophyll"
+        },
+        {
+          "dataset": "deep_patato",
+          "target": "chlorophyll"
+        }
+      ],
+      "selectors": {
+        "rfe": {
+          "alpha": 1.0,
+          "step": 0.1,
+          "scale": false
+        },
+        "lasso": {
+          "inner": "group",
+          "max_iter": 20000,
+          "tol": 0.0001
+        },
+        "mutual_info": {
+          "n_neighbors": 3
+        },
+        "ga": {
+          "pop": 150,
+          "ngen": 150,
+          "model_fitness": "same_as_model",
+          "min_features": 5,
+          "clip_fitness_at_zero": true
+        },
+        "random_k": {},
+        "none": {}
+      }
+    },
+    "E6_ga": {
+      "module": "src.m07_revision.e6_ga",
+      "output": "outputs_rev1/E6_ga",
+      "timing_first": {
+        "combo": {
+          "dataset": "ryckewaert",
+          "target": "flavonol"
+        },
+        "model": "pls",
+        "repeats": 1,
+        "budget": {
+          "pop": 150,
+          "ngen": 150
+        },
+        "candidate_cache": [
+          true,
+          false
+        ],
+        "requires_approval": true
+      },
+      "archive": {
+        "per_generation": [
+          "best_fitness",
+          "mean_fitness",
+          "std_fitness",
+          "cardinality_distribution",
+          "n_unique_candidates_evaluated"
+        ],
+        "final": [
+          "population",
+          "hall_of_fame_masks",
+          "inner_fitness"
+        ],
+        "candidate_cache": "mask_hash"
+      },
+      "adaptive_overfitting": "inner_fitness_minus_outer_test_r2",
+      "variants": {
+        "G0": {
+          "split": {
+            "scheme": "group",
+            "n_splits": 5,
+            "repeat": 0,
+            "shuffle": false
+          },
+          "seed": 0,
+          "seed_mode": "fixed",
+          "combos": [
+            {
+              "dataset": "ryckewaert",
+              "target": "flavonol"
+            }
+          ],
+          "model": "pls",
+          "arms": [
+            "P2_apparent",
+            "P3_nested"
+          ],
+          "expected": {
+            "apparent_r2_foldmean": 0.615,
+            "nested_r2_foldmean": 0.269,
+            "difference": 0.346
+          }
+        },
+        "G1": {
+          "repeats": 10,
+          "split": {
+            "scheme": "group",
+            "n_splits": 5,
+            "shuffle": true
+          },
+          "combos": "all",
+          "model": "pls",
+          "arms": [
+            "P1_random",
+            "P2_apparent",
+            "P3_nested"
+          ],
+          "budget": {
+            "pop": 150,
+            "ngen": 150
+          }
+        },
+        "G2": {
+          "k": 20,
+          "individual": "20_indices",
+          "crossover": "sample_20_from_union",
+          "mutation": "swap_one_in_one_out",
+          "repeats": 5,
+          "combos": "all",
+          "model": "pls",
+          "arms": [
+            "P2_apparent",
+            "P3_nested"
+          ]
+        },
+        "G3": {
+          "clip_fitness_at_zero": false,
+          "repeats": 5,
+          "combos": [
+            {
+              "dataset": "ryckewaert",
+              "target": "flavonol"
+            }
+          ],
+          "model": "pls",
+          "arms": [
+            "P2_apparent",
+            "P3_nested"
+          ]
+        },
+        "G4": {
+          "optional": true,
+          "B": 20,
+          "combos": [
+            {
+              "dataset": "ryckewaert",
+              "target": "flavonol"
+            }
+          ],
+          "model": "pls",
+          "split": {
+            "scheme": "group",
+            "n_splits": 5,
+            "repeat": 0,
+            "shuffle": false
+          },
+          "budget": {
+            "pop": 150,
+            "ngen": 150
+          }
+        }
+      },
+      "lightgbm_ga": "no_new_runs",
+      "compute_budget_table": {
+        "ga": "n_candidates_evaluated x inner_folds",
+        "rfe": "elimination_rounds",
+        "lasso": "n_alphas x inner_folds",
+        "mutual_info": 0
+      }
+    }
+  },
+  "mode": "full",
+  "n_jobs": 14,
+  "n_tasks": 186,
+  "resumes": [
+    {
+      "timestamp": "2026-10-31T23:05:23",
+      "git_commit": "9297f9ff4441b15fe1db1b7d2983da501f7e5b71",
+      "git_branch": "revision-1",
+      "git_dirty_files": [
+        "?? outputs_rev1/E3_sensitivity/",
+        "?? outputs_rev1/E6_ga/"
+      ],
+      "command": "python.exe C:\\hyperspectral-selection-bias\\src\\m07_revision\\e6_ga.py --variants G2,G3"
+    }
+  ]
+}

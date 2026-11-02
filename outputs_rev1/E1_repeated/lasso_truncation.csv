@@ -1,0 +1,7 @@
+dataset,target,arm,n_selections,n_truncated,frac_truncated,n_filled_from_zero,n_nonzero_median,n_nonzero_min,n_nonzero_max,alpha_median,n_convergence_warnings,k_cap,note
+deep_patato,chlorophyll,P2_apparent,20,0,0.0,0,13.0,13,13,0.060116598680660695,960,20,P2: one all-data selection per repeat (fold 0 row)
+deep_patato,chlorophyll,P3_nested,100,16,0.16,0,14.0,9,35,0.07294950498972494,4443,20,P2: one all-data selection per repeat (fold 0 row)
+ryckewaert,chlorophyll,P2_apparent,20,0,0.0,0,16.0,16,16,0.24452656101028625,0,20,P2: one all-data selection per repeat (fold 0 row)
+ryckewaert,chlorophyll,P3_nested,100,4,0.04,0,13.5,8,27,0.30887614631240456,4,20,P2: one all-data selection per repeat (fold 0 row)
+ryckewaert,flavonol,P2_apparent,20,20,1.0,0,30.0,30,30,0.01154282018800719,1120,20,P2: one all-data selection per repeat (fold 0 row)
+ryckewaert,flavonol,P3_nested,100,92,0.92,0,30.0,16,54,0.011548814606671474,4586,20,P2: one all-data selection per repeat (fold 0 row)

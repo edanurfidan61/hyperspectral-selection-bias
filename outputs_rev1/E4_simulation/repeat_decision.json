@@ -1,0 +1,17 @@
+{
+  "reduced_selectors": [
+    "lasso",
+    "mutual_info"
+  ],
+  "reduced_repeats": 100,
+  "rule": {
+    "selectors": [
+      "lasso",
+      "mutual_info"
+    ],
+    "reduced_repeats": 100,
+    "if_projected_wall_time_hours_gt": 3.0
+  },
+  "decided": "2026-11-01T00:54:11",
+  "basis": "outputs_rev1/_timing/E4_simulation_timing.json"
+}

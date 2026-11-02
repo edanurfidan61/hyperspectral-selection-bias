@@ -1,0 +1,227 @@
+{
+  "timestamp": "2026-10-31T17:39:30",
+  "git_commit": "a014a773904821ddadfb76424f843b4f45480c70",
+  "git_branch": "revision-1",
+  "git_dirty_files": [],
+  "command": "python.exe C:\\hyperspectral-selection-bias\\src\\m07_revision\\run_e1e2.py",
+  "python": "3.11.9 (tags/v3.11.9:de54cf5, Apr  2 2024, 10:12:12) [MSC v.1938 64 bit (AMD64)]",
+  "executable": "C:\\hyperspectral-selection-bias\\.venv\\Scripts\\python.exe",
+  "platform": "Windows-10-10.0.26200-SP0",
+  "cpu_count": 16,
+  "packages": {
+    "numpy": "2.4.6",
+    "scipy": "1.17.1",
+    "scikit-learn": "1.8.0",
+    "pandas": "3.0.3",
+    "lightgbm": "4.6.0",
+    "joblib": "1.5.3",
+    "threadpoolctl": "3.7.0"
+  },
+  "thread_env": {
+    "OMP_NUM_THREADS": "1",
+    "MKL_NUM_THREADS": "1",
+    "OPENBLAS_NUM_THREADS": "1"
+  },
+  "experiment": "E1_repeated",
+  "mode": "full",
+  "n_jobs": 14,
+  "repeats": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19
+  ],
+  "combos": [
+    [
+      "deep_patato",
+      "chlorophyll"
+    ],
+    [
+      "ryckewaert",
+      "chlorophyll"
+    ],
+    [
+      "ryckewaert",
+      "flavonol"
+    ]
+  ],
+  "selectors": [
+    "lasso",
+    "mutual_info",
+    "rfe"
+  ],
+  "models": [
+    "pls",
+    "lightgbm"
+  ],
+  "seeds": {
+    "base_seed": 0,
+    "seed_mode": "derived",
+    "rule": "derive_seed(base_seed, repeat, fold, selector); fold=-1 all-data; bootstrap: derive_seed(base_seed, repeat, -1, 'bootstrap')"
+  },
+  "split": "GroupKFold(5, shuffle=True, random_state=repeat) — shared by E1/E2/E6-G1",
+  "config_blocks": {
+    "common": {
+      "output_root": "outputs_rev1",
+      "sample_level_subdir": "samples",
+      "base_seed": 0,
+      "seed_mode": "derived",
+      "n_jobs": null,
+      "n_splits": 5,
+      "split_scheme": "group",
+      "k": 20,
+      "primary_metric": "r2_foldmean",
+      "report_aggregations": [
+        "foldmean",
+        "pooled"
+      ],
+      "report_metrics": [
+        "r2",
+        "rmse",
+        "mae"
+      ],
+      "models": {
+        "primary": "pls",
+        "secondary": "lightgbm"
+      },
+      "datasets": {
+        "ryckewaert": {
+          "groups": "leaf",
+          "alt_groups": "plot",
+          "targets": [
+            "flavonol",
+            "chlorophyll"
+          ],
+          "n": 204,
+          "p": 520
+        },
+        "deep_patato": {
+          "groups": "Field",
+          "targets": [
+            "chlorophyll"
+          ],
+          "n": 72,
+          "p": 150
+        }
+      },
+      "combos": [
+        {
+          "dataset": "ryckewaert",
+          "target": "flavonol"
+        },
+        {
+          "dataset": "ryckewaert",
+          "target": "chlorophyll"
+        },
+        {
+          "dataset": "deep_patato",
+          "target": "chlorophyll"
+        }
+      ],
+      "selectors": {
+        "rfe": {
+          "alpha": 1.0,
+          "step": 0.1,
+          "scale": false
+        },
+        "lasso": {
+          "inner": "group",
+          "max_iter": 20000,
+          "tol": 0.0001
+        },
+        "mutual_info": {
+          "n_neighbors": 3
+        },
+        "ga": {
+          "pop": 150,
+          "ngen": 150,
+          "model_fitness": "same_as_model",
+          "min_features": 5,
+          "clip_fitness_at_zero": true
+        },
+        "random_k": {},
+        "none": {}
+      }
+    },
+    "E1_repeated": {
+      "module": "src.m07_revision.e1_repeated",
+      "output": "outputs_rev1/E1_repeated",
+      "repeats": 20,
+      "split": {
+        "scheme": "group",
+        "n_splits": 5,
+        "shuffle": true
+      },
+      "selectors": [
+        "rfe",
+        "lasso",
+        "mutual_info"
+      ],
+      "models": [
+        "pls",
+        "lightgbm"
+      ],
+      "arms": [
+        "P1_random",
+        "P2_apparent",
+        "P3_nested",
+        "no_selection",
+        "random_k"
+      ],
+      "ga_pls_from": "E6_ga.G1",
+      "potato_logo": {
+        "enabled": true,
+        "report": "pooled_only"
+      },
+      "uncertainty": {
+        "between_repeats": {
+          "stat": "mean",
+          "percentiles": [
+            2.5,
+            97.5
+          ]
+        },
+        "group_bootstrap": {
+          "B": 2000,
+          "ci": 0.95,
+          "paired": true,
+          "true": "pooled_oof",
+          "across_repeats": "median_ci",
+          "seed": "derived",
+          "assumption_note": "Fit edilmiş modeller ve maskeler sabit kabul edilir (koşullu bootstrap); seçim ve model fit belirsizliği bu CI'a dahil değildir."
+        }
+      },
+      "summaries": {
+        "by": [
+          "dataset_target",
+          "selector_family"
+        ],
+        "per_combo_ci": true
+      },
+      "outputs": [
+        "summary_by_combo.csv",
+        "delta_ci.csv",
+        "lasso_truncation.csv",
+        "components.csv",
+        "samples/folds.csv.gz"
+      ]
+    }
+  },
+  "mask_cache": "outputs_rev1/_checkpoints/masks"
+}

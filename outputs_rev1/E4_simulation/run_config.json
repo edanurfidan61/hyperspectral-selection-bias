@@ -1,0 +1,248 @@
+{
+  "timestamp": "2026-11-01T00:54:12",
+  "git_commit": "9297f9ff4441b15fe1db1b7d2983da501f7e5b71",
+  "git_branch": "revision-1",
+  "git_dirty_files": [
+    "?? outputs_rev1/E3_sensitivity/",
+    "?? outputs_rev1/E4_simulation/",
+    "?? outputs_rev1/E5_permutation/",
+    "?? outputs_rev1/E6_ga/"
+  ],
+  "command": "python.exe C:\\hyperspectral-selection-bias\\src\\m07_revision\\e4_simulation.py --reduced-repeats lasso,mutual_info",
+  "python": "3.11.9 (tags/v3.11.9:de54cf5, Apr  2 2024, 10:12:12) [MSC v.1938 64 bit (AMD64)]",
+  "executable": "C:\\hyperspectral-selection-bias\\.venv\\Scripts\\python.exe",
+  "platform": "Windows-10-10.0.26200-SP0",
+  "cpu_count": 16,
+  "packages": {
+    "numpy": "2.4.6",
+    "scipy": "1.17.1",
+    "scikit-learn": "1.8.0",
+    "pandas": "3.0.3",
+    "lightgbm": "4.6.0",
+    "joblib": "1.5.3",
+    "threadpoolctl": "3.7.0"
+  },
+  "thread_env": {
+    "OMP_NUM_THREADS": "1",
+    "MKL_NUM_THREADS": "1",
+    "OPENBLAS_NUM_THREADS": "1"
+  },
+  "experiment": "E4_simulation",
+  "parts": [
+    "grid",
+    "s_null",
+    "s_signal"
+  ],
+  "reduced_repeats_decision": {
+    "reduced_selectors": [
+      "lasso",
+      "mutual_info"
+    ],
+    "reduced_repeats": 100,
+    "rule": {
+      "selectors": [
+        "lasso",
+        "mutual_info"
+      ],
+      "reduced_repeats": 100,
+      "if_projected_wall_time_hours_gt": 3.0
+    },
+    "decided": "2026-11-01T00:54:11",
+    "basis": "outputs_rev1/_timing/E4_simulation_timing.json"
+  },
+  "seeds": {
+    "data": "1000 + i (iid = make_null_data birebir; LW/t3 aynı Z,y; s_signal SeedSequence([1000+i, 7]))",
+    "split": "KFold(5, shuffle=True, random_state=1000+i)",
+    "selector": "derive_seed(base_seed, i, fold, selector)"
+  },
+  "config_blocks": {
+    "common": {
+      "output_root": "outputs_rev1",
+      "sample_level_subdir": "samples",
+      "base_seed": 0,
+      "seed_mode": "derived",
+      "n_jobs": null,
+      "n_splits": 5,
+      "split_scheme": "group",
+      "k": 20,
+      "primary_metric": "r2_foldmean",
+      "report_aggregations": [
+        "foldmean",
+        "pooled"
+      ],
+      "report_metrics": [
+        "r2",
+        "rmse",
+        "mae"
+      ],
+      "models": {
+        "primary": "pls",
+        "secondary": "lightgbm"
+      },
+      "datasets": {
+        "ryckewaert": {
+          "groups": "leaf",
+          "alt_groups": "plot",
+          "targets": [
+            "flavonol",
+            "chlorophyll"
+          ],
+          "n": 204,
+          "p": 520
+        },
+        "deep_patato": {
+          "groups": "Field",
+          "targets": [
+            "chlorophyll"
+          ],
+          "n": 72,
+          "p": 150
+        }
+      },
+      "combos": [
+        {
+          "dataset": "ryckewaert",
+          "target": "flavonol"
+        },
+        {
+          "dataset": "ryckewaert",
+          "target": "chlorophyll"
+        },
+        {
+          "dataset": "deep_patato",
+          "target": "chlorophyll"
+        }
+      ],
+      "selectors": {
+        "rfe": {
+          "alpha": 1.0,
+          "step": 0.1,
+          "scale": false
+        },
+        "lasso": {
+          "inner": "group",
+          "max_iter": 20000,
+          "tol": 0.0001
+        },
+        "mutual_info": {
+          "n_neighbors": 3
+        },
+        "ga": {
+          "pop": 150,
+          "ngen": 150,
+          "model_fitness": "same_as_model",
+          "min_features": 5,
+          "clip_fitness_at_zero": true
+        },
+        "random_k": {},
+        "none": {}
+      }
+    },
+    "E4_simulation": {
+      "module": "src.m07_revision.e4_simulation",
+      "output": "outputs_rev1/E4_simulation",
+      "model": "pls",
+      "split": {
+        "scheme": "random",
+        "n_splits": 5
+      },
+      "s_null": {
+        "generators": [
+          "iid_normal",
+          "ledoit_wolf_grapevine",
+          "t3_ledoit_wolf"
+        ],
+        "t_df": 3,
+        "selectors": [
+          "pearson_topk",
+          "rfe",
+          "lasso",
+          "mutual_info",
+          "random_k"
+        ],
+        "n": 204,
+        "p": 520,
+        "k": 20,
+        "repeats": 200,
+        "reduced_repeats_rule": {
+          "selectors": [
+            "lasso",
+            "mutual_info"
+          ],
+          "reduced_repeats": 100,
+          "if_projected_wall_time_hours_gt": 3.0
+        },
+        "paired": true,
+        "ci": 0.95,
+        "decomposition": [
+          "apparent_minus_random_k",
+          "random_k_minus_nested"
+        ]
+      },
+      "r3_65_grid": {
+        "selector": "pearson_topk",
+        "n": [
+          50,
+          100,
+          204
+        ],
+        "p": [
+          150,
+          520
+        ],
+        "k": [
+          5,
+          20,
+          40
+        ],
+        "repeats": 200,
+        "generator": "iid_normal",
+        "analytic_baselines": [
+          "apparent_r2_from_topk_abs_r_order_statistics",
+          "no_selection_ols_cv_r2_approx_minus_k_over_n_minus_k"
+        ]
+      },
+      "s_signal": {
+        "generator": "ledoit_wolf_grapevine",
+        "p": 520,
+        "n_true_features": 10,
+        "population_r2": [
+          0.3,
+          0.6
+        ],
+        "n": [
+          72,
+          204
+        ],
+        "n_test": 5000,
+        "measurement_noise_extra_var": [
+          0.0,
+          0.1,
+          0.2
+        ],
+        "selectors": [
+          "pearson_topk",
+          "rfe",
+          "lasso",
+          "mutual_info",
+          "random_k"
+        ],
+        "k": 20,
+        "repeats": 100,
+        "estimands": [
+          "theta_n",
+          "theta_0.8n"
+        ],
+        "report": [
+          "E[apparent - theta_n]",
+          "E[nested - theta_0.8n]",
+          "E[nested - theta_n]",
+          "corr(delta, apparent - theta_n)"
+        ]
+      }
+    }
+  },
+  "mode": "full",
+  "n_jobs": 14,
+  "n_tasks": 8419
+}

@@ -1,0 +1,800 @@
+{
+  "timestamp": "2026-10-31T20:33:15",
+  "git_commit": "9297f9ff4441b15fe1db1b7d2983da501f7e5b71",
+  "git_branch": "revision-1",
+  "git_dirty_files": [],
+  "command": "python.exe C:\\hyperspectral-selection-bias\\src\\m07_revision\\e3_sensitivity.py --axes grouping",
+  "python": "3.11.9 (tags/v3.11.9:de54cf5, Apr  2 2024, 10:12:12) [MSC v.1938 64 bit (AMD64)]",
+  "executable": "C:\\hyperspectral-selection-bias\\.venv\\Scripts\\python.exe",
+  "platform": "Windows-10-10.0.26200-SP0",
+  "cpu_count": 16,
+  "packages": {
+    "numpy": "2.4.6",
+    "scipy": "1.17.1",
+    "scikit-learn": "1.8.0",
+    "pandas": "3.0.3",
+    "lightgbm": "4.6.0",
+    "joblib": "1.5.3",
+    "threadpoolctl": "3.7.0"
+  },
+  "thread_env": {
+    "OMP_NUM_THREADS": "1",
+    "MKL_NUM_THREADS": "1",
+    "OPENBLAS_NUM_THREADS": "1"
+  },
+  "experiment": "E3_sensitivity",
+  "repeats": 10,
+  "axes_filter": [
+    "grouping"
+  ],
+  "cells": [
+    {
+      "axis": "grouping",
+      "value": "plot",
+      "cell": "grouping=plot",
+      "selectors": [
+        "rfe",
+        "lasso",
+        "mutual_info"
+      ],
+      "datasets": [
+        "ryckewaert"
+      ],
+      "k": "default",
+      "sel_override": {},
+      "x_variant": {},
+      "group_level": {
+        "ryckewaert": "plot"
+      },
+      "n_splits": 5,
+      "model": "pls",
+      "model_kw": {}
+    },
+    {
+      "axis": "k",
+      "value": "5",
+      "cell": "k=5",
+      "selectors": [
+        "rfe",
+        "lasso",
+        "mutual_info"
+      ],
+      "datasets": null,
+      "k": 5,
+      "sel_override": {},
+      "x_variant": {},
+      "group_level": {},
+      "n_splits": 5,
+      "model": "pls",
+      "model_kw": {}
+    },
+    {
+      "axis": "k",
+      "value": "10",
+      "cell": "k=10",
+      "selectors": [
+        "rfe",
+        "lasso",
+        "mutual_info"
+      ],
+      "datasets": null,
+      "k": 10,
+      "sel_override": {},
+      "x_variant": {},
+      "group_level": {},
+      "n_splits": 5,
+      "model": "pls",
+      "model_kw": {}
+    },
+    {
+      "axis": "k",
+      "value": "20",
+      "cell": "k=20",
+      "selectors": [
+        "rfe",
+        "lasso",
+        "mutual_info"
+      ],
+      "datasets": null,
+      "k": 20,
+      "sel_override": {},
+      "x_variant": {},
+      "group_level": {},
+      "n_splits": 5,
+      "model": "pls",
+      "model_kw": {}
+    },
+    {
+      "axis": "k",
+      "value": "40",
+      "cell": "k=40",
+      "selectors": [
+        "rfe",
+        "lasso",
+        "mutual_info"
+      ],
+      "datasets": null,
+      "k": 40,
+      "sel_override": {},
+      "x_variant": {},
+      "group_level": {},
+      "n_splits": 5,
+      "model": "pls",
+      "model_kw": {}
+    },
+    {
+      "axis": "band_trim",
+      "value": "trimmed",
+      "cell": "band_trim=trimmed",
+      "selectors": [
+        "rfe",
+        "lasso",
+        "mutual_info"
+      ],
+      "datasets": null,
+      "k": "default",
+      "sel_override": {},
+      "x_variant": {
+        "ryckewaert": {
+          "spectral_block_keep_nm": [
+            420,
+            980
+          ]
+        },
+        "deep_patato": {
+          "drop_first": 10,
+          "drop_last": 10
+        }
+      },
+      "group_level": {},
+      "n_splits": 5,
+      "model": "pls",
+      "model_kw": {}
+    },
+    {
+      "axis": "rfe",
+      "value": "alpha=0.1,step=0.05",
+      "cell": "rfe=alpha=0.1_step=0.05",
+      "selectors": [
+        "rfe"
+      ],
+      "datasets": null,
+      "k": "default",
+      "sel_override": {
+        "rfe": {
+          "alpha": 0.1,
+          "step": 0.05
+        }
+      },
+      "x_variant": {},
+      "group_level": {},
+      "n_splits": 5,
+      "model": "pls",
+      "model_kw": {}
+    },
+    {
+      "axis": "rfe",
+      "value": "alpha=0.1,step=0.1",
+      "cell": "rfe=alpha=0.1_step=0.1",
+      "selectors": [
+        "rfe"
+      ],
+      "datasets": null,
+      "k": "default",
+      "sel_override": {
+        "rfe": {
+          "alpha": 0.1,
+          "step": 0.1
+        }
+      },
+      "x_variant": {},
+      "group_level": {},
+      "n_splits": 5,
+      "model": "pls",
+      "model_kw": {}
+    },
+    {
+      "axis": "rfe",
+      "value": "alpha=0.1,step=0.2",
+      "cell": "rfe=alpha=0.1_step=0.2",
+      "selectors": [
+        "rfe"
+      ],
+      "datasets": null,
+      "k": "default",
+      "sel_override": {
+        "rfe": {
+          "alpha": 0.1,
+          "step": 0.2
+        }
+      },
+      "x_variant": {},
+      "group_level": {},
+      "n_splits": 5,
+      "model": "pls",
+      "model_kw": {}
+    },
+    {
+      "axis": "rfe",
+      "value": "alpha=1.0,step=0.05",
+      "cell": "rfe=alpha=1.0_step=0.05",
+      "selectors": [
+        "rfe"
+      ],
+      "datasets": null,
+      "k": "default",
+      "sel_override": {
+        "rfe": {
+          "alpha": 1.0,
+          "step": 0.05
+        }
+      },
+      "x_variant": {},
+      "group_level": {},
+      "n_splits": 5,
+      "model": "pls",
+      "model_kw": {}
+    },
+    {
+      "axis": "rfe",
+      "value": "alpha=1.0,step=0.1",
+      "cell": "rfe=alpha=1.0_step=0.1",
+      "selectors": [
+        "rfe"
+      ],
+      "datasets": null,
+      "k": "default",
+      "sel_override": {
+        "rfe": {
+          "alpha": 1.0,
+          "step": 0.1
+        }
+      },
+      "x_variant": {},
+      "group_level": {},
+      "n_splits": 5,
+      "model": "pls",
+      "model_kw": {}
+    },
+    {
+      "axis": "rfe",
+      "value": "alpha=1.0,step=0.2",
+      "cell": "rfe=alpha=1.0_step=0.2",
+      "selectors": [
+        "rfe"
+      ],
+      "datasets": null,
+      "k": "default",
+      "sel_override": {
+        "rfe": {
+          "alpha": 1.0,
+          "step": 0.2
+        }
+      },
+      "x_variant": {},
+      "group_level": {},
+      "n_splits": 5,
+      "model": "pls",
+      "model_kw": {}
+    },
+    {
+      "axis": "rfe",
+      "value": "alpha=10.0,step=0.05",
+      "cell": "rfe=alpha=10.0_step=0.05",
+      "selectors": [
+        "rfe"
+      ],
+      "datasets": null,
+      "k": "default",
+      "sel_override": {
+        "rfe": {
+          "alpha": 10.0,
+          "step": 0.05
+        }
+      },
+      "x_variant": {},
+      "group_level": {},
+      "n_splits": 5,
+      "model": "pls",
+      "model_kw": {}
+    },
+    {
+      "axis": "rfe",
+      "value": "alpha=10.0,step=0.1",
+      "cell": "rfe=alpha=10.0_step=0.1",
+      "selectors": [
+        "rfe"
+      ],
+      "datasets": null,
+      "k": "default",
+      "sel_override": {
+        "rfe": {
+          "alpha": 10.0,
+          "step": 0.1
+        }
+      },
+      "x_variant": {},
+      "group_level": {},
+      "n_splits": 5,
+      "model": "pls",
+      "model_kw": {}
+    },
+    {
+      "axis": "rfe",
+      "value": "alpha=10.0,step=0.2",
+      "cell": "rfe=alpha=10.0_step=0.2",
+      "selectors": [
+        "rfe"
+      ],
+      "datasets": null,
+      "k": "default",
+      "sel_override": {
+        "rfe": {
+          "alpha": 10.0,
+          "step": 0.2
+        }
+      },
+      "x_variant": {},
+      "group_level": {},
+      "n_splits": 5,
+      "model": "pls",
+      "model_kw": {}
+    },
+    {
+      "axis": "rfe",
+      "value": "scale=True",
+      "cell": "rfe=scale=True",
+      "selectors": [
+        "rfe"
+      ],
+      "datasets": null,
+      "k": "default",
+      "sel_override": {
+        "rfe": {
+          "scale": true
+        }
+      },
+      "x_variant": {},
+      "group_level": {},
+      "n_splits": 5,
+      "model": "pls",
+      "model_kw": {}
+    },
+    {
+      "axis": "mutual_info",
+      "value": "n_neighbors=3",
+      "cell": "mutual_info=n_neighbors=3",
+      "selectors": [
+        "mutual_info"
+      ],
+      "datasets": null,
+      "k": "default",
+      "sel_override": {
+        "mutual_info": {
+          "n_neighbors": 3
+        }
+      },
+      "x_variant": {},
+      "group_level": {},
+      "n_splits": 5,
+      "model": "pls",
+      "model_kw": {}
+    },
+    {
+      "axis": "mutual_info",
+      "value": "n_neighbors=5",
+      "cell": "mutual_info=n_neighbors=5",
+      "selectors": [
+        "mutual_info"
+      ],
+      "datasets": null,
+      "k": "default",
+      "sel_override": {
+        "mutual_info": {
+          "n_neighbors": 5
+        }
+      },
+      "x_variant": {},
+      "group_level": {},
+      "n_splits": 5,
+      "model": "pls",
+      "model_kw": {}
+    },
+    {
+      "axis": "mutual_info",
+      "value": "n_neighbors=10",
+      "cell": "mutual_info=n_neighbors=10",
+      "selectors": [
+        "mutual_info"
+      ],
+      "datasets": null,
+      "k": "default",
+      "sel_override": {
+        "mutual_info": {
+          "n_neighbors": 10
+        }
+      },
+      "x_variant": {},
+      "group_level": {},
+      "n_splits": 5,
+      "model": "pls",
+      "model_kw": {}
+    },
+    {
+      "axis": "lasso",
+      "value": "uncapped",
+      "cell": "lasso=uncapped",
+      "selectors": [
+        "lasso"
+      ],
+      "datasets": null,
+      "k": null,
+      "sel_override": {},
+      "x_variant": {},
+      "group_level": {},
+      "n_splits": 5,
+      "model": "pls",
+      "model_kw": {}
+    },
+    {
+      "axis": "lasso",
+      "value": "inner=legacy",
+      "cell": "lasso=inner=legacy",
+      "selectors": [
+        "lasso"
+      ],
+      "datasets": null,
+      "k": "default",
+      "sel_override": {
+        "lasso": {
+          "inner": "legacy"
+        }
+      },
+      "x_variant": {},
+      "group_level": {},
+      "n_splits": 5,
+      "model": "pls",
+      "model_kw": {}
+    },
+    {
+      "axis": "lasso",
+      "value": "inner=group",
+      "cell": "lasso=inner=group",
+      "selectors": [
+        "lasso"
+      ],
+      "datasets": null,
+      "k": "default",
+      "sel_override": {
+        "lasso": {
+          "inner": "group"
+        }
+      },
+      "x_variant": {},
+      "group_level": {},
+      "n_splits": 5,
+      "model": "pls",
+      "model_kw": {}
+    },
+    {
+      "axis": "representation",
+      "value": "snv_spectrum_only",
+      "cell": "representation=snv_spectrum_only",
+      "selectors": [
+        "rfe",
+        "lasso",
+        "mutual_info"
+      ],
+      "datasets": [
+        "ryckewaert"
+      ],
+      "k": "default",
+      "sel_override": {},
+      "x_variant": {
+        "ryckewaert": {
+          "representation": "snv_spectrum_only"
+        }
+      },
+      "group_level": {},
+      "n_splits": 5,
+      "model": "pls",
+      "model_kw": {}
+    },
+    {
+      "axis": "n_splits",
+      "value": "3",
+      "cell": "n_splits=3",
+      "selectors": [
+        "rfe",
+        "lasso",
+        "mutual_info"
+      ],
+      "datasets": null,
+      "k": "default",
+      "sel_override": {},
+      "x_variant": {},
+      "group_level": {},
+      "n_splits": 3,
+      "model": "pls",
+      "model_kw": {}
+    },
+    {
+      "axis": "n_splits",
+      "value": "5",
+      "cell": "n_splits=5",
+      "selectors": [
+        "rfe",
+        "lasso",
+        "mutual_info"
+      ],
+      "datasets": null,
+      "k": "default",
+      "sel_override": {},
+      "x_variant": {},
+      "group_level": {},
+      "n_splits": 5,
+      "model": "pls",
+      "model_kw": {}
+    },
+    {
+      "axis": "n_splits",
+      "value": "10",
+      "cell": "n_splits=10",
+      "selectors": [
+        "rfe",
+        "lasso",
+        "mutual_info"
+      ],
+      "datasets": null,
+      "k": "default",
+      "sel_override": {},
+      "x_variant": {},
+      "group_level": {},
+      "n_splits": 10,
+      "model": "pls",
+      "model_kw": {}
+    },
+    {
+      "axis": "pls_components",
+      "value": "nested_inner_cv",
+      "cell": "pls_components=nested_inner_cv",
+      "selectors": [
+        "rfe",
+        "lasso",
+        "mutual_info"
+      ],
+      "datasets": null,
+      "k": "default",
+      "sel_override": {},
+      "x_variant": {},
+      "group_level": {},
+      "n_splits": 5,
+      "model": "pls_tuned",
+      "model_kw": {
+        "grid": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ],
+        "n_inner": 5
+      }
+    }
+  ],
+  "selectors": [
+    "rfe",
+    "lasso",
+    "mutual_info"
+  ],
+  "split": "GroupKFold(n_splits, shuffle=True, random_state=repeat); r=0..9 = E1 first 10",
+  "seeds": {
+    "base_seed": 0,
+    "seed_mode": "derived"
+  },
+  "config_blocks": {
+    "common": {
+      "output_root": "outputs_rev1",
+      "sample_level_subdir": "samples",
+      "base_seed": 0,
+      "seed_mode": "derived",
+      "n_jobs": null,
+      "n_splits": 5,
+      "split_scheme": "group",
+      "k": 20,
+      "primary_metric": "r2_foldmean",
+      "report_aggregations": [
+        "foldmean",
+        "pooled"
+      ],
+      "report_metrics": [
+        "r2",
+        "rmse",
+        "mae"
+      ],
+      "models": {
+        "primary": "pls",
+        "secondary": "lightgbm"
+      },
+      "datasets": {
+        "ryckewaert": {
+          "groups": "leaf",
+          "alt_groups": "plot",
+          "targets": [
+            "flavonol",
+            "chlorophyll"
+          ],
+          "n": 204,
+          "p": 520
+        },
+        "deep_patato": {
+          "groups": "Field",
+          "targets": [
+            "chlorophyll"
+          ],
+          "n": 72,
+          "p": 150
+        }
+      },
+      "combos": [
+        {
+          "dataset": "ryckewaert",
+          "target": "flavonol"
+        },
+        {
+          "dataset": "ryckewaert",
+          "target": "chlorophyll"
+        },
+        {
+          "dataset": "deep_patato",
+          "target": "chlorophyll"
+        }
+      ],
+      "selectors": {
+        "rfe": {
+          "alpha": 1.0,
+          "step": 0.1,
+          "scale": false
+        },
+        "lasso": {
+          "inner": "group",
+          "max_iter": 20000,
+          "tol": 0.0001
+        },
+        "mutual_info": {
+          "n_neighbors": 3
+        },
+        "ga": {
+          "pop": 150,
+          "ngen": 150,
+          "model_fitness": "same_as_model",
+          "min_features": 5,
+          "clip_fitness_at_zero": true
+        },
+        "random_k": {},
+        "none": {}
+      }
+    },
+    "E3_sensitivity": {
+      "module": "src.m07_revision.e3_sensitivity",
+      "output": "outputs_rev1/E3_sensitivity",
+      "repeats": 10,
+      "selectors": [
+        "rfe",
+        "lasso",
+        "mutual_info"
+      ],
+      "models": [
+        "pls"
+      ],
+      "arms": [
+        "P2_apparent",
+        "P3_nested"
+      ],
+      "axes": {
+        "k": [
+          5,
+          10,
+          20,
+          40
+        ],
+        "band_trim": {
+          "ryckewaert": {
+            "spectral_block_keep_nm": [
+              420,
+              980
+            ]
+          },
+          "deep_patato": {
+            "drop_first": 10,
+            "drop_last": 10
+          }
+        },
+        "rfe": {
+          "alpha": [
+            0.1,
+            1.0,
+            10.0
+          ],
+          "step": [
+            0.05,
+            0.1,
+            0.2
+          ],
+          "scale": [
+            true
+          ]
+        },
+        "mutual_info": {
+          "n_neighbors": [
+            3,
+            5,
+            10
+          ]
+        },
+        "lasso": {
+          "uncapped": true,
+          "inner": [
+            "legacy",
+            "group"
+          ]
+        },
+        "representation": {
+          "ryckewaert": [
+            "snv_spectrum_only"
+          ]
+        },
+        "n_splits": [
+          3,
+          5,
+          10
+        ],
+        "grouping": {
+          "ryckewaert": [
+            "plot"
+          ]
+        },
+        "pls_components": {
+          "tuned_by": "nested_inner_cv",
+          "grid": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10
+          ]
+        }
+      },
+      "outputs": [
+        "sensitivity.csv"
+      ]
+    }
+  },
+  "mask_cache": "outputs_rev1/_checkpoints/masks (shared with E1)",
+  "lasso_coef_cache": "outputs_rev1/_checkpoints/lasso_coef",
+  "mode": "full",
+  "n_jobs": 14,
+  "n_tasks": 60,
+  "resumes": [
+    {
+      "timestamp": "2026-10-31T21:57:08",
+      "git_commit": "9297f9ff4441b15fe1db1b7d2983da501f7e5b71",
+      "git_branch": "revision-1",
+      "git_dirty_files": [
+        "?? outputs_rev1/E3_sensitivity/",
+        "?? outputs_rev1/E6_ga/"
+      ],
+      "command": "python.exe C:\\hyperspectral-selection-bias\\src\\m07_revision\\e3_sensitivity.py"
+    }
+  ]
+}

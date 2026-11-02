@@ -1,0 +1,180 @@
+{
+  "timestamp": "2026-10-31T23:56:16",
+  "git_commit": "9297f9ff4441b15fe1db1b7d2983da501f7e5b71",
+  "git_branch": "revision-1",
+  "git_dirty_files": [
+    "?? outputs_rev1/E3_sensitivity/",
+    "?? outputs_rev1/E6_ga/"
+  ],
+  "command": "python.exe C:\\hyperspectral-selection-bias\\src\\m07_revision\\e5_permutation.py --exclude ryckewaert/lasso",
+  "python": "3.11.9 (tags/v3.11.9:de54cf5, Apr  2 2024, 10:12:12) [MSC v.1938 64 bit (AMD64)]",
+  "executable": "C:\\hyperspectral-selection-bias\\.venv\\Scripts\\python.exe",
+  "platform": "Windows-10-10.0.26200-SP0",
+  "cpu_count": 16,
+  "packages": {
+    "numpy": "2.4.6",
+    "scipy": "1.17.1",
+    "scikit-learn": "1.8.0",
+    "pandas": "3.0.3",
+    "lightgbm": "4.6.0",
+    "joblib": "1.5.3",
+    "threadpoolctl": "3.7.0"
+  },
+  "thread_env": {
+    "OMP_NUM_THREADS": "1",
+    "MKL_NUM_THREADS": "1",
+    "OPENBLAS_NUM_THREADS": "1"
+  },
+  "experiment": "E5_permutation",
+  "B": 200,
+  "exclude": [
+    "ryckewaert/lasso"
+  ],
+  "only": [],
+  "n_perm_override": null,
+  "seeds": {
+    "permutation": "derive_seed(base_seed, b, -1, 'perm:<scheme>')",
+    "selector": "derive_seed(base_seed, 0, fold, selector) — same for all b"
+  },
+  "config_blocks": {
+    "common": {
+      "output_root": "outputs_rev1",
+      "sample_level_subdir": "samples",
+      "base_seed": 0,
+      "seed_mode": "derived",
+      "n_jobs": null,
+      "n_splits": 5,
+      "split_scheme": "group",
+      "k": 20,
+      "primary_metric": "r2_foldmean",
+      "report_aggregations": [
+        "foldmean",
+        "pooled"
+      ],
+      "report_metrics": [
+        "r2",
+        "rmse",
+        "mae"
+      ],
+      "models": {
+        "primary": "pls",
+        "secondary": "lightgbm"
+      },
+      "datasets": {
+        "ryckewaert": {
+          "groups": "leaf",
+          "alt_groups": "plot",
+          "targets": [
+            "flavonol",
+            "chlorophyll"
+          ],
+          "n": 204,
+          "p": 520
+        },
+        "deep_patato": {
+          "groups": "Field",
+          "targets": [
+            "chlorophyll"
+          ],
+          "n": 72,
+          "p": 150
+        }
+      },
+      "combos": [
+        {
+          "dataset": "ryckewaert",
+          "target": "flavonol"
+        },
+        {
+          "dataset": "ryckewaert",
+          "target": "chlorophyll"
+        },
+        {
+          "dataset": "deep_patato",
+          "target": "chlorophyll"
+        }
+      ],
+      "selectors": {
+        "rfe": {
+          "alpha": 1.0,
+          "step": 0.1,
+          "scale": false
+        },
+        "lasso": {
+          "inner": "group",
+          "max_iter": 20000,
+          "tol": 0.0001
+        },
+        "mutual_info": {
+          "n_neighbors": 3
+        },
+        "ga": {
+          "pop": 150,
+          "ngen": 150,
+          "model_fitness": "same_as_model",
+          "min_features": 5,
+          "clip_fitness_at_zero": true
+        },
+        "random_k": {},
+        "none": {}
+      }
+    },
+    "E5_permutation": {
+      "module": "src.m07_revision.e5_permutation",
+      "output": "outputs_rev1/E5_permutation",
+      "B": 200,
+      "p_value": "(1 + b) / (B + 1)",
+      "statistic": "nested_r2_foldmean",
+      "split": {
+        "scheme": "group",
+        "n_splits": 5,
+        "repeat": 0,
+        "shuffle": false
+      },
+      "model": "pls",
+      "selectors": [
+        "rfe",
+        "lasso",
+        "mutual_info"
+      ],
+      "lasso": {
+        "inner": "group",
+        "max_iter": 20000,
+        "tol": 0.001,
+        "count_convergence_warnings": true
+      },
+      "schemes": {
+        "ryckewaert": [
+          "free",
+          "within_plot"
+        ],
+        "deep_patato": [
+          "field_block"
+        ]
+      },
+      "seed": "derived",
+      "ga": {
+        "optional": true,
+        "B": 20
+      }
+    }
+  },
+  "mode": "full",
+  "n_jobs": 14,
+  "n_tasks": 2207,
+  "resumes": [
+    {
+      "timestamp": "2026-11-01T04:46:20",
+      "git_commit": "9297f9ff4441b15fe1db1b7d2983da501f7e5b71",
+      "git_branch": "revision-1",
+      "git_dirty_files": [
+        "M src/m07_revision/e3_sensitivity.py",
+        "?? outputs_rev1/E3_sensitivity/",
+        "?? outputs_rev1/E4_simulation/",
+        "?? outputs_rev1/E5_permutation/",
+        "?? outputs_rev1/E6_ga/"
+      ],
+      "command": "python.exe C:\\hyperspectral-selection-bias\\src\\m07_revision\\e5_permutation.py --only ryckewaert/lasso --n-perm 50"
+    }
+  ]
+}

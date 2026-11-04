@@ -1,0 +1,277 @@
+dataset,sample_idx,group_id,leaf_id,image_id,plot_group,variety,plot_location,collection_date,symptom,sample_index_csv,field,flight_date
+ryckewaert,0,2020-09-10_003,2020-09-10_003,Fdga1,Gamay|Couffouleux|10/09/2020,Gamay,Couffouleux,10/09/2020,flavescence dorée,,,
+ryckewaert,1,2020-09-10_004,2020-09-10_004,Fdga2,Gamay|Couffouleux|10/09/2020,Gamay,Couffouleux,10/09/2020,flavescence dorée,,,
+ryckewaert,2,2020-09-10_005,2020-09-10_005,Fdga3,Gamay|Couffouleux|10/09/2020,Gamay,Couffouleux,10/09/2020,flavescence dorée,,,
+ryckewaert,3,2020-09-10_006,2020-09-10_006,Fdga4,Gamay|Couffouleux|10/09/2020,Gamay,Couffouleux,10/09/2020,flavescence dorée,,,
+ryckewaert,4,2020-09-10_007,2020-09-10_007,Fdga5,Gamay|Couffouleux|10/09/2020,Gamay,Couffouleux,10/09/2020,flavescence dorée,,,
+ryckewaert,5,2020-09-10_008,2020-09-10_008,Fdga6,Gamay|Couffouleux|10/09/2020,Gamay,Couffouleux,10/09/2020,flavescence dorée,,,
+ryckewaert,6,2020-09-10_009,2020-09-10_009,Fdga7,Gamay|Couffouleux|10/09/2020,Gamay,Couffouleux,10/09/2020,flavescence dorée,,,
+ryckewaert,7,2020-09-10_010,2020-09-10_010,Fdga8,Gamay|Couffouleux|10/09/2020,Gamay,Couffouleux,10/09/2020,flavescence dorée,,,
+ryckewaert,8,2020-09-10_011,2020-09-10_011,Fdga9,Gamay|Couffouleux|10/09/2020,Gamay,Couffouleux,10/09/2020,flavescence dorée,,,
+ryckewaert,9,2020-09-10_012,2020-09-10_012,Fdga10,Gamay|Couffouleux|10/09/2020,Gamay,Couffouleux,10/09/2020,flavescence dorée,,,
+ryckewaert,10,2020-09-10_013,2020-09-10_013,Okga1,Gamay|Couffouleux|10/09/2020,Gamay,Couffouleux,10/09/2020,healthy,,,
+ryckewaert,11,2020-09-10_014,2020-09-10_014,Okga2,Gamay|Couffouleux|10/09/2020,Gamay,Couffouleux,10/09/2020,healthy,,,
+ryckewaert,12,2020-09-10_015,2020-09-10_015,Okga3,Gamay|Couffouleux|10/09/2020,Gamay,Couffouleux,10/09/2020,healthy,,,
+ryckewaert,13,2020-09-10_016,2020-09-10_016,Okga4,Gamay|Couffouleux|10/09/2020,Gamay,Couffouleux,10/09/2020,healthy,,,
+ryckewaert,14,2020-09-10_017,2020-09-10_017,Okga5,Gamay|Couffouleux|10/09/2020,Gamay,Couffouleux,10/09/2020,healthy,,,
+ryckewaert,15,2020-09-10_018,2020-09-10_018,Noga1,Gamay|Couffouleux|10/09/2020,Gamay,Couffouleux,10/09/2020,water stress,,,
+ryckewaert,16,2020-09-10_019,2020-09-10_019,Noga2,Gamay|Couffouleux|10/09/2020,Gamay,Couffouleux,10/09/2020,buffalo treehopper,,,
+ryckewaert,17,2020-09-10_020,2020-09-10_020,Noga3,Gamay|Couffouleux|10/09/2020,Gamay,Couffouleux,10/09/2020,buffalo treehopper,,,
+ryckewaert,18,2020-09-10_021,2020-09-10_021,Noga4,Gamay|Couffouleux|10/09/2020,Gamay,Couffouleux,10/09/2020,green leafhopper,,,
+ryckewaert,19,2020-09-10_022,2020-09-10_022,Noga5,Gamay|Couffouleux|10/09/2020,Gamay,Couffouleux,10/09/2020,water stress,,,
+ryckewaert,20,2020-09-10_023,2020-09-10_023,Noga6,Gamay|Couffouleux|10/09/2020,Gamay,Couffouleux,10/09/2020,green leafhopper,,,
+ryckewaert,21,2020-09-10_024,2020-09-10_024,Noga7,Gamay|Couffouleux|10/09/2020,Gamay,Couffouleux,10/09/2020,wood diseases,,,
+ryckewaert,22,2020-09-10_025,2020-09-10_025,Noga8,Gamay|Couffouleux|10/09/2020,Gamay,Couffouleux,10/09/2020,green leafhopper,,,
+ryckewaert,23,2020-09-10_026,2020-09-10_026,Noga9,Gamay|Couffouleux|10/09/2020,Gamay,Couffouleux,10/09/2020,buffalo treehopper,,,
+ryckewaert,24,2020-09-10_027,2020-09-10_027,Noga10,Gamay|Couffouleux|10/09/2020,Gamay,Couffouleux,10/09/2020,green leafhopper,,,
+ryckewaert,25,2020-09-10_028,2020-09-10_028,Fdfe1,Fer|Couffouleux|10/09/2020,Fer,Couffouleux,10/09/2020,flavescence dorée,,,
+ryckewaert,26,2020-09-10_029,2020-09-10_029,Fdfe2,Fer|Couffouleux|10/09/2020,Fer,Couffouleux,10/09/2020,flavescence dorée,,,
+ryckewaert,27,2020-09-10_030,2020-09-10_030,Fdfe3,Fer|Couffouleux|10/09/2020,Fer,Couffouleux,10/09/2020,flavescence dorée,,,
+ryckewaert,28,2020-09-10_031,2020-09-10_031,Fdfe4,Fer|Couffouleux|10/09/2020,Fer,Couffouleux,10/09/2020,flavescence dorée,,,
+ryckewaert,29,2020-09-10_032,2020-09-10_032,Fdfe5,Fer|Couffouleux|10/09/2020,Fer,Couffouleux,10/09/2020,flavescence dorée,,,
+ryckewaert,30,2020-09-10_033,2020-09-10_033,Fdfe6,Fer|Couffouleux|10/09/2020,Fer,Couffouleux,10/09/2020,flavescence dorée,,,
+ryckewaert,31,2020-09-10_034,2020-09-10_034,Fdfe7,Fer|Couffouleux|10/09/2020,Fer,Couffouleux,10/09/2020,flavescence dorée,,,
+ryckewaert,32,2020-09-10_035,2020-09-10_035,Fdfe8,Fer|Couffouleux|10/09/2020,Fer,Couffouleux,10/09/2020,flavescence dorée,,,
+ryckewaert,33,2020-09-10_036,2020-09-10_036,Fdfe9,Fer|Couffouleux|10/09/2020,Fer,Couffouleux,10/09/2020,flavescence dorée,,,
+ryckewaert,34,2020-09-10_037,2020-09-10_037,Fdfe10,Fer|Couffouleux|10/09/2020,Fer,Couffouleux,10/09/2020,flavescence dorée,,,
+ryckewaert,35,2020-09-10_038,2020-09-10_038,Okfe1,Fer|Couffouleux|10/09/2020,Fer,Couffouleux,10/09/2020,healthy,,,
+ryckewaert,36,2020-09-10_039,2020-09-10_039,Okfe2,Fer|Couffouleux|10/09/2020,Fer,Couffouleux,10/09/2020,healthy,,,
+ryckewaert,37,2020-09-10_040,2020-09-10_040,Okfe3,Fer|Couffouleux|10/09/2020,Fer,Couffouleux,10/09/2020,healthy,,,
+ryckewaert,38,2020-09-10_041,2020-09-10_041,Okfe4,Fer|Couffouleux|10/09/2020,Fer,Couffouleux,10/09/2020,healthy,,,
+ryckewaert,39,2020-09-10_042,2020-09-10_042,Okfe5,Fer|Couffouleux|10/09/2020,Fer,Couffouleux,10/09/2020,healthy,,,
+ryckewaert,40,2020-09-10_043,2020-09-10_043,Nofe1,Fer|Couffouleux|10/09/2020,Fer,Couffouleux,10/09/2020,water stress,,,
+ryckewaert,41,2020-09-10_044,2020-09-10_044,Nofe2,Fer|Couffouleux|10/09/2020,Fer,Couffouleux,10/09/2020,buffalo treehopper,,,
+ryckewaert,42,2020-09-10_045,2020-09-10_045,Nofe3,Fer|Couffouleux|10/09/2020,Fer,Couffouleux,10/09/2020,water stress,,,
+ryckewaert,43,2020-09-10_046,2020-09-10_046,Nofe4,Fer|Couffouleux|10/09/2020,Fer,Couffouleux,10/09/2020,buffalo treehopper,,,
+ryckewaert,44,2020-09-10_047,2020-09-10_047,Nofe5,Fer|Couffouleux|10/09/2020,Fer,Couffouleux,10/09/2020,buffalo treehopper,,,
+ryckewaert,45,2020-09-10_048,2020-09-10_048,Nofe6,Fer|Couffouleux|10/09/2020,Fer,Couffouleux,10/09/2020,water stress,,,
+ryckewaert,46,2020-09-10_049,2020-09-10_049,Nofe7,Fer|Couffouleux|10/09/2020,Fer,Couffouleux,10/09/2020,wood diseases,,,
+ryckewaert,47,2020-09-10_050,2020-09-10_050,Nofe8,Fer|Couffouleux|10/09/2020,Fer,Couffouleux,10/09/2020,water stress,,,
+ryckewaert,48,2020-09-10_051,2020-09-10_051,Nofe9,Fer|Couffouleux|10/09/2020,Fer,Couffouleux,10/09/2020,green leafhopper,,,
+ryckewaert,49,2020-09-10_052,2020-09-10_052,Nofe10,Fer|Couffouleux|10/09/2020,Fer,Couffouleux,10/09/2020,water stress,,,
+ryckewaert,50,2020-09-10_053,2020-09-10_053,Fddu1,Duras|Rabastens|10/09/2020,Duras,Rabastens,10/09/2020,flavescence dorée,,,
+ryckewaert,51,2020-09-10_054,2020-09-10_054,Fddu2,Duras|Rabastens|10/09/2020,Duras,Rabastens,10/09/2020,flavescence dorée,,,
+ryckewaert,52,2020-09-10_055,2020-09-10_055,Fddu3,Duras|Rabastens|10/09/2020,Duras,Rabastens,10/09/2020,flavescence dorée,,,
+ryckewaert,53,2020-09-10_056,2020-09-10_056,Fddu4,Duras|Rabastens|10/09/2020,Duras,Rabastens,10/09/2020,flavescence dorée,,,
+ryckewaert,54,2020-09-10_057,2020-09-10_057,Fddu5,Duras|Rabastens|10/09/2020,Duras,Rabastens,10/09/2020,flavescence dorée,,,
+ryckewaert,55,2020-09-10_058,2020-09-10_058,Fddu6,Duras|Rabastens|10/09/2020,Duras,Rabastens,10/09/2020,flavescence dorée,,,
+ryckewaert,56,2020-09-10_059,2020-09-10_059,Fddu7,Duras|Rabastens|10/09/2020,Duras,Rabastens,10/09/2020,flavescence dorée,,,
+ryckewaert,57,2020-09-10_060,2020-09-10_060,Fddu8,Duras|Rabastens|10/09/2020,Duras,Rabastens,10/09/2020,flavescence dorée,,,
+ryckewaert,58,2020-09-10_061,2020-09-10_061,Fddu9,Duras|Rabastens|10/09/2020,Duras,Rabastens,10/09/2020,flavescence dorée,,,
+ryckewaert,59,2020-09-10_062,2020-09-10_062,Okdu1,Duras|Rabastens|10/09/2020,Duras,Rabastens,10/09/2020,healthy,,,
+ryckewaert,60,2020-09-10_063,2020-09-10_063,Okdu2,Duras|Rabastens|10/09/2020,Duras,Rabastens,10/09/2020,healthy,,,
+ryckewaert,61,2020-09-10_064,2020-09-10_064,Okdu3,Duras|Rabastens|10/09/2020,Duras,Rabastens,10/09/2020,healthy,,,
+ryckewaert,62,2020-09-10_065,2020-09-10_065,Nodu1,Duras|Rabastens|10/09/2020,Duras,Rabastens,10/09/2020,water stress,,,
+ryckewaert,63,2020-09-10_066,2020-09-10_066,Nodu2,Duras|Rabastens|10/09/2020,Duras,Rabastens,10/09/2020,buffalo treehopper,,,
+ryckewaert,64,2020-09-10_067,2020-09-10_067,Nodu3,Duras|Rabastens|10/09/2020,Duras,Rabastens,10/09/2020,water stress,,,
+ryckewaert,65,2020-09-10_068,2020-09-10_068,Nodu4,Duras|Rabastens|10/09/2020,Duras,Rabastens,10/09/2020,green leafhopper,,,
+ryckewaert,66,2020-09-10_069,2020-09-10_069,Nodu5,Duras|Rabastens|10/09/2020,Duras,Rabastens,10/09/2020,buffalo treehopper,,,
+ryckewaert,67,2020-09-10_070,2020-09-10_070,Nodu6,Duras|Rabastens|10/09/2020,Duras,Rabastens,10/09/2020,deficiency,,,
+ryckewaert,68,2020-09-10_071,2020-09-10_071,Nodu7,Duras|Rabastens|10/09/2020,Duras,Rabastens,10/09/2020,buffalo treehopper,,,
+ryckewaert,69,2020-09-10_072,2020-09-10_072,Nodu8,Duras|Rabastens|10/09/2020,Duras,Rabastens,10/09/2020,senescence,,,
+ryckewaert,70,2020-09-10_073,2020-09-10_073,Nodu9,Duras|Rabastens|10/09/2020,Duras,Rabastens,10/09/2020,green leafhopper,,,
+ryckewaert,71,2020-09-10_074,2020-09-10_074,Nodu10,Duras|Rabastens|10/09/2020,Duras,Rabastens,10/09/2020,green leafhopper,,,
+ryckewaert,72,2020-09-10_075,2020-09-10_075,Fdga11,Gamay|Rabastens|10/09/2020,Gamay,Rabastens,10/09/2020,flavescence dorée,,,
+ryckewaert,73,2020-09-10_076,2020-09-10_076,Fdga12,Gamay|Rabastens|10/09/2020,Gamay,Rabastens,10/09/2020,flavescence dorée,,,
+ryckewaert,74,2020-09-10_077,2020-09-10_077,Fdga13,Gamay|Rabastens|10/09/2020,Gamay,Rabastens,10/09/2020,flavescence dorée,,,
+ryckewaert,75,2020-09-10_078,2020-09-10_078,Fdga14,Gamay|Rabastens|10/09/2020,Gamay,Rabastens,10/09/2020,flavescence dorée,,,
+ryckewaert,76,2020-09-10_079,2020-09-10_079,Fdga15,Gamay|Rabastens|10/09/2020,Gamay,Rabastens,10/09/2020,flavescence dorée,,,
+ryckewaert,77,2020-09-10_080,2020-09-10_080,Fdga16,Gamay|Rabastens|10/09/2020,Gamay,Rabastens,10/09/2020,flavescence dorée,,,
+ryckewaert,78,2020-09-10_081,2020-09-10_081,Fdga17,Gamay|Rabastens|10/09/2020,Gamay,Rabastens,10/09/2020,flavescence dorée,,,
+ryckewaert,79,2020-09-10_082,2020-09-10_082,Fdga18,Gamay|Rabastens|10/09/2020,Gamay,Rabastens,10/09/2020,flavescence dorée,,,
+ryckewaert,80,2020-09-10_083,2020-09-10_083,Fdga19,Gamay|Rabastens|10/09/2020,Gamay,Rabastens,10/09/2020,flavescence dorée,,,
+ryckewaert,81,2020-09-10_084,2020-09-10_084,Okga6,Gamay|Rabastens|10/09/2020,Gamay,Rabastens,10/09/2020,healthy,,,
+ryckewaert,82,2020-09-10_085,2020-09-10_085,Okga7,Gamay|Rabastens|10/09/2020,Gamay,Rabastens,10/09/2020,healthy,,,
+ryckewaert,83,2020-09-10_086,2020-09-10_086,Okga8,Gamay|Rabastens|10/09/2020,Gamay,Rabastens,10/09/2020,healthy,,,
+ryckewaert,84,2020-09-10_087,2020-09-10_087,Okga9,Gamay|Rabastens|10/09/2020,Gamay,Rabastens,10/09/2020,healthy,,,
+ryckewaert,85,2020-09-10_088,2020-09-10_088,Okga10,Gamay|Rabastens|10/09/2020,Gamay,Rabastens,10/09/2020,healthy,,,
+ryckewaert,86,2020-09-10_089,2020-09-10_089,Okga11,Gamay|Rabastens|10/09/2020,Gamay,Rabastens,10/09/2020,healthy,,,
+ryckewaert,87,2020-09-10_090,2020-09-10_090,Noga11,Gamay|Rabastens|10/09/2020,Gamay,Rabastens,10/09/2020,water stress,,,
+ryckewaert,88,2020-09-10_091,2020-09-10_091,Noga12,Gamay|Rabastens|10/09/2020,Gamay,Rabastens,10/09/2020,water stress,,,
+ryckewaert,89,2020-09-10_092,2020-09-10_092,Noga13,Gamay|Rabastens|10/09/2020,Gamay,Rabastens,10/09/2020,buffalo treehopper,,,
+ryckewaert,90,2020-09-10_093,2020-09-10_093,Noga14,Gamay|Rabastens|10/09/2020,Gamay,Rabastens,10/09/2020,buffalo treehopper,,,
+ryckewaert,91,2020-09-10_094,2020-09-10_094,Noga15,Gamay|Rabastens|10/09/2020,Gamay,Rabastens,10/09/2020,water stress,,,
+ryckewaert,92,2020-09-10_095,2020-09-10_095,Noga16,Gamay|Rabastens|10/09/2020,Gamay,Rabastens,10/09/2020,buffalo treehopper,,,
+ryckewaert,93,2020-09-10_096,2020-09-10_096,Noga17,Gamay|Rabastens|10/09/2020,Gamay,Rabastens,10/09/2020,buffalo treehopper,,,
+ryckewaert,94,2020-09-10_097,2020-09-10_097,Noga18,Gamay|Rabastens|10/09/2020,Gamay,Rabastens,10/09/2020,water stress,,,
+ryckewaert,95,2020-09-10_098,2020-09-10_098,Noga19,Gamay|Rabastens|10/09/2020,Gamay,Rabastens,10/09/2020,green leafhopper,,,
+ryckewaert,96,2020-09-10_099,2020-09-10_099,Noga20,Gamay|Rabastens|10/09/2020,Gamay,Rabastens,10/09/2020,buffalo treehopper,,,
+ryckewaert,97,2020-09-10_101,2020-09-10_101,Fdco1,Colombard|Terral|10/09/2020,Colombard,Terral,10/09/2020,flavescence dorée,,,
+ryckewaert,98,2020-09-10_102,2020-09-10_102,Fdco2,Colombard|Terral|10/09/2020,Colombard,Terral,10/09/2020,flavescence dorée,,,
+ryckewaert,99,2020-09-10_103,2020-09-10_103,Fdco3,Colombard|Terral|10/09/2020,Colombard,Terral,10/09/2020,flavescence dorée,,,
+ryckewaert,100,2020-09-10_104,2020-09-10_104,Fdco4,Colombard|Terral|10/09/2020,Colombard,Terral,10/09/2020,flavescence dorée,,,
+ryckewaert,101,2020-09-10_105,2020-09-10_105,Fdco5,Colombard|Terral|10/09/2020,Colombard,Terral,10/09/2020,flavescence dorée,,,
+ryckewaert,102,2020-09-10_106,2020-09-10_106,Fdco6,Colombard|Terral|10/09/2020,Colombard,Terral,10/09/2020,flavescence dorée,,,
+ryckewaert,103,2020-09-10_107,2020-09-10_107,Fdco7,Colombard|Terral|10/09/2020,Colombard,Terral,10/09/2020,flavescence dorée,,,
+ryckewaert,104,2020-09-10_109,2020-09-10_109,Fdco8,Colombard|Terral|10/09/2020,Colombard,Terral,10/09/2020,flavescence dorée,,,
+ryckewaert,105,2020-09-10_110,2020-09-10_110,Fdco9,Colombard|Terral|10/09/2020,Colombard,Terral,10/09/2020,flavescence dorée,,,
+ryckewaert,106,2020-09-10_111,2020-09-10_111,Fdco10,Colombard|Terral|10/09/2020,Colombard,Terral,10/09/2020,flavescence dorée,,,
+ryckewaert,107,2020-09-10_112,2020-09-10_112,Okco1,Colombard|Terral|10/09/2020,Colombard,Terral,10/09/2020,healthy,,,
+ryckewaert,108,2020-09-10_113,2020-09-10_113,Okco2,Colombard|Terral|10/09/2020,Colombard,Terral,10/09/2020,healthy,,,
+ryckewaert,109,2020-09-10_114,2020-09-10_114,Okco3,Colombard|Terral|10/09/2020,Colombard,Terral,10/09/2020,healthy,,,
+ryckewaert,110,2020-09-10_115,2020-09-10_115,Okco4,Colombard|Terral|10/09/2020,Colombard,Terral,10/09/2020,healthy,,,
+ryckewaert,111,2020-09-10_116,2020-09-10_116,Okco5,Colombard|Terral|10/09/2020,Colombard,Terral,10/09/2020,healthy,,,
+ryckewaert,112,2020-09-10_117,2020-09-10_117,Noco1,Colombard|Terral|10/09/2020,Colombard,Terral,10/09/2020,wood diseases,,,
+ryckewaert,113,2020-09-10_118,2020-09-10_118,Noco2,Colombard|Terral|10/09/2020,Colombard,Terral,10/09/2020,green leafhopper,,,
+ryckewaert,114,2020-09-10_119,2020-09-10_119,Noco3,Colombard|Terral|10/09/2020,Colombard,Terral,10/09/2020,green leafhopper,,,
+ryckewaert,115,2020-09-10_120,2020-09-10_120,Noco4,Colombard|Terral|10/09/2020,Colombard,Terral,10/09/2020,chlorosis,,,
+ryckewaert,116,2020-09-10_121,2020-09-10_121,Noco5,Colombard|Terral|10/09/2020,Colombard,Terral,10/09/2020,discoloration,,,
+ryckewaert,117,2020-09-10_122,2020-09-10_122,Noco6,Colombard|Terral|10/09/2020,Colombard,Terral,10/09/2020,wood diseases,,,
+ryckewaert,118,2020-09-10_123,2020-09-10_123,Noco7,Colombard|Terral|10/09/2020,Colombard,Terral,10/09/2020,wood diseases,,,
+ryckewaert,119,2020-09-10_124,2020-09-10_124,Noco8,Colombard|Terral|10/09/2020,Colombard,Terral,10/09/2020,wood diseases,,,
+ryckewaert,120,2020-09-11_001,2020-09-11_001,Fdll1,Loin de l'œil|DEVT|11/09/2020,Loin de l'œil,DEVT,11/09/2020,flavescence dorée,,,
+ryckewaert,121,2020-09-11_002,2020-09-11_002,Fdll2,Loin de l'œil|DEVT|11/09/2020,Loin de l'œil,DEVT,11/09/2020,flavescence dorée,,,
+ryckewaert,122,2020-09-11_003,2020-09-11_003,Fdll3,Loin de l'œil|DEVT|11/09/2020,Loin de l'œil,DEVT,11/09/2020,flavescence dorée,,,
+ryckewaert,123,2020-09-11_004,2020-09-11_004,Fdll4,Loin de l'œil|DEVT|11/09/2020,Loin de l'œil,DEVT,11/09/2020,flavescence dorée,,,
+ryckewaert,124,2020-09-11_005,2020-09-11_005,Fdll5,Loin de l'œil|DEVT|11/09/2020,Loin de l'œil,DEVT,11/09/2020,flavescence dorée,,,
+ryckewaert,125,2020-09-11_006,2020-09-11_006,Fdll6,Loin de l'œil|DEVT|11/09/2020,Loin de l'œil,DEVT,11/09/2020,flavescence dorée,,,
+ryckewaert,126,2020-09-11_007,2020-09-11_007,Fdll7,Loin de l'œil|DEVT|11/09/2020,Loin de l'œil,DEVT,11/09/2020,flavescence dorée,,,
+ryckewaert,127,2020-09-11_008,2020-09-11_008,Fdll8,Loin de l'œil|DEVT|11/09/2020,Loin de l'œil,DEVT,11/09/2020,flavescence dorée,,,
+ryckewaert,128,2020-09-11_009,2020-09-11_009,Fdll9,Loin de l'œil|DEVT|11/09/2020,Loin de l'œil,DEVT,11/09/2020,flavescence dorée,,,
+ryckewaert,129,2020-09-11_010,2020-09-11_010,Fdll10,Loin de l'œil|DEVT|11/09/2020,Loin de l'œil,DEVT,11/09/2020,flavescence dorée,,,
+ryckewaert,130,2020-09-11_011,2020-09-11_011,Fdmz1,Mauzac|DEVT|11/09/2020,Mauzac,DEVT,11/09/2020,flavescence dorée,,,
+ryckewaert,131,2020-09-11_012,2020-09-11_012,Fdmz2,Mauzac|DEVT|11/09/2020,Mauzac,DEVT,11/09/2020,flavescence dorée,,,
+ryckewaert,132,2020-09-11_013,2020-09-11_013,Fdmz3,Mauzac|DEVT|11/09/2020,Mauzac,DEVT,11/09/2020,flavescence dorée,,,
+ryckewaert,133,2020-09-11_014,2020-09-11_014,Fdmz4,Mauzac|DEVT|11/09/2020,Mauzac,DEVT,11/09/2020,flavescence dorée,,,
+ryckewaert,134,2020-09-11_015,2020-09-11_015,Fdmz5,Mauzac|DEVT|11/09/2020,Mauzac,DEVT,11/09/2020,flavescence dorée,,,
+ryckewaert,135,2020-09-11_016,2020-09-11_016,Fdmz6,Mauzac|DEVT|11/09/2020,Mauzac,DEVT,11/09/2020,flavescence dorée,,,
+ryckewaert,136,2020-09-11_017,2020-09-11_017,Fdmz7,Mauzac|DEVT|11/09/2020,Mauzac,DEVT,11/09/2020,flavescence dorée,,,
+ryckewaert,137,2020-09-11_018,2020-09-11_018,Fdmz8,Mauzac|DEVT|11/09/2020,Mauzac,DEVT,11/09/2020,flavescence dorée,,,
+ryckewaert,138,2020-09-11_019,2020-09-11_019,Fdmz9,Mauzac|DEVT|11/09/2020,Mauzac,DEVT,11/09/2020,flavescence dorée,,,
+ryckewaert,139,2020-09-11_020,2020-09-11_020,Fdmz10,Mauzac|DEVT|11/09/2020,Mauzac,DEVT,11/09/2020,flavescence dorée,,,
+ryckewaert,140,2020-09-14_002,2020-09-14_002,Okll1,Loin de l'œil|DEVT|14/09/2020,Loin de l'œil,DEVT,14/09/2020,damaged,,,
+ryckewaert,141,2020-09-14_003,2020-09-14_003,Okll2,Loin de l'œil|DEVT|14/09/2020,Loin de l'œil,DEVT,14/09/2020,damaged,,,
+ryckewaert,142,2020-09-14_004,2020-09-14_004,Okll3,Loin de l'œil|DEVT|14/09/2020,Loin de l'œil,DEVT,14/09/2020,damaged,,,
+ryckewaert,143,2020-09-14_005,2020-09-14_005,Okll4,Loin de l'œil|DEVT|14/09/2020,Loin de l'œil,DEVT,14/09/2020,damaged,,,
+ryckewaert,144,2020-09-14_006,2020-09-14_006,Okll5,Loin de l'œil|DEVT|14/09/2020,Loin de l'œil,DEVT,14/09/2020,damaged,,,
+ryckewaert,145,2020-09-14_007,2020-09-14_007,Noll1,Loin de l'œil|DEVT|14/09/2020,Loin de l'œil,DEVT,14/09/2020,wood diseases,,,
+ryckewaert,146,2020-09-14_008,2020-09-14_008,Noll2,Loin de l'œil|DEVT|14/09/2020,Loin de l'œil,DEVT,14/09/2020,wood diseases,,,
+ryckewaert,147,2020-09-14_009,2020-09-14_009,Noll3,Loin de l'œil|DEVT|14/09/2020,Loin de l'œil,DEVT,14/09/2020,wood diseases,,,
+ryckewaert,148,2020-09-14_010,2020-09-14_010,Noll4,Loin de l'œil|DEVT|14/09/2020,Loin de l'œil,DEVT,14/09/2020,green leafhopper,,,
+ryckewaert,149,2020-09-14_011,2020-09-14_011,Noll5,Loin de l'œil|DEVT|14/09/2020,Loin de l'œil,DEVT,14/09/2020,green leafhopper,,,
+ryckewaert,150,2020-09-14_012,2020-09-14_012,Noll6,Loin de l'œil|DEVT|14/09/2020,Loin de l'œil,DEVT,14/09/2020,green leafhopper,,,
+ryckewaert,151,2020-09-14_013,2020-09-14_013,Noll7,Loin de l'œil|DEVT|14/09/2020,Loin de l'œil,DEVT,14/09/2020,green leafhopper,,,
+ryckewaert,152,2020-09-14_014,2020-09-14_014,Noll8,Loin de l'œil|DEVT|14/09/2020,Loin de l'œil,DEVT,14/09/2020,senescence,,,
+ryckewaert,153,2020-09-14_015,2020-09-14_015,Noll9,Loin de l'œil|DEVT|14/09/2020,Loin de l'œil,DEVT,14/09/2020,senescence,,,
+ryckewaert,154,2020-09-14_016,2020-09-14_016,Noll10,Loin de l'œil|DEVT|14/09/2020,Loin de l'œil,DEVT,14/09/2020,senescence,,,
+ryckewaert,155,2020-09-14_017,2020-09-14_017,Okmz1,Mauzac|DEVT|14/09/2020,Mauzac,DEVT,14/09/2020,healthy,,,
+ryckewaert,156,2020-09-14_018,2020-09-14_018,Okmz2,Mauzac|DEVT|14/09/2020,Mauzac,DEVT,14/09/2020,healthy,,,
+ryckewaert,157,2020-09-14_019,2020-09-14_019,Okmz3,Mauzac|DEVT|14/09/2020,Mauzac,DEVT,14/09/2020,healthy,,,
+ryckewaert,158,2020-09-14_020,2020-09-14_020,Okmz4,Mauzac|DEVT|14/09/2020,Mauzac,DEVT,14/09/2020,healthy,,,
+ryckewaert,159,2020-09-14_021,2020-09-14_021,Okmz5,Mauzac|DEVT|14/09/2020,Mauzac,DEVT,14/09/2020,healthy,,,
+ryckewaert,160,2020-09-14_022,2020-09-14_022,Nomz1,Mauzac|DEVT|14/09/2020,Mauzac,DEVT,14/09/2020,buffalo treehopper,,,
+ryckewaert,161,2020-09-14_023,2020-09-14_023,Nomz2,Mauzac|DEVT|14/09/2020,Mauzac,DEVT,14/09/2020,buffalo treehopper,,,
+ryckewaert,162,2020-09-14_024,2020-09-14_024,Nomz3,Mauzac|DEVT|14/09/2020,Mauzac,DEVT,14/09/2020,buffalo treehopper,,,
+ryckewaert,163,2020-09-14_025,2020-09-14_025,Nomz4,Mauzac|DEVT|14/09/2020,Mauzac,DEVT,14/09/2020,mildew,,,
+ryckewaert,164,2020-09-14_026,2020-09-14_026,Nomz5,Mauzac|DEVT|14/09/2020,Mauzac,DEVT,14/09/2020,mildew,,,
+ryckewaert,165,2020-09-14_027,2020-09-14_027,Nomz6,Mauzac|DEVT|14/09/2020,Mauzac,DEVT,14/09/2020,wood diseases,,,
+ryckewaert,166,2020-09-14_028,2020-09-14_028,Nomz7,Mauzac|DEVT|14/09/2020,Mauzac,DEVT,14/09/2020,wood diseases,,,
+ryckewaert,167,2020-09-14_029,2020-09-14_029,Nomz8,Mauzac|DEVT|14/09/2020,Mauzac,DEVT,14/09/2020,green leafhopper,,,
+ryckewaert,168,2020-09-14_030,2020-09-14_030,Nomz9,Mauzac|DEVT|14/09/2020,Mauzac,DEVT,14/09/2020,senescence,,,
+ryckewaert,169,2020-09-14_031,2020-09-14_031,Nomz10,Mauzac|DEVT|14/09/2020,Mauzac,DEVT,14/09/2020,senescence,,,
+ryckewaert,170,2020-10-02_001,2020-10-02_001,Fdch1,Chardonnay|LISLE SUR TARN|01/10/2020,Chardonnay,LISLE SUR TARN,01/10/2020,flavescence dorée,,,
+ryckewaert,171,2020-10-02_002,2020-10-02_002,Fdch2,Chardonnay|LISLE SUR TARN|01/10/2020,Chardonnay,LISLE SUR TARN,01/10/2020,flavescence dorée,,,
+ryckewaert,172,2020-10-02_003,2020-10-02_003,Fdch3,Chardonnay|LISLE SUR TARN|01/10/2020,Chardonnay,LISLE SUR TARN,01/10/2020,flavescence dorée,,,
+ryckewaert,173,2020-10-02_004,2020-10-02_004,Fdch4,Chardonnay|LISLE SUR TARN|01/10/2020,Chardonnay,LISLE SUR TARN,01/10/2020,flavescence dorée,,,
+ryckewaert,174,2020-10-02_005,2020-10-02_005,Fdch5,Chardonnay|LISLE SUR TARN|01/10/2020,Chardonnay,LISLE SUR TARN,01/10/2020,flavescence dorée,,,
+ryckewaert,175,2020-10-02_006,2020-10-02_006,Fdch6,Chardonnay|LISLE SUR TARN|01/10/2020,Chardonnay,LISLE SUR TARN,01/10/2020,flavescence dorée,,,
+ryckewaert,176,2020-10-02_007,2020-10-02_007,Fdch7,Chardonnay|LISLE SUR TARN|01/10/2020,Chardonnay,LISLE SUR TARN,01/10/2020,flavescence dorée,,,
+ryckewaert,177,2020-10-02_008,2020-10-02_008,Fdch8,Chardonnay|LISLE SUR TARN|01/10/2020,Chardonnay,LISLE SUR TARN,01/10/2020,flavescence dorée,,,
+ryckewaert,178,2020-10-02_009,2020-10-02_009,Fdch9,Chardonnay|LISLE SUR TARN|01/10/2020,Chardonnay,LISLE SUR TARN,01/10/2020,flavescence dorée,,,
+ryckewaert,179,2020-10-02_010,2020-10-02_010,Fdch10,Chardonnay|LISLE SUR TARN|01/10/2020,Chardonnay,LISLE SUR TARN,01/10/2020,flavescence dorée,,,
+ryckewaert,180,2020-10-02_011,2020-10-02_011,Fdch11,Chardonnay|LISLE SUR TARN|01/10/2020,Chardonnay,LISLE SUR TARN,01/10/2020,flavescence dorée,,,
+ryckewaert,181,2020-10-02_012,2020-10-02_012,Fdch12,Chardonnay|LISLE SUR TARN|01/10/2020,Chardonnay,LISLE SUR TARN,01/10/2020,flavescence dorée,,,
+ryckewaert,182,2020-10-02_013,2020-10-02_013,Okch1,Chardonnay|LISLE SUR TARN|01/10/2020,Chardonnay,LISLE SUR TARN,01/10/2020,healthy,,,
+ryckewaert,183,2020-10-02_014,2020-10-02_014,Okch2,Chardonnay|LISLE SUR TARN|01/10/2020,Chardonnay,LISLE SUR TARN,01/10/2020,healthy,,,
+ryckewaert,184,2020-10-02_015,2020-10-02_015,Okch3,Chardonnay|LISLE SUR TARN|01/10/2020,Chardonnay,LISLE SUR TARN,01/10/2020,healthy,,,
+ryckewaert,185,2020-10-02_016,2020-10-02_016,Okch4,Chardonnay|LISLE SUR TARN|01/10/2020,Chardonnay,LISLE SUR TARN,01/10/2020,healthy,,,
+ryckewaert,186,2020-10-02_017,2020-10-02_017,Okch5,Chardonnay|LISLE SUR TARN|01/10/2020,Chardonnay,LISLE SUR TARN,01/10/2020,healthy,,,
+ryckewaert,187,2020-10-02_018,2020-10-02_018,Okch6,Chardonnay|LISLE SUR TARN|01/10/2020,Chardonnay,LISLE SUR TARN,01/10/2020,healthy,,,
+ryckewaert,188,2020-10-02_019,2020-10-02_019,Okch7,Chardonnay|LISLE SUR TARN|01/10/2020,Chardonnay,LISLE SUR TARN,01/10/2020,healthy,,,
+ryckewaert,189,2020-10-02_020,2020-10-02_020,Okch8,Chardonnay|LISLE SUR TARN|01/10/2020,Chardonnay,LISLE SUR TARN,01/10/2020,healthy,,,
+ryckewaert,190,2020-10-02_021,2020-10-02_021,Okch9,Chardonnay|LISLE SUR TARN|01/10/2020,Chardonnay,LISLE SUR TARN,01/10/2020,healthy,,,
+ryckewaert,191,2020-10-02_022,2020-10-02_022,Okch10,Chardonnay|LISLE SUR TARN|01/10/2020,Chardonnay,LISLE SUR TARN,01/10/2020,healthy,,,
+ryckewaert,192,2020-10-02_023,2020-10-02_023,Okch11,Chardonnay|LISLE SUR TARN|01/10/2020,Chardonnay,LISLE SUR TARN,01/10/2020,healthy,,,
+ryckewaert,193,2020-10-02_024,2020-10-02_024,Noch1,Chardonnay|LISLE SUR TARN|01/10/2020,Chardonnay,LISLE SUR TARN,01/10/2020,wood diseases,,,
+ryckewaert,194,2020-10-02_025,2020-10-02_025,Noch2,Chardonnay|LISLE SUR TARN|01/10/2020,Chardonnay,LISLE SUR TARN,01/10/2020,wood diseases,,,
+ryckewaert,195,2020-10-02_026,2020-10-02_026,Noch3,Chardonnay|LISLE SUR TARN|01/10/2020,Chardonnay,LISLE SUR TARN,01/10/2020,wood diseases,,,
+ryckewaert,196,2020-10-02_027,2020-10-02_027,Noch4,Chardonnay|LISLE SUR TARN|01/10/2020,Chardonnay,LISLE SUR TARN,01/10/2020,wood diseases,,,
+ryckewaert,197,2020-10-02_028,2020-10-02_028,Noch5,Chardonnay|LISLE SUR TARN|01/10/2020,Chardonnay,LISLE SUR TARN,01/10/2020,wood diseases,,,
+ryckewaert,198,2020-10-02_029,2020-10-02_029,Noch6,Chardonnay|LISLE SUR TARN|01/10/2020,Chardonnay,LISLE SUR TARN,01/10/2020,wood diseases,,,
+ryckewaert,199,2020-10-02_030,2020-10-02_030,Noch7,Chardonnay|LISLE SUR TARN|01/10/2020,Chardonnay,LISLE SUR TARN,01/10/2020,senescence,,,
+ryckewaert,200,2020-10-02_031,2020-10-02_031,Noch8,Chardonnay|LISLE SUR TARN|01/10/2020,Chardonnay,LISLE SUR TARN,01/10/2020,green leafhopper,,,
+ryckewaert,201,2020-10-02_032,2020-10-02_032,Noch9,Chardonnay|LISLE SUR TARN|01/10/2020,Chardonnay,LISLE SUR TARN,01/10/2020,green leafhopper,,,
+ryckewaert,202,2020-10-02_033,2020-10-02_033,Noch10,Chardonnay|LISLE SUR TARN|01/10/2020,Chardonnay,LISLE SUR TARN,01/10/2020,green leafhopper,,,
+ryckewaert,203,2020-10-02_034,2020-10-02_034,Noch11,Chardonnay|LISLE SUR TARN|01/10/2020,Chardonnay,LISLE SUR TARN,01/10/2020,green leafhopper,,,
+deep_patato,0,13,,,,,,,,1.0,13.0,2020-06-30T12:24:00
+deep_patato,1,14,,,,,,,,2.0,14.0,2020-06-30T12:24:00
+deep_patato,2,15,,,,,,,,3.0,15.0,2020-06-30T12:24:00
+deep_patato,3,16,,,,,,,,4.0,16.0,2020-06-30T12:24:00
+deep_patato,4,17,,,,,,,,5.0,17.0,2020-06-30T12:24:00
+deep_patato,5,18,,,,,,,,6.0,18.0,2020-06-30T12:24:00
+deep_patato,6,19,,,,,,,,7.0,19.0,2020-06-30T12:24:00
+deep_patato,7,20,,,,,,,,8.0,20.0,2020-06-30T12:24:00
+deep_patato,8,21,,,,,,,,9.0,21.0,2020-06-30T12:24:00
+deep_patato,9,22,,,,,,,,10.0,22.0,2020-06-30T12:24:00
+deep_patato,10,23,,,,,,,,11.0,23.0,2020-06-30T12:24:00
+deep_patato,11,24,,,,,,,,12.0,24.0,2020-06-30T12:24:00
+deep_patato,12,1,,,,,,,,13.0,1.0,2020-06-30T12:27:00
+deep_patato,13,2,,,,,,,,14.0,2.0,2020-06-30T12:27:00
+deep_patato,14,3,,,,,,,,15.0,3.0,2020-06-30T12:27:00
+deep_patato,15,4,,,,,,,,16.0,4.0,2020-06-30T12:27:00
+deep_patato,16,5,,,,,,,,17.0,5.0,2020-06-30T12:27:00
+deep_patato,17,6,,,,,,,,18.0,6.0,2020-06-30T12:27:00
+deep_patato,18,7,,,,,,,,19.0,7.0,2020-06-30T12:27:00
+deep_patato,19,8,,,,,,,,20.0,8.0,2020-06-30T12:27:00
+deep_patato,20,9,,,,,,,,21.0,9.0,2020-06-30T12:27:00
+deep_patato,21,10,,,,,,,,22.0,10.0,2020-06-30T12:27:00
+deep_patato,22,11,,,,,,,,23.0,11.0,2020-06-30T12:27:00
+deep_patato,23,12,,,,,,,,24.0,12.0,2020-06-30T12:27:00
+deep_patato,24,1,,,,,,,,25.0,1.0,2020-07-14T12:05:00
+deep_patato,25,2,,,,,,,,26.0,2.0,2020-07-14T12:05:00
+deep_patato,26,3,,,,,,,,27.0,3.0,2020-07-14T12:05:00
+deep_patato,27,4,,,,,,,,28.0,4.0,2020-07-14T12:05:00
+deep_patato,28,5,,,,,,,,29.0,5.0,2020-07-14T12:05:00
+deep_patato,29,6,,,,,,,,30.0,6.0,2020-07-14T12:05:00
+deep_patato,30,7,,,,,,,,31.0,7.0,2020-07-14T12:05:00
+deep_patato,31,8,,,,,,,,32.0,8.0,2020-07-14T12:05:00
+deep_patato,32,9,,,,,,,,33.0,9.0,2020-07-14T12:05:00
+deep_patato,33,10,,,,,,,,34.0,10.0,2020-07-14T12:05:00
+deep_patato,34,11,,,,,,,,35.0,11.0,2020-07-14T12:05:00
+deep_patato,35,12,,,,,,,,36.0,12.0,2020-07-14T12:05:00
+deep_patato,36,13,,,,,,,,37.0,13.0,2020-07-14T12:06:00
+deep_patato,37,14,,,,,,,,38.0,14.0,2020-07-14T12:06:00
+deep_patato,38,15,,,,,,,,39.0,15.0,2020-07-14T12:06:00
+deep_patato,39,16,,,,,,,,40.0,16.0,2020-07-14T12:06:00
+deep_patato,40,17,,,,,,,,41.0,17.0,2020-07-14T12:06:00
+deep_patato,41,18,,,,,,,,42.0,18.0,2020-07-14T12:06:00
+deep_patato,42,19,,,,,,,,43.0,19.0,2020-07-14T12:06:00
+deep_patato,43,20,,,,,,,,44.0,20.0,2020-07-14T12:06:00
+deep_patato,44,21,,,,,,,,45.0,21.0,2020-07-14T12:06:00
+deep_patato,45,22,,,,,,,,46.0,22.0,2020-07-14T12:06:00
+deep_patato,46,23,,,,,,,,47.0,23.0,2020-07-14T12:06:00
+deep_patato,47,24,,,,,,,,48.0,24.0,2020-07-14T12:06:00
+deep_patato,48,1,,,,,,,,61.0,1.0,2020-07-30T12:10:00
+deep_patato,49,2,,,,,,,,62.0,2.0,2020-07-30T12:10:00
+deep_patato,50,3,,,,,,,,63.0,3.0,2020-07-30T12:10:00
+deep_patato,51,4,,,,,,,,64.0,4.0,2020-07-30T12:10:00
+deep_patato,52,5,,,,,,,,65.0,5.0,2020-07-30T12:10:00
+deep_patato,53,6,,,,,,,,66.0,6.0,2020-07-30T12:10:00
+deep_patato,54,7,,,,,,,,67.0,7.0,2020-07-30T12:10:00
+deep_patato,55,8,,,,,,,,68.0,8.0,2020-07-30T12:10:00
+deep_patato,56,9,,,,,,,,69.0,9.0,2020-07-30T12:10:00
+deep_patato,57,10,,,,,,,,70.0,10.0,2020-07-30T12:10:00
+deep_patato,58,11,,,,,,,,71.0,11.0,2020-07-30T12:10:00
+deep_patato,59,12,,,,,,,,72.0,12.0,2020-07-30T12:10:00
+deep_patato,60,13,,,,,,,,73.0,13.0,2020-07-30T12:11:00
+deep_patato,61,14,,,,,,,,74.0,14.0,2020-07-30T12:11:00
+deep_patato,62,15,,,,,,,,75.0,15.0,2020-07-30T12:11:00
+deep_patato,63,16,,,,,,,,76.0,16.0,2020-07-30T12:11:00
+deep_patato,64,17,,,,,,,,77.0,17.0,2020-07-30T12:11:00
+deep_patato,65,18,,,,,,,,78.0,18.0,2020-07-30T12:11:00
+deep_patato,66,19,,,,,,,,79.0,19.0,2020-07-30T12:11:00
+deep_patato,67,20,,,,,,,,80.0,20.0,2020-07-30T12:11:00
+deep_patato,68,21,,,,,,,,81.0,21.0,2020-07-30T12:11:00
+deep_patato,69,22,,,,,,,,82.0,22.0,2020-07-30T12:11:00
+deep_patato,70,23,,,,,,,,83.0,23.0,2020-07-30T12:11:00
+deep_patato,71,24,,,,,,,,84.0,24.0,2020-07-30T12:11:00

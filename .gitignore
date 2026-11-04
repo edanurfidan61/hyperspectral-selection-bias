@@ -106,3 +106,10 @@ outputs_rev1/**/logs/
 outputs_rev1/E7_excel/
 # Yerel çalışma notları — yayınlanmaz
 docs/
+
+# ── Revizyon 1: hakem tekrarlanabilirliği için arşivlenen çıktılar ──
+!outputs_rev1/E6_ga/archive/*.npz
+!outputs_rev1/E0_audit/samples/
+!outputs_rev1/E1_repeated/samples/
+!outputs_rev1/E2_mechanism/samples/
+!outputs_rev1/E6_ga/samples/

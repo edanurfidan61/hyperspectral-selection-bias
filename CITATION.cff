@@ -19,8 +19,8 @@ authors:
     # orcid: "https://orcid.org/0000-0000-0000-0000"   # varsa ekle
 license: MIT
 repository-code: "https://github.com/edanurfidan61/hyperspectral-selection-bias"
-version: "1.0.0"
-date-released: "2026-07-19"   # release gününe göre güncelle
+version: "1.1.0"
+date-released: "2026-11-04"
 keywords:
   - selection bias
   - nested cross-validation

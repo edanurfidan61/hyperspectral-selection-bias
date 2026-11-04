@@ -501,8 +501,7 @@ the apparent estimate is the more optimistic one, for R² and for RMSE / MAE ali
 (ΔRMSE = RMSE_nested − RMSE_apparent). For grapevine the fold-partitioning contrast
 (P1 − P2) is zero by construction: every leaf is its own group. For potato the outer test
 folds hold ≈ 14 samples, so pooled R² is reported next to the fold-mean R².
-Sample-level records (sample and group ids, predictions, masks) are written to
-`outputs_rev1/*/samples/` and are not committed.
+Sample-level records (sample and group ids, fold assignments, predictions) are written to `outputs_rev1/*/samples/`; the GA per-fold archives (selected-band masks) are in `outputs_rev1/E6_ga/archive/`. Both are included in the repository and in the Zenodo archive from v1.1.0 onwards.
 
 ---
 
@@ -517,10 +516,10 @@ The tagged GitHub release is archived on **Zenodo**, which mints a DOI:
 Fidan, E. & Aktaş, F. (2026). Selection bias in small-sample leaf-HSI regression
 [Software]. Zenodo. https://doi.org/10.5281/zenodo.21439965
 
-This release: v1.0.0, https://doi.org/10.5281/zenodo.21439966
+Revision 1 archive: v1.1.0, https://doi.org/10.5281/zenodo.23955484 (v1.0.0: https://doi.org/10.5281/zenodo.21439966)
 ```
 
 > **Concept DOI: `10.5281/zenodo.21439965`** — always resolves to the latest
-> version. **Version DOI: `10.5281/zenodo.21439966`** — pins this specific
-> release (v1.0.0). Cite the concept DOI for the project in general, or the
+> version. **Version DOIs** (e.g. `10.5281/zenodo.23955484` for v1.1.0) pin a specific release.
+>  Cite the concept DOI for the project in general, or the
 > version DOI to reference exactly what you used.

@@ -1,6 +1,5 @@
 ================================================================================
   NOT AUTHORITATIVE — MIXED-AGGREGATION REFERENCE ONLY
-  OTORİTER DEĞİLDİR — YALNIZCA KARIŞIK-AGGREGATION REFERANSI
 ================================================================================
 
 EN
@@ -33,32 +32,4 @@ These are NOT errors and do NOT contradict the paper.
 
 When in doubt, use outputs3/tables_foldmean/.
 
-TR
---------------------------------------------------------------------------------
-Bu klasör (outputs3/tables/) makalenin manşet sayılarının kaynağı DEĞİLDİR.
-
-Buradaki CSV dosyaları KARIŞIK bir aggregation kullanır: apparent kolu POOLED
-(fold'lar birleştirilerek tek skor), nested kolu ise FOLD-ORTALAMASI (beş dış
-fold'un ortalaması) ile hesaplanmıştır. İki kol farklı toplandığı için buradaki
-"bias" kolonu, çalışmanın ölçtüğü farkın üstüne ikinci bir tutarsızlık ekler.
-Bu bilinçli bir tercihtir: bu dosyalar yalnızca makalenin 4.6. bölümünde
-tartışılan karışık-aggregation örneği olarak saklanmaktadır.
-
-Bu nedenle buradaki sayılar makalenin manşetinden farklıdır, örn.:
-    apparent R2 = 0.619  (pooled)      manşette 0.615  (fold-ortalaması)
-    bias        = 0.349  (karışık)     manşette 0.346  (fold-ortalaması)
-    15/16 kombinasyonda pozitif        manşette 14/16  (fold-ortalaması)
-Bunlar HATA DEĞİLDİR ve makaleyle ÇELİŞMEZ.
-
->>> Tablo 4'ü, tüm manşet sayılarını ve anlamlılık zincirini besleyen OTORİTER
-    çıktılar şurada:
-
-        outputs3/tables_foldmean/     (her iki kol da fold-ortalaması — simetrik)
-
-    Tümüyle pooled aggregation (her iki kol pooled; 4.6 karşılaştırması,
-    +0.341, 13/16 pozitif) şurada:
-
-        outputs3/tables_pooled/
-
-Şüphe durumunda outputs3/tables_foldmean/ kullanın.
 ================================================================================

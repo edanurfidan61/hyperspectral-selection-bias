@@ -1,9 +1,9 @@
 # Selection Bias in Small-Sample Leaf-HSI Regression
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.21439966.svg)](https://doi.org/10.5281/zenodo.21439966)
-> Küçük örneklemli yaprak-HSI regresyonunda öznitelik seçiminin kapsamı ve performans tahmini
+> Scope of feature selection and performance estimation in small-sample leaf-HSI regression
 
 
-**Central claim / Ana iddia:**
+**Central claim:**
 
 > In small-sample leaf hyperspectral (HSI) regression, a cross-validated score
 > computed after wavelength/feature selection on **all** data (the *apparent*
@@ -14,18 +14,10 @@
 > selection reusing information from the samples that are later used for
 > validation. We **recommend** nested evaluation whenever feature selection is
 > part of the modelling pipeline.
->
-> Küçük örneklemli yaprak-HSI regresyonunda, öznitelik seçimi **tüm** veride
-> yapıldıktan sonra hesaplanan çapraz doğrulama skoru (*apparent* tahmin), seçimin
-> her dış eğitim fold'unda yeniden yapıldığı skordan (*nested* tahmin) genellikle
-> yüksektir. Bu **apparent–nested farkı** seçiciye, veri setine ve hedefe bağlıdır;
-> en büyük değeri arama tabanlı seçimde (GA) alır ve seçimin, daha sonra doğrulamada
-> kullanılan örneklerden bilgi taşımasıyla tutarlıdır. Seçim modelleme hattının
-> parçasıysa nested değerlendirme **öneriyoruz**.
 
 ---
 
-## What this measures / Ne ölçülüyor
+## What this measures
 
 For each `(dataset, target, model, selector)` we compute two numbers:
 
@@ -517,6 +509,7 @@ Fidan, E. & Aktaş, F. (2026). Selection bias in small-sample leaf-HSI regressio
 [Software]. Zenodo. https://doi.org/10.5281/zenodo.21439965
 
 Revision 1 archive: v1.1.0, https://doi.org/10.5281/zenodo.23955484 (v1.0.0: https://doi.org/10.5281/zenodo.21439966)
+v1.1.1: English-only Table S01, feature-audit and metric-definition files; numerical results identical to v1.1.0
 ```
 
 > **Concept DOI: `10.5281/zenodo.21439965`** — always resolves to the latest

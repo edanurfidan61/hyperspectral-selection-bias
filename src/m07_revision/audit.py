@@ -13,7 +13,7 @@ Bu modül YENİ DENEY KOŞMAZ. Yaptığı tek hesaplama:
 ------------------------------------
 feature_audit.csv          520 özniteliğin her biri → blok, dönüşüm, kaynak bantlar
                            (hedef nm + gerçek nm), örnek-yerel mi, denklem.
-flavonol_transforms.md     5 flavonol-türevli dönüşümün tam denklemi + gerçek nm.
+flavonol_transforms.md     five reflectance-ratio transforms (R3-19): equations + actual nm.
 continuum_removal.md       çapa noktaları, interpolasyon, eksik değer kuralı.
 savgol_delta.md            savgol_filter ``delta`` değeri, bant aralığı (nm).
 samples/groups.csv         örnek başına grup kimlikleri (grapevine leaf→plot,
@@ -272,31 +272,36 @@ _INDEX_EQ = {
     "mARI": "(1/R550 - 1/R700)*R800",
     "SIPI": "(R800-R445)/(R800-R680)",
     "WBI": "R900/R970",
-    "REP": "700 + 40*((R700+R740)/2 - R710)/(R720 - R710)  [NOT: standart Guyot-Baret 1988 "
-           "biçimi 700+40*((R670+R780)/2 - R700)/(R740-R700); kod farklı]",
+    "REP": ("700 + 40*((R700+R740)/2 - R710)/(R720-R710)  [Implementation note: code-specific "
+            "narrow-band REP proxy used in the archived feature-construction code. This differs from "
+            "the canonical Guyot-Baret four-point linear-interpolation REP = "
+            "700 + 40*((R670+R780)/2 - R700)/(R740-R700). The implemented definition was retained "
+            "unchanged for exact reproducibility and is sample-local in all validation arms.]"),
     "BES": "(R450-R400)/50",
     "FLAVI": "R400/(R420*R700)",
 }
 
 #: 8 temel + 5 türetilmiş katman: (kaynak hedef nm, denklem)
 _LAYER_DEF = {
-    "R410": ([410], "R410 (en yakın bant yansıması)"),
+    "R410": ([410], "R410 (nearest-band reflectance)"),
     "R460": ([460], "R460"),
     "R670": ([670], "R670"),
     "R700": ([700], "R700"),
     "R800": ([800], "R800"),
-    "FRI": ([410, 460], "FRI = 1/R410 - 1/R460  (1/x, x<=1e-10 ise 0)"),
-    "NDRE": ([700, 800], "NDRE = (R800-R700)/(R800+R700)  (payda<=1e-10 ise 0)"),
-    "NBI": ([410, 460, 700, 800], "NBI = NDRE/FRI  (|FRI|<=1e-10 ise 0) — SPEKTRAL, Dualex değil"),
-    "logR460_R410": ([460, 410], "log(R460/R410 + 1e-10)  (oran<=1e-10 ise 0; |R410|<=1e-10 ise oran=0)"),
-    "R670_R460": ([670, 460], "R670/R460  (|R460|<=1e-10 ise 0)"),
-    "R800_R460": ([800, 460], "R800/R460  (|R460|<=1e-10 ise 0)"),
+    "FRI": ([410, 460], "FRI = 1/R410 - 1/R460  (1/x; set to 0 if x<=1e-10)"),
+    "NDRE": ([700, 800], "NDRE = (R800-R700)/(R800+R700)  (set to 0 if denominator<=1e-10)"),
+    "NBI": ([410, 460, 700, 800], "NBI = NDRE/FRI  (set to 0 if |FRI|<=1e-10) — spectral, not Dualex"),
+    "logR460_R410": ([460, 410], "log(R460/R410 + 1e-10)  (set to 0 if ratio<=1e-10; ratio=0 if |R410|<=1e-10)"),
+    "R670_R460": ([670, 460], "R670/R460  (set to 0 if |R460|<=1e-10)"),
+    "R800_R460": ([800, 460], "R800/R460  (set to 0 if |R460|<=1e-10)"),
     "FRI_x_NDRE": ([410, 460, 700, 800], "FRI * NDRE = (1/R410 - 1/R460) * (R800-R700)/(R800+R700)"),
     "logNBI": ([410, 460, 700, 800], "log(max(NBI,0) + 1 + 1e-10)"),
 }
 FLAVONOL_DERIVED = ["logR460_R410", "R670_R460", "R800_R460", "FRI_x_NDRE", "logNBI"]
+#: Output label for the five FLAVONOL_DERIVED layers (internal name kept for back-compatibility).
+REFLECTANCE_RATIO_LABEL = "reflectance-ratio transform"
 
-_STAT_EQ = {"mean": "ortalama", "std": "std (ddof=0)", "p25": "25. persentil", "p75": "75. persentil"}
+_STAT_EQ = {"mean": "mean", "std": "std (ddof=0)", "p25": "25th percentile", "p75": "75th percentile"}
 
 
 def build_feature_audit(d: dict) -> pd.DataFrame:
@@ -324,35 +329,35 @@ def build_feature_audit(d: dict) -> pd.DataFrame:
             layer, stat = name.rsplit("_", 1)
             tnm, eq = _LAYER_DEF[layer]
             r.update(block="A_layer_stats",
-                     transform=("flavonol-derived" if layer in FLAVONOL_DERIVED else
+                     transform=(REFLECTANCE_RATIO_LABEL if layer in FLAVONOL_DERIVED else
                                 "raw_band" if layer.startswith("R") and layer[1:].isdigit()
                                 else "spectral_index"),
-                     preprocessing="ham yansıma (SNV yok), piksel başına harita → yaprak pikselleri üzerinde özet",
+                     preprocessing="raw reflectance (no SNV), pixel-wise map → summary over masked leaf pixels",
                      source_targets_nm=";".join(map(str, tnm)), source_actual_nm=nm_actual(tnm),
                      equation=f"{_STAT_EQ[stat]}[{eq}]")
         elif j < 104:  # B) 13 indeks × 4 istatistik
             layer, stat = name.rsplit("_", 1)
             tnm = idx_bands[layer]
             r.update(block="B_index_stats", transform="vegetation_index",
-                     preprocessing="ham yansıma (SNV yok), piksel başına harita → yaprak pikselleri üzerinde özet",
+                     preprocessing="raw reflectance (no SNV), pixel-wise map → summary over masked leaf pixels",
                      source_targets_nm=";".join(map(str, tnm)), source_actual_nm=nm_actual(tnm),
                      equation=f"{_STAT_EQ[stat]}[{_INDEX_EQ[layer]}]")
         elif name.startswith("snv_R"):  # C) SNV yaprak-ortalama spektrumu
             b = j - 104
             r.update(block="C_snv_spectrum", transform="snv",
-                     preprocessing="yaprak-ortalama spektrum → SNV (örnek içi: (x-mean)/std, 204 bant)",
+                     preprocessing="leaf-mean spectrum → SNV (sample-local: (x−mean)/std across 204 bands)",
                      source_targets_nm=str(int(round(wl[b]))), source_actual_nm=f"{wl[b]:.2f}",
-                     equation="(m_b - mean_b(m)) / std_b(m),  m = yaprak-ortalama yansıma")
+                     equation="(m_b - mean_b(m)) / std_b(m),  m = leaf-mean reflectance")
         elif name.startswith("d1snv_R"):  # D) SG 1. türev
             b = j - 104 - len(wl)
             r.update(block="D_sg_d1_snv", transform="savgol_deriv1",
-                     preprocessing="SNV spektrumu → savgol_filter(window=11, polyorder=2, deriv=1, delta=1, mode='interp')",
+                     preprocessing="SNV spectrum → savgol_filter(window=11, polyorder=2, deriv=1, delta=1, mode='interp')",
                      source_targets_nm=str(int(round(wl[b]))),
                      source_actual_nm=";".join(f"{w:.2f}" for w in wl[max(0, b - 5):b + 6]),
-                     equation="bant-indeksi başına türev (delta=1); nm başına değil")
+                     equation="derivative per band index (delta=1); not per nm")
         elif name.startswith("cont_BandI"):  # E) continuum removal
             r.update(block="E_continuum_bandI", transform="continuum_removal_linear",
-                     preprocessing="yaprak-ortalama HAM spektrum (SNV öncesi), 410–510 nm",
+                     preprocessing="leaf-mean raw spectrum (before SNV), 410–510 nm",
                      source_targets_nm="410-510", source_actual_nm=f"{_band_i_nm(wl)[0]:.2f}-{_band_i_nm(wl)[1]:.2f}",
                      equation=("1 - min(R/baseline)" if name.endswith("depth")
                                else "trapz(max(1 - R/baseline, 0), nm)"))
@@ -360,10 +365,10 @@ def build_feature_audit(d: dict) -> pd.DataFrame:
             region = name.split("_")[1]
             win = {"red": "680-760", "blue": "430-510", "all": "397-1004"}[region]
             r.update(block="F_d1_peaks", transform="argmax_abs_d1",
-                     preprocessing="D bloğundaki d1 spektrumu",
+                     preprocessing="d1 spectrum from block D",
                      source_targets_nm=win, source_actual_nm=win,
-                     equation=("λ[argmax |d1| pencere içinde]" if name.endswith("_wl")
-                               else "d1[argmax |d1| pencere içinde] (işaretli)"))
+                     equation=("λ[argmax |d1| within window]" if name.endswith("_wl")
+                               else "d1[argmax |d1| within window] (signed)"))
         r["layer"] = layer or ""
         r["stat"] = stat or ""
         # Tüm öznitelikler ÖRNEK-YEREL: extract_features tek yaprağın küpünden
@@ -371,15 +376,18 @@ def build_feature_audit(d: dict) -> pd.DataFrame:
         r["sample_local"] = True
         col = X[:, j]
         r["col_std"] = float(np.std(col))
-        r["n_unique"] = int(len(np.unique(col)))
+        r["n_unique_values"] = int(len(np.unique(col)))
         for t, y in d["ys"].items():
             r[f"r_{t}"] = float(np.corrcoef(col, y)[0, 1]) if np.std(col) > 0 else np.nan
+        # Sample-level finite count (NaN/inf excluded); 204 for every grapevine feature.
+        r["n_finite_observations"] = int(np.isfinite(col).sum())
         rows.append(r)
 
     df = pd.DataFrame(rows)
     order = ["idx", "name", "block", "layer", "stat", "transform", "preprocessing",
              "source_targets_nm", "source_actual_nm", "sample_local", "equation",
-             "col_std", "n_unique", "r_chlorophyll", "r_flavonol", "r_nbi"]
+             "col_std", "n_unique_values", "r_chlorophyll", "r_flavonol", "r_nbi",
+             "n_finite_observations"]
     return df[order]
 
 
@@ -401,37 +409,39 @@ def write_flavonol_md(d: dict, fa: pd.DataFrame, out: Path) -> None:
         tnm, eq = _LAYER_DEF[layer]
         sub = fa[fa["layer"] == layer]
         rows.append({
-            "dönüşüm": layer,
-            "denklem (piksel başına)": eq,
-            "hedef nm": ", ".join(map(str, tnm)),
-            "gerçek nm (bant indeksi)": ", ".join(
+            "transform": layer,
+            "equation (per pixel)": eq,
+            "target nm": ", ".join(map(str, tnm)),
+            "actual nm (band index)": ", ".join(
                 f"{wl[find_band(wl, t)]:.2f} (#{find_band(wl, t)})" for t in tnm),
-            "max |r| Flav (4 istatistik)": f"{sub['r_flavonol'].abs().max():.3f}",
-            "max |r| NBI (4 istatistik)": f"{sub['r_nbi'].abs().max():.3f}",
+            "max |r| Flav (4 statistics)": f"{sub['r_flavonol'].abs().max():.3f}",
+            "max |r| NBI (4 statistics)": f"{sub['r_nbi'].abs().max():.3f}",
         })
     tbl = pd.DataFrame(rows)
     ex_ref = _where("src/m04_features/extraction.py", r"def _build_derived_maps")
     nbi_ref = _where("src/m03_indices/indices.py", r"def calc_nbi\(")
-    text = f"""# Flavonol-türevli 5 dönüşüm (R3-19)
+    text = f"""# Five reflectance-ratio transforms (R3-19)
 
-Kaynak: `{ex_ref}`; NBI tanımı `{nbi_ref}`.
-Bant seçimi `find_band` ile (hedef nm'ye en yakın bant; Specim IQ, 204 bant).
-Gerçek nm değerleri ilk yaprağın ENVI başlığından (`{HDR_PATH.relative_to(ROOT).as_posix()}`).
+Source: `{ex_ref}`; NBI definition: `{nbi_ref}`.
+Bands are selected with `find_band` (nearest band to the target wavelength; Specim IQ, 204 bands).
+Actual wavelengths are taken from the ENVI header of the first leaf (`{HDR_PATH.relative_to(ROOT).as_posix()}`).
+In `feature_audit.csv` and Table S01 these 20 features carry the transform label
+`{REFLECTANCE_RATIO_LABEL}`.
 
 {_md_table(tbl)}
 
-## Hesaplama sırası
-1. Ham yansıma küpünden (SNV/SG UYGULANMADAN) R410, R460, R670, R700, R800 piksel haritaları.
-2. FRI, NDRE, NBI piksel haritaları (`calc_nbi_maps`), sonra yukarıdaki 5 dönüşüm.
-3. Sonlu olmayan piksel değerleri 0'a çekilir (`np.where(np.isfinite(v), v, 0.0)`).
-4. Her harita yaprak pikselleri üzerinde mean / std / p25 / p75 ile özetlenir → 5 × 4 = 20 öznitelik.
+## Order of computation
+1. Pixel-wise R410, R460, R670, R700 and R800 maps from the raw reflectance cube (no SNV or SG applied).
+2. Pixel-wise FRI, NDRE and NBI maps (`calc_nbi_maps`), followed by the five transforms above.
+3. Non-finite pixel values are set to 0 (`np.where(np.isfinite(v), v, 0.0)`).
+4. Each map is summarised over the leaf pixels by mean / std / p25 / p75 → 5 × 4 = 20 features.
 
-## Dualex ile ilişki
-- Hiçbir dönüşüm Dualex ölçümünü (hedef `Flav`, `Chl`, `NBI`) girdi olarak kullanmaz;
-  hepsi yalnız yansıma bantlarından hesaplanır. Öznitelik adındaki `NBI`, spektral
-  `NDRE/FRI` oranıdır; Dualex NBI'si (= Chl/Flav) DEĞİLDİR.
-- Hedeflerle en büyük mutlak korelasyon tabloda; |r| = 1 olan sütun yok
-  (tüm 520 sütun için: bkz. `section1_verification.md`).
+## Relation to Dualex
+- No transform uses a Dualex measurement (targets `Flav`, `Chl`, `NBI`) as input;
+  all are computed from reflectance bands only. `NBI` in the feature names denotes the
+  spectral `NDRE/FRI` ratio; it is NOT the Dualex NBI (= Chl/Flav).
+- The largest absolute correlation with each target is given in the table; no column has |r| = 1
+  (for all 520 columns, see `section1_verification.md`).
 """
     (out / "flavonol_transforms.md").write_text(text, encoding="utf-8")
 

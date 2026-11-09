@@ -1,5 +1,5 @@
 table,file,title,n_rows,n_columns,source,analysis_id
-Table S01,TableS01_feature_audit.csv,"Feature audit: block, transform, source wavelengths, equation",520,16,outputs_rev1/E0_audit/feature_audit.csv,A23
+Table S01,TableS01_feature_audit.csv,"Feature audit: block, transform, source wavelengths, equation",520,17,outputs_rev1/E0_audit/feature_audit.csv,A23
 Table S02,TableS02_groups_and_folds.csv,Groups and original-split fold composition,10,13,outputs_rev1/E0_audit/fold_composition.csv,A23
 Table S03,TableS03_primary_full.csv,"Primary table, all quantities (E1 + E6-G1)",21,61,outputs_rev1/E7_stats_export/primary_table.csv,A01–A06
 Table S04,TableS04_group_bootstrap_by_repeat.csv,Paired group bootstrap CI per repeat (E1 + GA),390,18,outputs_rev1/E7_stats_export/bootstrap_by_repeat.csv,A03

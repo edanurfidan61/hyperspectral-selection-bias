@@ -12,15 +12,15 @@ authors:
   - family-names: "Fidan"
     given-names: "Edanur"
     affiliation: "Department of Biomedical Engineering, Faculty of Technology, Kocaeli University, Kocaeli, Türkiye"
-    # orcid: "https://orcid.org/0000-0000-0000-0000"   # varsa ekle
+    # orcid: "https://orcid.org/0000-0000-0000-0000"   # add if available
   - family-names: "Aktaş"
     given-names: "Faruk"
     affiliation: "Department of Biomedical Engineering, Faculty of Technology, Kocaeli University, Kocaeli, Türkiye"
-    # orcid: "https://orcid.org/0000-0000-0000-0000"   # varsa ekle
+    # orcid: "https://orcid.org/0000-0000-0000-0000"   # add if available
 license: MIT
 repository-code: "https://github.com/edanurfidan61/hyperspectral-selection-bias"
-version: "1.1.0"
-date-released: "2026-11-04"
+version: "1.1.1"
+date-released: "2026-11-09"
 keywords:
   - selection bias
   - nested cross-validation

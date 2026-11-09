@@ -153,12 +153,19 @@ def _read_wavelengths(hdr: Path) -> np.ndarray:
 
 
 def _md_table(df: pd.DataFrame) -> str:
-    """tabulate bağımlılığı olmadan basit markdown tablo."""
+    """Simple markdown table without the tabulate dependency.
+
+    A literal ``|`` inside a cell (e.g. ``max |r|``, ``|R410|``) is escaped as ``\\|``
+    so that GitHub does not read it as a column separator.
+    """
+    def cell(v) -> str:
+        return str(v).replace("|", "\\|")
+
     cols = list(df.columns)
-    lines = ["| " + " | ".join(map(str, cols)) + " |",
+    lines = ["| " + " | ".join(cell(c) for c in cols) + " |",
              "|" + "|".join("---" for _ in cols) + "|"]
     for _, r in df.iterrows():
-        lines.append("| " + " | ".join(str(r[c]) for c in cols) + " |")
+        lines.append("| " + " | ".join(cell(r[c]) for c in cols) + " |")
     return "\n".join(lines)
 
 

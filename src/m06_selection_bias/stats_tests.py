@@ -18,7 +18,7 @@ Testler (her kombinasyon için)
   apparent vs nested. n<6 ise ``low_n_warning=True`` (Wilcoxon güvenilmez) ama
   yine de hesaplanır.
 * **Cliff's delta** (non-parametrik etki büyüklüğü) — elle hesaplanır.
-  Eşikler: |d|<0.147 ihmal, <0.33 küçük, <0.474 orta, ≥0.474 büyük.
+  Thresholds (Romano et al.): |d|<0.147 negligible, <0.33 small, <0.474 medium, ≥0.474 large.
 * **Cohen's d** (eşleştirilmiş): fark ortalaması / fark std.
 
 Çoklu karşılaştırma
@@ -29,7 +29,7 @@ uygulanır (statsmodels multipletests, fdr_bh). Hem ham (p_value) hem düzeltilm
 
 Çıktı
 -----
-``outputs/17_selection_bias/stats_summary.csv`` + sonuna toplu özet bloğu.
+``outputs/17_selection_bias/stats_summary.csv`` + a trailing "# SUMMARY (aggregate)" comment block.
 
 Çalıştırma orchestrator üzerinden:
     python run_selection_bias.py --stages stats
@@ -57,10 +57,10 @@ ALPHA = 0.05
 
 # Cliff's delta yorum eşikleri (Romano ve ark.).
 _CLIFF_BINS = [
-    (0.147, "ihmal"),     # |d| < 0.147
-    (0.33, "küçük"),      # < 0.33
-    (0.474, "orta"),      # < 0.474
-    (float("inf"), "büyük"),  # >= 0.474
+    (0.147, "negligible"),    # |d| < 0.147
+    (0.33, "small"),          # < 0.33
+    (0.474, "medium"),        # < 0.474
+    (float("inf"), "large"),  # >= 0.474
 ]
 
 GROUP_KEYS = ["dataset", "target", "model", "selector"]
@@ -82,14 +82,14 @@ def cliffs_delta(a: np.ndarray, b: np.ndarray) -> float:
 
 
 def cliffs_interpretation(delta: float) -> str:
-    """|delta| → ihmal/küçük/orta/büyük."""
+    """|delta| → negligible/small/medium/large (Romano et al.)."""
     if not np.isfinite(delta):
         return "n/a"
     ad = abs(delta)
     for threshold, label in _CLIFF_BINS:
         if ad < threshold:
             return label
-    return "büyük"
+    return "large"
 
 
 def is_degenerate(diff: np.ndarray) -> bool:
@@ -233,14 +233,15 @@ def summarize(df: pd.DataFrame) -> dict:
         "n_tested": n_tested,
         "n_degenerate": n_degenerate,
         "text": (
-            f"{n_tested}/{n_total} kombinasyonda seed-tabanlı test tanımlı "
-            f"({n_degenerate} dejenere: seçici deterministik, fark seed'ler "
-            f"boyunca sabit → p/δ tanımsız, bias yine de raporlanır). "
-            f"BH-FDR {n_tested} test üzerinden. "
-            f"Testli satırların {int(sig_pos)}'inde p_fdr<{ALPHA} ve pozitif "
-            f"bias (anlamlı + yönü doğru). Pozitif bias: {int(pos.sum())}/{n_total}; "
-            f"FDR-anlamlı: {int(sig.sum())}/{n_total}; "
-            f"düşük-n uyarısı: {int(low_n)}/{n_total}."
+            f"Seed-based test defined for {n_tested}/{n_total} combinations "
+            f"({n_degenerate} degenerate: deterministic selector, difference constant "
+            f"across seeds → p/δ undefined; the apparent–nested difference is still reported). "
+            f"BH-FDR over {n_tested} tests. "
+            f"{int(sig_pos)} of the tested rows have p_fdr<{ALPHA} and a positive "
+            f"apparent–nested difference (significant and in the expected direction). "
+            f"Positive apparent–nested difference: {int(pos.sum())}/{n_total}; "
+            f"FDR-significant: {int(sig.sum())}/{n_total}; "
+            f"low-n warning: {int(low_n)}/{n_total}."
         ),
     }
 
@@ -248,7 +249,7 @@ def summarize(df: pd.DataFrame) -> dict:
 def _write_with_summary(df: pd.DataFrame, summary: dict, path: Path) -> None:
     """Kombinasyon tablosunu + sonuna toplu özet bloğunu CSV'ye yaz.
 
-    Önce normal tablo, ardından boş satır, ardından "# ÖZET" başlığı ve özet
+    Önce normal tablo, ardından boş satır, ardından "# SUMMARY (aggregate)" başlığı ve özet
     metni/sayıları yorum satırları olarak eklenir (pandas tekrar okurken bu
     satırlar comment='#' ile atlanabilir).
     """
@@ -256,7 +257,7 @@ def _write_with_summary(df: pd.DataFrame, summary: dict, path: Path) -> None:
     df.to_csv(path, index=False, encoding="utf-8")
     lines = [
         "",
-        "# ÖZET (toplu)",
+        "# SUMMARY (aggregate)",
         f"# {summary['text']}",
         f"# n_combos,{summary['n_combos']}",
         f"# n_tested,{summary.get('n_tested', '')}",
